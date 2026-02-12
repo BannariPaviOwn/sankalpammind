@@ -1,0 +1,84 @@
+.donate-page {
+  padding-top: 70px;
+}
+
+.donate-hero {
+  padding: 3rem 1.5rem;
+  background: linear-gradient(135deg, #e0e7ff 0%, #fce7f3 100%);
+  text-align: center;
+}
+
+.donate-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 0.75rem;
+}
+
+.donate-hero p {
+  font-size: 1.125rem;
+  color: #475569;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.donate-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+}
+
+.donate-main {
+  display: flex;
+  justify-content: center;
+}
+
+.impact-box {
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 2px solid #86efac;
+}
+
+.impact-box h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.impact-box ul {
+  list-style: none;
+}
+
+.impact-box li {
+  font-size: 0.9375rem;
+  color: #475569;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #d1fae5;
+}
+
+.impact-box li:last-child {
+  border-bottom: none;
+}
+
+.impact-box.test-tip {
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-color: #f59e0b;
+}
+
+.impact-box .tip-text {
+  font-size: 0.875rem;
+  color: #92400e;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .donate-content {
+    grid-template-columns: 1fr;
+  }
+}

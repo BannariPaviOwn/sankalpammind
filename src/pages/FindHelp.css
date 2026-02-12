@@ -1,0 +1,104 @@
+.find-help-page {
+  padding-top: 70px;
+}
+
+.find-help-hero {
+  padding: 3rem 1.5rem;
+  background: linear-gradient(135deg, #ecfdf5 0%, #e0e7ff 100%);
+  text-align: center;
+}
+
+.find-help-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 0.75rem;
+}
+
+.find-help-hero p {
+  font-size: 1.125rem;
+  color: #475569;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.find-help-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.help-card-large {
+  padding: 2.5rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+.help-card-large .help-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.help-card-large h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.help-card-large .help-note {
+  font-size: 0.9375rem;
+  color: #64748b;
+  margin-top: 0.5rem;
+}
+
+.helplines-section {
+  padding: 2rem;
+  background: linear-gradient(135deg, #fef3c7 0%, #fce7f3 100%);
+  border-radius: 1rem;
+}
+
+.helplines-section h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+}
+
+.helplines-section h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6366f1;
+  margin-bottom: 1rem;
+}
+
+.helplines-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.helpline-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: white;
+  border-radius: 0.5rem;
+}
+
+.helpline-number {
+  color: #6366f1;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.helpline-number:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Vibrant color palette for stakeholder appeal */
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --secondary: #ec4899;
+  --accent: #8b5cf6;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --info: #06b6d4;
+  --coral: #f43f5e;
+  --teal: #14b8a6;
+  --orange: #f97316;
+  
+  /* Background gradients */
+  --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  --gradient-warm: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  --gradient-cool: linear-gradient(135deg, #667eea 0%, #00c6fb 100%);
+  --gradient-peace: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-hindi: 'Noto Sans Devanagari', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1e293b;
+  overflow-x: hidden;
+}
+
+body.hindi {
+  font-family: var(--font-hindi);
+}
