@@ -13,24 +13,24 @@ interface CarouselItem {
 const carouselItems: CarouselItem[] = [
   {
     id: 1,
-    en: "Therapy teaches us how to regulate rather than externalise. And that's exactly why every therapist needs a therapist.",
-    hi: "चिकित्सा हमें सिखाती है कि कैसे बाहर निकालने के बजाय नियंत्रित करें। और इसीलिए हर चिकित्सक को एक चिकित्सक की जरूरत होती है।",
-    author: 'Ruhi',
-    date: 'July 2025',
+    en: "Sankalpam begins with a simple yet powerful belief — mental wellbeing matters for every individual and for the nation. We are not waiting for crisis. We are building emotional strength from the beginning.",
+    hi: "संकल्पम एक सरल लेकिन शक्तिशाली विश्वास के साथ शुरू होता है — मानसिक कल्याण हर व्यक्ति और राष्ट्र के लिए मायने रखता है। हम संकट का इंतजार नहीं कर रहे। हम शुरू से ही भावनात्मक मजबूती का निर्माण कर रहे हैं।",
+    author: 'Dr. Sahithyaa Raghu',
+    date: 'Founder & Managing Trustee',
   },
   {
     id: 2,
-    en: "Before therapy became my language, sukoon was my compass. I chased it in motion and in stillness.",
-    hi: "चिकित्सा मेरी भाषा बनने से पहले, सुकून मेरा कम्पास था। मैंने इसे गति और शांति दोनों में खोजा।",
-    author: 'Ananya',
-    date: 'June 2025',
+    en: "Often, the barrier is not weakness — it is stigma, lack of awareness, or absence of safe spaces. We exist to encourage open conversations, reduce fear around seeking help, and strengthen families and communities from within.",
+    hi: "अक्सर, बाधा कमजोरी नहीं है — यह कलंक, जागरूकता की कमी, या सुरक्षित स्थानों की अनुपस्थिति है। हम खुले संवाद को प्रोत्साहित करने, सहायता मांगने के डर को कम करने और परिवारों और समुदायों को भीतर से मजबूत करने के लिए मौजूद हैं।",
+    author: 'Sankalpam',
+    date: 'Our Commitment',
   },
   {
     id: 3,
-    en: "No life should be lost due to mental illness. Together we can build a society that supports everyone on their mental health journey.",
-    hi: "मानसिक बीमारी के कारण कोई जीवन नहीं खोना चाहिए। एक साथ हम एक ऐसा समाज बना सकते हैं जो सभी को उनकी मानसिक स्वास्थ्य यात्रा में सहायता करे।",
+    en: "Healthy minds build stable homes. Stable homes build strong communities. Strong communities build a resilient India.",
+    hi: "स्वस्थ दिमाग स्थिर घर बनाते हैं। स्थिर घर मजबूत समुदाय बनाते हैं। मजबूत समुदाय एक लचीला भारत बनाते हैं।",
     author: 'Sankalpam',
-    date: 'Our Mission',
+    date: 'Our Vision',
   },
 ];
 

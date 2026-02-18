@@ -23,17 +23,31 @@
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
-  color: #4f46e5;
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
 }
 
 .logo-icon {
   font-size: 1.75rem;
+  line-height: 1;
 }
 
 .logo-text {
   white-space: nowrap;
+}
+
+.logo-brand {
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.logo-foundation {
+  color: #475569;
+  font-weight: 600;
 }
 
 .nav {

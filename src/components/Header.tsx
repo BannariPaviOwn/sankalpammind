@@ -11,8 +11,11 @@ export default function Header() {
     <header className="header">
       <div className="header-container">
         <Link to="/" className="logo">
-          <span className="logo-icon">🌱</span>
-          <span className="logo-text">Sankalpam Mind & Wellness</span>
+          <span className="logo-icon" aria-hidden="true">🌱</span>
+          <span className="logo-text">
+            <span className="logo-brand">Sankalpam</span>
+            <span className="logo-foundation"> Mind & Wellness</span>
+          </span>
         </Link>
 
         <nav className={`nav ${menuOpen ? 'open' : ''}`}>
@@ -23,7 +26,7 @@ export default function Header() {
             {t('About Us', 'हमारे बारे में')}
           </Link>
           <Link to="/initiatives" onClick={() => setMenuOpen(false)}>
-            {t('Initiatives', 'पहल')}
+            {t('Programs & Services', 'कार्यक्रम और सेवाएं')}
           </Link>
           <Link to="/find-help" onClick={() => setMenuOpen(false)}>
             {t('Find Help', 'सहायता खोजें')}

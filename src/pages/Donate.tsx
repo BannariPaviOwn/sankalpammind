@@ -8,12 +8,25 @@ export default function Donate() {
   return (
     <div className="donate-page">
       <section className="donate-hero">
-        <h1>{t('Donate', 'दान करें')}</h1>
+        <h1>{t('Support Our Work', 'हमारे काम का समर्थन करें')}</h1>
+        <p className="donate-payment-note">
+          {t('Donate Now — Secure Payment | UPI | Bank Transfer | CSR Partnerships', 'दान करें — सुरक्षित भुगतान | UPI | बैंक ट्रांसफर | CSR साझेदारी')}
+        </p>
         <p>
           {t(
-            'Your donation helps us provide mental health support to those who need it most. Every contribution makes a difference.',
-            'आपका दान हमें उन लोगों को मानसिक स्वास्थ्य सहायता प्रदान करने में मदद करता है जिन्हें इसकी सबसे अधिक आवश्यकता है। हर योगदान से फर्क पड़ता है।'
+            'Emotional wellness becomes sustainable when communities participate in strengthening it. Your support enables us to:',
+            'भावनात्मक कल्याण तब टिकाऊ होता है जब समुदाय इसे मजबूत करने में भाग लेते हैं। आपका समर्थन हमें सक्षम बनाता है:'
           )}
+        </p>
+        <ul className="donate-hero-list">
+          <li>{t('Expand grassroots mental health awareness', 'जमीनी स्तर पर मानसिक स्वास्थ्य जागरूकता का विस्तार करना')}</li>
+          <li>{t('Deliver structured emotional support services', 'संरचित भावनात्मक सहायता सेवाएं प्रदान करना')}</li>
+          <li>{t('Train educators and community leaders', 'शिक्षकों और समुदाय नेताओं को प्रशिक्षित करना')}</li>
+          <li>{t('Reduce stigma in rural and semi-urban regions', 'ग्रामीण और अर्ध-शहरी क्षेत्रों में कलंक कम करना')}</li>
+          <li>{t('Build scalable community-based systems', 'मापनीय समुदाय-आधारित प्रणालियों का निर्माण करना')}</li>
+        </ul>
+        <p className="donate-hero-note">
+          {t('Every contribution expands access and strengthens resilience.', 'हर योगदान पहुंच का विस्तार करता है और लचीलापन मजबूत करता है।')}
         </p>
       </section>
 
@@ -36,6 +49,9 @@ export default function Donate() {
               <li>₹5000 — {t('Supports rural program outreach', 'ग्रामीण कार्यक्रम आउटरीच का समर्थन')}</li>
             </ul>
           </div>
+          <p className="donate-csr">
+            {t('For CSR and institutional partnerships, contact us directly.', 'CSR और संस्थागत साझेदारी के लिए, हमसे सीधे संपर्क करें।')}
+          </p>
         </div>
       </section>
     </div>

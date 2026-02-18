@@ -19,7 +19,35 @@
   font-size: 1.125rem;
   color: #475569;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0 auto 1rem;
+}
+
+.donate-hero-list {
+  max-width: 520px;
+  margin: 0 auto 1rem;
+  text-align: left;
+  font-size: 1rem;
+  color: #475569;
+  line-height: 1.7;
+  padding-left: 1.5rem;
+}
+
+.donate-hero-note {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.donate-payment-note {
+  font-size: 1rem !important;
+  color: #6366f1 !important;
+  font-weight: 600;
+  margin-bottom: 0.5rem !important;
+}
+
+.donate-csr {
+  margin-top: 1rem;
+  font-size: 0.9375rem;
+  color: #475569;
 }
 
 .donate-content {

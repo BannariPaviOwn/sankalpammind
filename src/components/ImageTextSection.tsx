@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import './ImageTextSection.css';
 
@@ -50,9 +51,15 @@ export default function ImageTextSection({
           <h2 className="section-title">{t(titleEn, titleHi)}</h2>
           <p className="section-text">{t(contentEn, contentHi)}</p>
           {ctaEn && ctaLink && (
-            <a href={ctaLink} className="section-cta">
-              {t(ctaEn, ctaHi || ctaEn)}
-            </a>
+            ctaLink.startsWith('/') ? (
+              <Link to={ctaLink} className="section-cta">
+                {t(ctaEn, ctaHi || ctaEn)}
+              </Link>
+            ) : (
+              <a href={ctaLink} className="section-cta" target="_blank" rel="noopener noreferrer">
+                {t(ctaEn, ctaHi || ctaEn)}
+              </a>
+            )
           )}
         </div>
       </div>
