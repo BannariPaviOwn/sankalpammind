@@ -77,3 +77,35 @@
   color: #6366f1;
   font-weight: 700;
 }
+
+.initiative-focus {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4f46e5;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.initiatives-photo {
+  padding: 2rem 1.5rem;
+  background: #f8fafc;
+}
+
+.initiatives-photo-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.initiatives-photo-bottom .photo-gallery {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .initiatives-photo-inner {
+    grid-template-columns: 1fr;
+  }
+}

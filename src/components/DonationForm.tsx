@@ -30,13 +30,15 @@ export default function DonationForm() {
   };
   const amountInPaise = donationAmount * 100;
 
+  const donateBtnLabel = language === 'hi' ? 'दान करें ₹' : language === 'te' ? 'దానం చేయండి ₹' : 'Donate ₹';
+
   const handleDonate = async () => {
     if (donationAmount < 10) {
-      showError(t('Minimum donation is ₹10', 'न्यूनतम दान ₹10 है'));
+      showError(t('Minimum donation is ₹10', 'न्यूनतम दान ₹10 है', 'కనిష్ట దానం ₹10'));
       return;
     }
     if (!name.trim() || !email.trim()) {
-      showError(t('Please fill in your name and email', 'कृपया अपना नाम और ईमेल भरें'));
+      showError(t('Please fill in your name and email', 'कृपया अपना नाम और ईमेल भरें', 'దయచేసి మీ పేరు మరియు ఇమెయిల్ నింపండి'));
       return;
     }
 
@@ -65,11 +67,12 @@ export default function DonationForm() {
       if (!orderId || !orderId.startsWith('order_')) {
         let errorMsg = t(
           'Backend unavailable. Start the server (npm run server) and add Razorpay keys.',
-          'बैकएंड उपलब्ध नहीं। सर्वर (npm run server) शुरू करें और Razorpay कुंजी जोड़ें।'
+          'बैकएंड उपलब्ध नहीं। सर्वर (npm run server) शुरू करें और Razorpay कुंजी जोड़ें।',
+          'బ్యాకెండ్ అందుబాటులో లేదు. సర్వర్ (npm run server) ప్రారంభించండి మరియు Razorpay కీలను జోడించండి.'
         );
         if (orderResponse && !orderResponse.ok) {
           const err = await orderResponse.json().catch(() => ({}));
-          if (err.error) errorMsg = t('Order creation failed. Please try again.', 'ऑर्डर बनाने में विफल। कृपया पुनः प्रयास करें।');
+          if (err.error) errorMsg = t('Order creation failed. Please try again.', 'ऑर्डर बनाने में विफल। कृपया पुनः प्रयास करें।', 'ఆర్డర్ సృష్టి విఫలమైంది. దయచేసి మళ్లీ ప్రయత్నించండి.');
         }
         showError(errorMsg);
         setLoading(false);
@@ -85,12 +88,12 @@ export default function DonationForm() {
         currency: 'INR',
         name: 'Sankalpam Mind & Wellness Foundation',
         order_id: orderId,
-        description: t('Donation to support mental health', 'मानसिक स्वास्थ्य को समर्थन देने के लिए दान'),
+        description: t('Donation to support mental health', 'मानसिक स्वास्थ्य को समर्थन देने के लिए दान', 'మానసిక ఆరోగ్యానికి మద్దతు ఇవ్వడానికి దానం'),
         prefill: { name, email },
         callback_url: callbackUrl,
         redirect: true,
         handler: () => {
-          showSuccess(t('Thank you for your generous donation!', 'आपके उदार दान के लिए धन्यवाद!'));
+          showSuccess(t('Thank you for your generous donation!', 'आपके उदार दान के लिए धन्यवाद!', 'మీ ఉదార దానానికి ధన్యవాదాలు!'));
           setAmount(1000);
           setCustomAmount('');
         },
@@ -99,14 +102,14 @@ export default function DonationForm() {
       if (!razorpayLoading && Razorpay) {
         const razorpay = new Razorpay(options);
         razorpay.on('payment.failed', () => {
-          showError(t('Payment failed. Please try again.', 'भुगतान विफल। कृपया पुनः प्रयास करें।'));
+          showError(t('Payment failed. Please try again.', 'भुगतान विफल। कृपया पुनः प्रयास करें।', 'చెల్లింపు విఫలమైంది. దయచేసి మళ్లీ ప్రయత్నించండి.'));
         });
         razorpay.open();
       } else {
-        showError(t('Payment gateway is loading. Please try again.', 'पेमेंट गेटवे लोड हो रहा है। कृपया पुनः प्रयास करें।'));
+        showError(t('Payment gateway is loading. Please try again.', 'पेमेंट गेटवे लोड हो रहा है। कृपया पुनः प्रयास करें।', 'చెల్లింపు గేట్‌వే లోడ్ అవుతోంది. దయచేసి మళ్లీ ప్రయత్నించండి.'));
       }
     } catch (err) {
-      showError(t('Something went wrong. Please try again.', 'कुछ गलत हो गया। कृपया पुनः प्रयास करें।'));
+      showError(t('Something went wrong. Please try again.', 'कुछ गलत हो गया। कृपया पुनः प्रयास करें।', 'ఏదో తప్పు జరిగింది. దయచేసి మళ్లీ ప్రయత్నించండి.'));
     } finally {
       setLoading(false);
     }
@@ -114,9 +117,9 @@ export default function DonationForm() {
 
   return (
     <div className="donation-form">
-      <h3 className="donation-title">{t('Make a Donation', 'दान करें')}</h3>
+      <h3 className="donation-title">{t('Make a Donation', 'दान करें', 'దానం చేయండి')}</h3>
       <p className="donation-subtitle">
-        {t('Your contribution helps us bring mental health support to those who need it most.', 'आपका योगदान हमें उन लोगों तक मानसिक स्वास्थ्य सहायता पहुंचाने में मदद करता है।')}
+        {t('Your contribution helps us bring mental health support to those who need it most.', 'आपका योगदान हमें उन लोगों तक मानसिक स्वास्थ्य सहायता पहुंचाने में मदद करता है।', 'మీ యోగదానం అవసరమైన వారికి మానసిక ఆరోగ్య మద్దతును తీసుకువెళ్లడంలో మాకు సహాయపడుతుంది.')}
       </p>
 
       <div className="donation-amounts">
@@ -136,7 +139,7 @@ export default function DonationForm() {
       </div>
 
       <div className="custom-amount">
-        <label>{t('Or enter custom amount (₹)', 'या अपनी राशि दर्ज करें (₹)')}</label>
+        <label>{t('Or enter custom amount (₹)', 'या अपनी राशि दर्ज करें (₹)', 'లేదా ఇష్టానుసారం మొత్తం నమోదు చేయండి (₹)')}</label>
         <input
           type="number"
           placeholder="1000"
@@ -152,13 +155,13 @@ export default function DonationForm() {
       <div className="donation-fields">
         <input
           type="text"
-          placeholder={t('Your Name', 'आपका नाम')}
+          placeholder={t('Your Name', 'आपका नाम', 'మీ పేరు')}
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <input
           type="email"
-          placeholder={t('Email Address', 'ईमेल पता')}
+          placeholder={t('Email Address', 'ईमेल पता', 'ఇమెయిల్ చిరునామా')}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -170,8 +173,8 @@ export default function DonationForm() {
         disabled={loading || donationAmount < 10}
       >
         {loading
-          ? t('Processing...', 'प्रोसेस हो रहा है...')
-          : (language === 'hi' ? 'दान करें ₹' : 'Donate ₹') + donationAmount}
+          ? t('Processing...', 'प्रोसेस हो रहा है...', 'ప్రాసెస్ అవుతోంది...')
+          : donateBtnLabel + donationAmount}
       </button>
 
       {message && <p className={`donation-message ${messageType}`}>{message}</p>}

@@ -20,19 +20,22 @@ export default function Header() {
 
         <nav className={`nav ${menuOpen ? 'open' : ''}`}>
           <Link to="/" onClick={() => setMenuOpen(false)}>
-            {t('Home', 'होम')}
+            {t('Home', 'होम', 'హోమ్')}
           </Link>
           <Link to="/about" onClick={() => setMenuOpen(false)}>
-            {t('About Us', 'हमारे बारे में')}
+            {t('About Us', 'हमारे बारे में', 'మా గురించి')}
           </Link>
           <Link to="/initiatives" onClick={() => setMenuOpen(false)}>
-            {t('Programs & Services', 'कार्यक्रम और सेवाएं')}
+            {t('Programs & Services', 'कार्यक्रम और सेवाएं', 'కార్యక్రమాలు మరియు సేవలు')}
           </Link>
           <Link to="/find-help" onClick={() => setMenuOpen(false)}>
-            {t('Find Help', 'सहायता खोजें')}
+            {t('Find Help', 'सहायता खोजें', 'సహాయం కనుగొనండి')}
+          </Link>
+          <Link to="/get-involved" onClick={() => setMenuOpen(false)}>
+            {t('Get Involved', 'जुड़ें', 'చేరండి')}
           </Link>
           <Link to="/donate" className="donate-btn" onClick={() => setMenuOpen(false)}>
-            {t('Donate', 'दान करें')}
+            {t('Donate', 'दान करें', 'దానం చేయండి')}
           </Link>
         </nav>
 
@@ -41,14 +44,23 @@ export default function Header() {
             <button
               className={language === 'en' ? 'active' : ''}
               onClick={() => setLanguage('en')}
+              aria-label="English"
             >
               EN
             </button>
             <button
               className={language === 'hi' ? 'active' : ''}
               onClick={() => setLanguage('hi')}
+              aria-label="Hindi"
             >
               हिंदी
+            </button>
+            <button
+              className={language === 'te' ? 'active' : ''}
+              onClick={() => setLanguage('te')}
+              aria-label="Telugu"
+            >
+              తెలుగు
             </button>
           </div>
           <button

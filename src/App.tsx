@@ -9,17 +9,16 @@ import Initiatives from './pages/Initiatives';
 import FindHelp from './pages/FindHelp';
 import Donate from './pages/Donate';
 import DonateResult from './pages/DonateResult';
+import GetInvolved from './pages/GetInvolved';
 import './App.css';
 
 function AppContent() {
   const { language } = useLanguage();
 
   useEffect(() => {
-    if (language === 'hi') {
-      document.body.classList.add('hindi');
-    } else {
-      document.body.classList.remove('hindi');
-    }
+    document.body.classList.remove('hindi', 'telugu');
+    if (language === 'hi') document.body.classList.add('hindi');
+    else if (language === 'te') document.body.classList.add('telugu');
   }, [language]);
 
   return (
@@ -33,6 +32,7 @@ function AppContent() {
           <Route path="/find-help" element={<FindHelp />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/donate/result" element={<DonateResult />} />
+          <Route path="/get-involved" element={<GetInvolved />} />
         </Routes>
       </main>
       <Footer />

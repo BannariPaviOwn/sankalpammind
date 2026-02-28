@@ -1,12 +1,13 @@
 import { createContext, useContext, useState } from 'react';
 import type { ReactNode } from 'react';
 
-type Language = 'en' | 'hi';
+export type Language = 'en' | 'hi' | 'te';
 
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (en: string, hi: string) => string;
+  /** Translate: pass English, Hindi, and optional Telugu. Falls back to English if Telugu not provided. */
+  t: (en: string, hi: string, te?: string) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -14,7 +15,11 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>('en');
 
-  const t = (en: string, hi: string) => (language === 'hi' ? hi : en);
+  const t = (en: string, hi: string, te?: string) => {
+    if (language === 'hi') return hi;
+    if (language === 'te') return te ?? en;
+    return en;
+  };
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t }}>

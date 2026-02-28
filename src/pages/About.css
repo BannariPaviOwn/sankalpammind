@@ -129,3 +129,84 @@
   color: #6366f1;
   margin-bottom: 1rem !important;
 }
+
+.about-mission-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.about-mission-list li {
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.about-mission-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #6366f1;
+  font-weight: 700;
+}
+
+.about-photo-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.about-card .bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1rem;
+}
+
+.about-card .bullet-list li {
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.35rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.about-card .bullet-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #6366f1;
+}
+
+.founder-desk h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.founder-roles {
+  font-size: 0.9375rem;
+  color: #64748b;
+  margin-bottom: 0.5rem !important;
+}
+
+.founder-orgs {
+  font-size: 0.9375rem;
+  color: #6366f1;
+  margin-bottom: 1.5rem !important;
+}
+
+.founder-desk .subsection {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.founder-photo {
+  max-width: 280px;
+  margin: 1.5rem 0;
+}
