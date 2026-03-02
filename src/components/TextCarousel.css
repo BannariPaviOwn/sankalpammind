@@ -1,6 +1,6 @@
 .text-carousel-section {
   padding: 4rem 1.5rem;
-  background: linear-gradient(135deg, #fef3c7 0%, #fce7f3 50%, #e0e7ff 100%);
+  background: linear-gradient(135deg, #fde68a 0%, #fbcfe8 50%, #c7d2fe 100%);
 }
 
 .carousel-container {
@@ -35,7 +35,7 @@
 .carousel-quote {
   font-size: 1.5rem;
   font-weight: 500;
-  color: #1e293b;
+  color: #0f172a;
   line-height: 1.6;
   margin-bottom: 1rem;
 }
@@ -54,7 +54,7 @@ body.hindi .carousel-quote {
 
 .carousel-date {
   font-size: 0.875rem;
-  color: #8b5cf6;
+  color: #7044C4;
   font-weight: 600;
 }
 
@@ -86,6 +86,6 @@ body.hindi .carousel-quote {
 }
 
 .dot.active {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #5a36a3, #7044C4);
   transform: scale(1.2);
 }

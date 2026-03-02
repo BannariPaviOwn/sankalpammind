@@ -1,0 +1,347 @@
+/* Shared styles for header/hero template previews */
+.template-page {
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+.template-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #94a3b8;
+  margin-bottom: 0.5rem;
+}
+
+/* ========== Style 1: Full-bleed image hero with overlay ========== */
+.style1-header {
+  position: relative;
+  z-index: 2;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.style1-header-inner {
+  max-width: 1100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #f9fafb;
+}
+
+.style1-logo-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.style1-logo {
+  height: 56px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.style1-subbrand {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.style1-nav {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.style1-nav span {
+  cursor: default;
+}
+
+.style1-donate {
+  padding: 0.5rem 1.35rem;
+  border-radius: 999px;
+  border: none;
+  background: #facc15;
+  color: #422006;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.style1-hero {
+  position: relative;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f9fafb;
+}
+
+.style1-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.style1-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(79, 70, 229, 0.75) 100%);
+}
+
+.style1-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  text-align: center;
+  padding: 0 1.5rem;
+}
+
+.style1-hero-content h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0 0 1rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.style1-hero-content p {
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+/* ========== Style 2: Clean white header + card-based hero ========== */
+.style2-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.style2-header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.style2-logo {
+  height: 52px;
+  width: auto;
+}
+
+.style2-nav {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #475569;
+}
+
+.style2-nav span {
+  cursor: default;
+}
+
+.style2-hero {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.style2-hero-left h1 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  color: #0f172a;
+  margin: 0 0 1rem;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.style2-hero-left p {
+  color: #475569;
+  line-height: 1.7;
+}
+
+.style2-card {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.1);
+  aspect-ratio: 4/3;
+}
+
+.style2-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ========== Style 3: Minimal header + left accent hero ========== */
+.style3-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.style3-header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.style3-logo {
+  height: 52px;
+  width: auto;
+}
+
+.style3-subbrand {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-top: 0.15rem;
+}
+
+.style3-logo-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.style3-nav {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #475569;
+}
+
+.style3-nav span {
+  cursor: default;
+}
+
+.style3-hero {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.style3-hero-inner {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.style3-accent {
+  width: 6px;
+  height: 140px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #6366f1 0%, #ec4899 100%);
+}
+
+.style3-text h1 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  color: #0f172a;
+  margin: 0 0 0.75rem;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.style3-text p {
+  color: #475569;
+  line-height: 1.7;
+}
+
+/* ========== Style 4: Gradient header + centered minimal hero ========== */
+.style4-header {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+  padding: 0.75rem 2rem;
+}
+
+.style4-header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.style4-logo-group {
+  display: flex;
+  align-items: center;
+}
+
+.style4-logo {
+  height: 48px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.style4-nav {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.style4-nav span {
+  cursor: default;
+}
+
+.style4-hero {
+  padding: 5rem 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.style4-hero-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.style4-hero-inner h1 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  color: #0f172a;
+  margin: 0 0 1rem;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.style4-hero-inner p {
+  color: #475569;
+  line-height: 1.7;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 900px) {
+  .style1-header-inner,
+  .style2-header-inner,
+  .style3-header-inner,
+  .style4-header-inner {
+    padding-inline: 1rem;
+  }
+
+  .style1-nav,
+  .style2-nav,
+  .style3-nav,
+  .style4-nav {
+    display: none;
+  }
+
+  .style2-hero,
+  .style3-hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .style3-accent {
+    height: 6px;
+    width: 120px;
+  }
+}

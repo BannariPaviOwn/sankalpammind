@@ -1,5 +1,5 @@
 .donate-page {
-  padding-top: 70px;
+  padding-top: var(--header-height, 110px);
 }
 
 .donate-hero {
@@ -39,7 +39,7 @@
 
 .donate-payment-note {
   font-size: 1rem !important;
-  color: #6366f1 !important;
+  color: #7044C4 !important;
   font-weight: 600;
   margin-bottom: 0.5rem !important;
 }

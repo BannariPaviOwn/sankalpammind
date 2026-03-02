@@ -1,79 +1,110 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import './Header.css';
 
 export default function Header() {
   const { language, setLanguage, t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
+
+  const navLinks = [
+    { to: '/', labelEn: 'Home', labelHi: 'होम', labelTe: 'హోమ్' },
+    { to: '/initiatives', labelEn: 'Our Programs', labelHi: 'हमारे कार्यक्रम', labelTe: 'మా కార్యక్రమాలు' },
+    { to: '/get-involved', labelEn: 'Get Involved', labelHi: 'जुड़ें', labelTe: 'చేరండి' },
+    { to: '/about', labelEn: 'About Us', labelHi: 'हमारे बारे में', labelTe: 'మా గురించి' },
+    { to: '/find-help', labelEn: 'Find Help', labelHi: 'सहायता खोजें', labelTe: 'సహాయం కనుగొనండి' },
+    { to: '/donate', labelEn: 'Contact', labelHi: 'संपर्क', labelTe: 'సంప్రదించండి' },
+  ];
 
   return (
-    <header className="header">
-      <div className="header-container">
-        <Link to="/" className="logo">
-          <span className="logo-icon" aria-hidden="true">🌱</span>
-          <span className="logo-text">
-            <span className="logo-brand">Sankalpam</span>
-            <span className="logo-foundation"> Mind & Wellness</span>
-          </span>
-        </Link>
+    <>
+      <header className={`header ${menuOpen ? 'menu-open' : ''}`}>
+        <div className="header-inner">
+          <Link to="/" className="header-logo">
+            <img
+              src="/assets/logo.png"
+              className="logo-image"
+              alt="Sankalpam"
+              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+            />
+          </Link>
 
-        <nav className={`nav ${menuOpen ? 'open' : ''}`}>
-          <Link to="/" onClick={() => setMenuOpen(false)}>
-            {t('Home', 'होम', 'హోమ్')}
-          </Link>
-          <Link to="/about" onClick={() => setMenuOpen(false)}>
-            {t('About Us', 'हमारे बारे में', 'మా గురించి')}
-          </Link>
-          <Link to="/initiatives" onClick={() => setMenuOpen(false)}>
-            {t('Programs & Services', 'कार्यक्रम और सेवाएं', 'కార్యక్రమాలు మరియు సేవలు')}
-          </Link>
-          <Link to="/find-help" onClick={() => setMenuOpen(false)}>
-            {t('Find Help', 'सहायता खोजें', 'సహాయం కనుగొనండి')}
-          </Link>
-          <Link to="/get-involved" onClick={() => setMenuOpen(false)}>
-            {t('Get Involved', 'जुड़ें', 'చేరండి')}
-          </Link>
-          <Link to="/donate" className="donate-btn" onClick={() => setMenuOpen(false)}>
-            {t('Donate', 'दान करें', 'దానం చేయండి')}
-          </Link>
-        </nav>
+          <nav className="header-nav">
+            {navLinks.map(({ to, labelEn, labelHi, labelTe }) => (
+              <Link
+                key={to}
+                to={to}
+                className={`nav-link ${location.pathname === to ? 'active' : ''}`}
+                onClick={() => setMenuOpen(false)}
+              >
+                {t(labelEn, labelHi, labelTe)}
+              </Link>
+            ))}
+          </nav>
 
-        <div className="header-actions">
-          <div className="lang-toggle">
+          <div className="header-cta">
+            <Link to="/get-involved" className="btn-volunteer" onClick={() => setMenuOpen(false)}>
+              {t('Volunteer Now', 'अभी स्वयंसेवक बनें', 'ఇప్పుడే స్వచ్ఛందంగా పనిచేయండి')}
+            </Link>
+            <Link to="/donate" className="btn-donate" onClick={() => setMenuOpen(false)}>
+              {t('Donate Now', 'अभी दान करें', 'ఇప్పుడే దానం చేయండి')}
+            </Link>
+          </div>
+
+          <div className="header-right">
+            <div className="lang-switcher">
+              {(['en', 'hi', 'te'] as const).map((lang) => (
+                <button
+                  key={lang}
+                  type="button"
+                  className={`lang-btn ${language === lang ? 'active' : ''}`}
+                  onClick={() => setLanguage(lang)}
+                  aria-label={lang === 'en' ? 'English' : lang === 'hi' ? 'Hindi' : 'Telugu'}
+                >
+                  {lang === 'en' ? 'EN' : lang === 'hi' ? 'हि' : 'తె'}
+                </button>
+              ))}
+            </div>
             <button
-              className={language === 'en' ? 'active' : ''}
-              onClick={() => setLanguage('en')}
-              aria-label="English"
+              type="button"
+              className="hamburger"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+              aria-expanded={menuOpen}
             >
-              EN
-            </button>
-            <button
-              className={language === 'hi' ? 'active' : ''}
-              onClick={() => setLanguage('hi')}
-              aria-label="Hindi"
-            >
-              हिंदी
-            </button>
-            <button
-              className={language === 'te' ? 'active' : ''}
-              onClick={() => setLanguage('te')}
-              aria-label="Telugu"
-            >
-              తెలుగు
+              <span className="hamburger-line"></span>
+              <span className="hamburger-line"></span>
+              <span className="hamburger-line"></span>
             </button>
           </div>
-          <button
-            className="menu-toggle"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
         </div>
-      </div>
-    </header>
+
+        <div className={`mobile-nav ${menuOpen ? 'open' : ''}`}>
+          <div className="mobile-nav-inner">
+            {navLinks.map(({ to, labelEn, labelHi, labelTe }) => (
+              <Link
+                key={to}
+                to={to}
+                className={`mobile-nav-link ${location.pathname === to ? 'active' : ''}`}
+                onClick={() => setMenuOpen(false)}
+              >
+                {t(labelEn, labelHi, labelTe)}
+              </Link>
+            ))}
+            <Link to="/get-involved" className="mobile-nav-volunteer" onClick={() => setMenuOpen(false)}>
+              {t('Volunteer Now', 'अभी स्वयंसेवक बनें', 'ఇప్పుడే స్వచ్ఛందంగా పనిచేయండి')}
+            </Link>
+            <Link to="/donate" className="mobile-nav-donate" onClick={() => setMenuOpen(false)}>
+              {t('Donate Now', 'अभी दान करें', 'ఇప్పుడే దానం చేయండి')}
+            </Link>
+          </div>
+        </div>
+      </header>
+    </>
   );
 }

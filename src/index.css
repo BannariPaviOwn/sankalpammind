@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0;500;600;700;1;500&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  /* Vibrant color palette for stakeholder appeal */
-  --primary: #6366f1;
-  --primary-dark: #4f46e5;
+  --header-height: 72px; /* main header (desktop) */
+  /* Sankalpam logo colors */
+  --logo-purple: #7044C4;
+  --logo-purple-dark: #5a36a3;
+  --logo-purple-darker: #4a2d82;
+  --logo-purple-light: #ede8f8;
+  --primary: #7044C4;
+  --primary-dark: #5a36a3;
   --secondary: #ec4899;
-  --accent: #8b5cf6;
+  --accent: #7c5fd4;
   --success: #10b981;
   --warning: #f59e0b;
   --info: #06b6d4;
@@ -39,7 +44,7 @@ body {
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
-  color: #1e293b;
+  color: #0f172a;
   overflow-x: hidden;
 }
 
@@ -49,4 +54,10 @@ body.hindi {
 
 body.telugu {
   font-family: var(--font-telugu);
+}
+
+@media (max-width: 600px) {
+  :root {
+    --header-height: 64px; /* compact header on mobile */
+  }
 }

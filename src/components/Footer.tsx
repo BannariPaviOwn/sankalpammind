@@ -34,6 +34,7 @@ export default function Footer() {
             <Link to="/find-help">{t('Find Help', 'सहायता खोजें', 'సహాయం కనుగొనండి')}</Link>
             <Link to="/get-involved">{t('Get Involved', 'जुड़ें', 'చేరండి')}</Link>
             <Link to="/donate">{t('Donate', 'दान करें', 'దానం చేయండి')}</Link>
+            <Link to="/templates">{t('Design Templates', 'डिज़ाइन टेम्पलेट', 'డిజైన్ టెంప్లేట్లు')}</Link>
           </div>
           <div className="footer-involve">
             <h4>{t('Get Involved', 'जुड़ें', 'చేరండి')}</h4>

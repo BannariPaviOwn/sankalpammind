@@ -1,0 +1,126 @@
+.image-carousel-section {
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #fef9e7 0%, #fef3c7 50%, #fce7f3 100%);
+  border-radius: 1rem;
+  margin: 1.5rem 0;
+}
+
+.image-carousel-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.image-carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.image-carousel-btn {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.9);
+  color: white;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.image-carousel-btn:hover {
+  background: #7044C4;
+  transform: scale(1.05);
+}
+
+.image-carousel-btn:focus-visible {
+  outline: 2px solid #7044C4;
+  outline-offset: 2px;
+}
+
+.image-carousel-track {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  background: #f1f5f9;
+}
+
+.image-carousel-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.image-carousel-slide.active {
+  opacity: 1;
+  transform: scale(1);
+  position: relative;
+}
+
+.image-carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.image-carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5rem 0.75rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: white;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.image-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.image-carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.image-carousel-dot:hover {
+  background: #94a3b8;
+}
+
+.image-carousel-dot.active {
+  background: linear-gradient(135deg, #5a36a3, #7044C4);
+  transform: scale(1.2);
+}
+
+@media (max-width: 640px) {
+  .image-carousel-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.5rem;
+  }
+}

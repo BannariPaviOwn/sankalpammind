@@ -1,5 +1,6 @@
 import { useLanguage } from '../context/LanguageContext';
 import PhotoPlaceholder from '../components/PhotoPlaceholder';
+import ImageCarousel from '../components/ImageCarousel';
 import { ASSETS } from '../assets';
 import './About.css';
 
@@ -123,6 +124,11 @@ export default function About() {
               'మానసిక ఆరోగ్యం మరియు మానవ గౌరవంపై ఆమె నిరంతర యోగదానానికి రాష్ట్ర మరియు జాతీయ గుర్తింపు లభించింది. మానవ హక్కులు-సున్నితమైన మరియు నైతిక సలహా పద్ధతులను ప్రోత్సహించడానికి తమిళనాడు ప్రభుత్వ మానవ హక్కుల కమిషన్ – రాష్ట్ర పురస్కారం (2021)తో గౌరవించబడ్డారు. 2024లో భారతదేశంలో టాప్ 100 డాక్టర్లలో గుర్తించబడ్డారు.'
             )}
           </p>
+
+          <div className="about-awards-panel">
+            <h5 className="awards-panel-title">{t('Awards & recognitions', 'पुरस्कार और सम्मान', 'పురస్కారాలు మరియు గుర్తింపులు')}</h5>
+            <ImageCarousel images={ASSETS.awards} interval={4500} ratio="4/3" />
+          </div>
 
           <div className="founder-photo">
             <PhotoPlaceholder src={ASSETS.about.founder} labelEn="Dr. Sahithyaa Raghu" labelHi="डॉ. साहित्या रघु" labelTe="డా. సాహిత్య రఘు" ratio="3/4" alt="Dr. Sahithyaa Raghu" />

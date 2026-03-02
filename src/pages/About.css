@@ -1,5 +1,5 @@
 .about-page {
-  padding-top: 70px;
+  padding-top: var(--header-height, 110px);
 }
 
 .about-hero {
@@ -25,7 +25,7 @@
 .about-hero-sub {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #6366f1;
+  color: #7044C4;
   margin-bottom: 0.5rem !important;
 }
 
@@ -48,7 +48,7 @@
 .about-card h2 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #6366f1;
+  color: #7044C4;
   margin-bottom: 1rem;
 }
 
@@ -68,7 +68,7 @@
 .about-values h2 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #6366f1;
+  color: #7044C4;
   margin-bottom: 1rem;
 }
 
@@ -93,7 +93,7 @@
   content: '✓';
   position: absolute;
   left: 0;
-  color: #6366f1;
+  color: #7044C4;
   font-weight: 700;
 }
 
@@ -101,7 +101,7 @@
   font-style: italic;
   margin: 1rem 0;
   padding-left: 1rem;
-  border-left: 4px solid #6366f1;
+  border-left: 4px solid #7044C4;
   color: #475569;
 }
 
@@ -113,7 +113,7 @@
 
 .founder-title {
   font-size: 0.9375rem;
-  color: #6366f1;
+  color: #7044C4;
   margin-bottom: 0 !important;
 }
 
@@ -126,7 +126,7 @@
 
 .founder-role {
   font-size: 0.9375rem;
-  color: #6366f1;
+  color: #7044C4;
   margin-bottom: 1rem !important;
 }
 
@@ -148,7 +148,7 @@
   content: '✓';
   position: absolute;
   left: 0;
-  color: #6366f1;
+  color: #7044C4;
   font-weight: 700;
 }
 
@@ -176,7 +176,7 @@
   content: '•';
   position: absolute;
   left: 0;
-  color: #6366f1;
+  color: #7044C4;
 }
 
 .founder-desk h3 {
@@ -194,7 +194,7 @@
 
 .founder-orgs {
   font-size: 0.9375rem;
-  color: #6366f1;
+  color: #7044C4;
   margin-bottom: 1.5rem !important;
 }
 
@@ -204,6 +204,18 @@
   color: #1e293b;
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
+}
+
+.about-awards-panel {
+  margin: 1.5rem 0;
+}
+
+.awards-panel-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #7044C4;
+  margin-bottom: 0.75rem;
+  text-align: center;
 }
 
 .founder-photo {

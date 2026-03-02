@@ -66,4 +66,12 @@ export const ASSETS = {
     community: `${BASE}/${IMG._04}`,
     impact: `${BASE}/${IMG._05}`,
   },
+  /** Award/recognition photos for the About page carousel. Add your own to public/assets/awards/ (e.g. award-1.jpg) and list here. */
+  awards: [
+    `${BASE}/${IMG._13}`,
+    `${BASE}/${IMG._14}`,
+    `${BASE}/${IMG._15}`,
+    `${BASE}/${IMG._17}`,
+    `${BASE}/${IMG._18}`,
+  ],
 } as const;

@@ -38,13 +38,13 @@
 }
 
 .amount-btn:hover {
-  border-color: #6366f1;
-  color: #6366f1;
+  border-color: #7044C4;
+  color: #7044C4;
 }
 
 .amount-btn.active {
-  border-color: #6366f1;
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border-color: #7044C4;
+  background: linear-gradient(135deg, #5a36a3 0%, #7044C4 100%);
   color: white;
 }
 
@@ -70,7 +70,7 @@
 
 .custom-amount input:focus {
   outline: none;
-  border-color: #6366f1;
+  border-color: #7044C4;
 }
 
 .donation-fields {
@@ -89,13 +89,13 @@
 
 .donation-fields input:focus {
   outline: none;
-  border-color: #6366f1;
+  border-color: #7044C4;
 }
 
 .donate-submit {
   width: 100%;
   padding: 1rem 1.5rem;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(135deg, #5a36a3 0%, #7044C4 100%);
   color: white;
   border: none;
   border-radius: 0.5rem;
@@ -107,7 +107,7 @@
 
 .donate-submit:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 8px 25px rgba(112, 68, 196, 0.4);
 }
 
 .donate-submit:disabled {
@@ -122,7 +122,7 @@
 }
 
 .donation-message.success {
-  color: #059669;
+  color: #7044C4;
 }
 
 .donation-message.error {

@@ -1,5 +1,5 @@
 .initiatives-page {
-  padding-top: 70px;
+  padding-top: var(--header-height, 110px);
 }
 
 .initiatives-hero {
@@ -74,14 +74,14 @@
   content: '•';
   position: absolute;
   left: 0;
-  color: #6366f1;
+  color: #7044C4;
   font-weight: 700;
 }
 
 .initiative-focus {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #4f46e5;
+  color: #5a36a3;
   margin-top: 1rem;
   margin-bottom: 0;
 }

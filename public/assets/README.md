@@ -61,3 +61,9 @@ assets/
 ---
 
 **Tip:** If a photo is missing, the placeholder will show until you add the file. No code changes needed – just drop the file in the correct folder with the matching name.
+
+---
+
+## Awards carousel (About page)
+
+Awards/recognition photos are shown in a carousel in the "Recognitions & Awards" section. The list of images is in `src/assets.ts` under `ASSETS.awards`. You can add your award images to `public/assets/` (or a subfolder) and add their paths to the `awards` array in `src/assets.ts`.

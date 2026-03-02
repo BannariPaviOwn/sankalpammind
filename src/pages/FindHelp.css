@@ -1,5 +1,5 @@
 .find-help-page {
-  padding-top: 70px;
+  padding-top: var(--header-height, 110px);
 }
 
 .find-help-hero {
@@ -74,7 +74,7 @@
 .helplines-section h3 {
   font-size: 1rem;
   font-weight: 600;
-  color: #6366f1;
+  color: #7044C4;
   margin-bottom: 1rem;
 }
 
@@ -94,7 +94,7 @@
 }
 
 .helpline-number {
-  color: #6366f1;
+  color: #7044C4;
   font-weight: 600;
   text-decoration: none;
 }

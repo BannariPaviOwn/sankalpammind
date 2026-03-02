@@ -1,5 +1,5 @@
 .get-involved-page {
-  padding-top: 70px;
+  padding-top: var(--header-height, 110px);
 }
 
 .get-involved-hero {
@@ -41,7 +41,7 @@
 .partner-section h3 {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #6366f1;
+  color: #7044C4;
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
 }
@@ -70,7 +70,7 @@
   content: '•';
   position: absolute;
   left: 0;
-  color: #6366f1;
+  color: #7044C4;
   font-weight: 700;
 }
 
@@ -127,7 +127,7 @@
 .btn-involved {
   display: inline-block;
   padding: 0.875rem 1.75rem;
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  background: linear-gradient(135deg, #5a36a3 0%, #7044C4 100%);
   color: white;
   font-weight: 600;
   text-decoration: none;
