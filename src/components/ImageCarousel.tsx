@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import './ImageCarousel.css';
 
 interface ImageCarouselProps {
-  images: string[];
+  images: readonly string[];
   /** Optional captions per image (same length as images or empty) */
   captions?: string[];
   /** Auto-advance interval in ms; 0 to disable */
