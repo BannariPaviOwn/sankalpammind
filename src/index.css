@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0;500;600;700;1;500&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0;500;600;700;1;500&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
   --header-height: 72px; /* main header (desktop) */
@@ -27,6 +27,8 @@
   --font-body: 'Plus Jakarta Sans', sans-serif;
   --font-hindi: 'Noto Sans Devanagari', sans-serif;
   --font-telugu: 'Noto Sans Telugu', sans-serif;
+  --font-tamil: 'Noto Sans Tamil', sans-serif;
+  --font-malayalam: 'Noto Sans Malayalam', sans-serif;
   --font-display: 'Cormorant Garamond', serif;
 }
 
@@ -54,6 +56,14 @@ body.hindi {
 
 body.telugu {
   font-family: var(--font-telugu);
+}
+
+body.tamil {
+  font-family: var(--font-tamil);
+}
+
+body.malayalam {
+  font-family: var(--font-malayalam);
 }
 
 @media (max-width: 600px) {

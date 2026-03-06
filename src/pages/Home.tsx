@@ -68,56 +68,88 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Our Journey */}
+      {/* Our Journey – clean layout */}
       <section className="home-journey">
         <div className="home-journey-inner">
-          <h2 className="home-section-title">{t('Our Journey', 'हमारी यात्रा', 'మా ప్రయాణం')}</h2>
-          <div className="home-journey-grid">
-            <div className="home-journey-text">
-              <p>
-                {t(
-                  'SANKALPAM Mind & Wellness Foundation exists to make emotional wellbeing simple, safe, and reachable. Through counselling, community outreach, and training, we empower villages, schools, and families. Our journey is a testament to the power of consistent vision and purposeful action — and we are only getting started.',
-                  'संकल्पम माइंड एंड वेलनेस फाउंडेशन भावनात्मक कल्याण को सरल, सुरक्षित और पहुंच के भीतर बनाने के लिए मौजूद है। परामर्श, समुदाय आउटरीच और प्रशिक्षण के माध्यम से हम गाँवों, स्कूलों और परिवारों को सशक्त बनाते हैं।',
-                  'సంకల్పం మనస్ & వెల్నెస్ ఫౌండేషన్ భావనాత్మక క్షేమాన్ని సరళంగా, సురక్షితంగా మరియు అందుబాటులో ఉంచడానికి ఉంది. సలహా, సమాజ విస్తరణ మరియు శిక్షణ ద్వారా మేము గ్రామాలు, పాఠశాలలు మరియు కుటుంబాలను శక్తివంతం చేస్తాము.'
-                )}
-              </p>
-              <div className="home-journey-images">
-                <img src={ASSETS.home.ourWork} alt="" />
-                <img src={ASSETS.home.community} alt="" />
-                <img src={ASSETS.home.programs} alt="" />
-              </div>
+          <div className="home-journey-header">
+            <span className="home-journey-badge">{t('About Us', 'हमारे बारे में', 'మా గురించి')}</span>
+            <h2 className="home-section-title home-journey-title">{t('Our Journey', 'हमारी यात्रा', 'మా ప్రయాణం')}</h2>
+            <p className="home-journey-lead">
+              {t(
+                'SANKALPAM Mind & Wellness Foundation exists to make emotional wellbeing simple, safe, and reachable. Through counselling, community outreach, and training, we empower villages, schools, and families.',
+                'संकल्पम माइंड एंड वेलनेस फाउंडेशन भावनात्मक कल्याण को सरल, सुरक्षित और पहुंच के भीतर बनाने के लिए मौजूद है। परामर्श, समुदाय आउटरीच और प्रशिक्षण के माध्यम से हम गाँवों, स्कूलों और परिवारों को सशक्त बनाते हैं।',
+                'సంకల్పం మనస్ & వెల్నెస్ ఫౌండేషన్ భావనాత్మక క్షేమాన్ని సరళంగా, సురక్షితంగా మరియు అందుబాటులో ఉంచడానికి ఉంది. సలహా, సమాజ విస్తరణ మరియు శిక్షణ ద్వారా మేము గ్రామాలు, పాఠశాలలు మరియు కుటుంబాలను శక్తివంతం చేస్తాము.'
+              )}
+            </p>
+          </div>
+
+          <div className="home-journey-cards-row">
+            <div className="home-vision-card">
+              <span className="home-journey-card-num">01</span>
+              <h3>{t('Vision', 'दृष्टि', 'దృష్టి')}</h3>
+              <p>{t('To build a mentally resilient society where every individual has access to compassionate, culturally grounded psychological support.', 'एक मानसिक रूप से लचीला समाज बनाना जहां हर व्यक्ति को दयालु, सांस्कृतिक रूप से आधारित मनोवैज्ञानिक सहायता मिले।', 'ప్రతి వ్యక్తికి దయగల, సాంస్కృతికంగా ఆధారిత మనస్తత్వశాస్త్ర మద్దతు అందుబాటులో ఉండే మానసికంగా స్థిరమైన సమాజాన్ని నిర్మించడం.')}</p>
             </div>
-            <div className="home-journey-cards">
-              <div className="home-vision-card">
-                <h3>{t('Vision', 'दृष्टि', 'దృష్టి')}</h3>
-                <p>{t('To build a mentally resilient society where every individual has access to compassionate, culturally grounded psychological support.', 'एक मानसिक रूप से लचीला समाज बनाना जहां हर व्यक्ति को दयालु, सांस्कृतिक रूप से आधारित मनोवैज्ञानिक सहायता मिले।', 'ప్రతి వ్యక్తికి దయగల, సాంస్కృతికంగా ఆధారిత మనస్తత్వశాస్త్ర మద్దతు అందుబాటులో ఉండే మానసికంగా స్థిరమైన సమాజాన్ని నిర్మించడం.')}</p>
+            <div className="home-mission-card">
+              <span className="home-journey-card-num">02</span>
+              <h3>{t('Mission', 'मिशन', 'మిషన్')}</h3>
+              <p>{t('To promote preventive, community-based mental healthcare and empower volunteers, schools, and families through awareness and training.', 'निवारक, समुदाय-आधारित मानसिक स्वास्थ्य देखभाल को बढ़ावा देना और जागरूकता और प्रशिक्षण के माध्यम से स्वयंसेवकों, स्कूलों और परिवारों को सशक्त बनाना।', 'నివారణ, సమాజ-ఆధారిత మానసిక ఆరోగ్య సంరక్షణను ప్రోత్సహించడం మరియు అవగాహన మరియు శిక్షణ ద్వారా స్వచ్ఛంద సేవకులు, పాఠశాలలు మరియు కుటుంబాలను శక్తివంతం చేయడం.')}</p>
+            </div>
+          </div>
+
+          <div className="home-journey-images-wrap">
+            <h4 className="home-journey-gallery-label">{t('Moments from our journey', 'हमारी यात्रा के पल', 'మా ప్రయాణం నుండి క్షణాలు')}</h4>
+            <div className="home-journey-images">
+              <div className="home-journey-img-card">
+                <img src={ASSETS.home.ourWork} alt="" />
               </div>
-              <div className="home-mission-card">
-                <h3>{t('Mission', 'मिशन', 'మిషన్')}</h3>
-                <p>{t('To promote preventive, community-based mental healthcare and empower volunteers, schools, and families through awareness and training.', 'निवारक, समुदाय-आधारित मानसिक स्वास्थ्य देखभाल को बढ़ावा देना और जागरूकता और प्रशिक्षण के माध्यम से स्वयंसेवकों, स्कूलों और परिवारों को सशक्त बनाना।', 'నివారణ, సమాజ-ఆధారిత మానసిక ఆరోగ్య సంరక్షణను ప్రోత్సహించడం మరియు అవగాహన మరియు శిక్షణ ద్వారా స్వచ్ఛంద సేవకులు, పాఠశాలలు మరియు కుటుంబాలను శక్తివంతం చేయడం.')}</p>
+              <div className="home-journey-img-card home-journey-img-featured">
+                <img src={ASSETS.home.community} alt="" />
+              </div>
+              <div className="home-journey-img-card">
+                <img src={ASSETS.home.programs} alt="" />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Founder's Desk */}
+      {/* Founder's Desk – AHCT-style */}
       <section className="home-founder">
         <div className="home-founder-inner">
           <div className="home-founder-photo">
-            <img src={ASSETS.about.founder} alt="Dr. Sahithyaa Raghu" />
+            <img src={ASSETS.about.founder2} alt="Dr. Sahithyaa Raghu" />
           </div>
           <div className="home-founder-text">
-            <h2>{t("Founder's Desk", 'संस्थापक का डेस्क', 'స్థాపకుని డెస్క్')}</h2>
-            <blockquote>
-              {t(
-                'When we strengthen minds, we strengthen families. When we strengthen families, we strengthen society. Care does not always begin in a therapy room — sometimes it begins with one informed teacher, one trained volunteer, one aware parent.',
-                'जब हम दिमाग को मजबूत करते हैं, हम परिवारों को मजबूत करते हैं। जब हम परिवारों को मजबूत करते हैं, हम समाज को मजबूत करते हैं। देखभाल हमेशा थेरेपी कक्ष में शुरू नहीं होती — कभी-कभी यह एक जानकार शिक्षक, एक प्रशिक्षित स्वयंसेवक, एक जागरूक अभिभावक से शुरू होती है।',
-                'మనం మనస్సులను బలోపేతం చేసినప్పుడు, కుటుంబాలను బలోపేతం చేస్తాము. కుటుంబాలను బలోపేతం చేసినప్పుడు సమాజాన్ని బలోపేతం చేస్తాము. సంరక్షణ ఎల్లప్పుడూ థెరపీ గదిలో ప్రారంభం కాదు — కొన్నిసార్లు ఒక తెలివైన ఉపాధ్యాయుడు, ఒక శిక్షణ పొందిన స్వచ్ఛంద సేవకుడు, ఒక అవగాహన ఉన్న తల్లిదండ్రులతో ప్రారంభమవుతుంది.'
-              )}
-            </blockquote>
+            <h2 className="home-founder-title">{t("Founder's Desk", 'संस्थापक का डेस्क', 'స్థాపకుని డెస్క్')}</h2>
+            <div className="home-founder-quote-wrap">
+              <span className="home-founder-quote-open">"</span>
+              <blockquote>
+                <p>
+                  {t(
+                    'Through my work, I have witnessed the silent emotional struggles many individuals and families carry without timely support. SANKALPAM was founded to make mental wellbeing accessible, preventive, and rooted in community care.',
+                    'Through my work, I have witnessed the silent emotional struggles many individuals and families carry without timely support. SANKALPAM was founded to make mental wellbeing accessible, preventive, and rooted in community care.'
+                  )}
+                </p>
+                <p>
+                  {t(
+                    'Our vision is to build a society where every individual feels supported, understood, and empowered to live with strength and dignity.',
+                    'Our vision is to build a society where every individual feels supported, understood, and empowered to live with strength and dignity.'
+                  )}
+                </p>
+              </blockquote>
+              <span className="home-founder-quote-close">"</span>
+            </div>
             <p className="home-founder-name">Dr. Sahithyaa Raghu</p>
-            <p className="home-founder-role">{t('Managing Trustee, Sankalpam Mind & Wellness Foundation', 'प्रबंध न्यासी, संकल्पम माइंड एंड वेलनेस फाउंडेशन', 'నిర్వహణ ధృవపత్రి, సంకల్పం మనస్ & వెల్నెస్ ఫౌండేషన్')}</p>
+            <p className="home-founder-role">{t('Managing Trustee', 'प्रबंध न्यासी', 'నిర్వహణ ధృవపత్రి')}</p>
+            <p className="home-founder-org">{t('SANKALPAM Mind & Wellness Foundation', 'संकल्पम माइंड एंड वेलनेस फाउंडेशन', 'సంకల్పం మనస్ & వెల్నెస్ ఫౌండేషన్')}</p>
+            <div className="home-founder-social">
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+            </div>
           </div>
         </div>
       </section>

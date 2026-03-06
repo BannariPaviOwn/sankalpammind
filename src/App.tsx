@@ -26,9 +26,11 @@ function AppContent() {
   const isTemplateFullPage = FULLPAGE_PREVIEW_ROUTES.includes(location.pathname);
 
   useEffect(() => {
-    document.body.classList.remove('hindi', 'telugu');
+    document.body.classList.remove('hindi', 'telugu', 'tamil', 'malayalam');
     if (language === 'hi') document.body.classList.add('hindi');
     else if (language === 'te') document.body.classList.add('telugu');
+    else if (language === 'ta') document.body.classList.add('tamil');
+    else if (language === 'ml') document.body.classList.add('malayalam');
   }, [language]);
 
   return (

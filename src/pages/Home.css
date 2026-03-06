@@ -67,138 +67,260 @@
   transform: translateY(-2px);
 }
 
-/* Our Journey */
+/* Our Journey – clean layout */
 .home-journey {
-  padding: 4rem 1.5rem;
-  background: #f1f5f9;
+  padding: 5rem 1.5rem;
+  background: linear-gradient(135deg, #f5f3ff 0%, #e0f2fe 50%, #fdf2ff 100%);
 }
 
 .home-journey-inner {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-.home-section-title {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #0f172a;
-  margin-bottom: 2rem;
+.home-journey-header {
   text-align: center;
+  margin-bottom: 2.5rem;
 }
 
-.home-journey-grid {
-  display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 2.5rem;
-  align-items: start;
+.home-journey-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7044C4;
+  margin-bottom: 0.75rem;
 }
 
-.home-journey-text p {
-  font-size: 1rem;
+.home-journey-title {
+  margin-bottom: 1rem;
+}
+
+.home-journey-lead {
+  font-size: 1.05rem;
   color: #334155;
   line-height: 1.7;
-  margin-bottom: 1.5rem;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
-.home-journey-images {
+/* Vision & Mission cards – side by side */
+.home-journey-cards-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
-}
-
-.home-journey-images img {
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: 0.5rem;
-}
-
-.home-journey-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 .home-vision-card,
 .home-mission-card {
-  padding: 1.25rem;
-  background: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  padding: 1.75rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 20px rgba(112, 68, 196, 0.12);
+  position: relative;
+}
+
+.home-vision-card {
+  background: linear-gradient(145deg, #4a2d82 0%, #3b2760 100%);
+  border: 1px solid rgba(124, 95, 212, 0.2);
+}
+
+.home-mission-card {
+  background: linear-gradient(145deg, #3b2760 0%, #2d1f4e 100%);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+}
+
+.home-journey-card-num {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
 }
 
 .home-vision-card h3,
 .home-mission-card h3 {
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 700;
-  color: #7044C4;
-  margin-bottom: 0.5rem;
+  color: #e9d5ff;
+  margin-bottom: 0.75rem;
 }
 
 .home-vision-card p,
 .home-mission-card p {
   font-size: 0.9rem;
-  color: #334155;
-  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.65;
   margin: 0;
 }
 
-/* Founder's Desk */
+/* Gallery */
+.home-journey-images-wrap {
+  margin-top: 0.5rem;
+}
+
+.home-journey-gallery-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.home-journey-images {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  gap: 1rem;
+  align-items: end;
+}
+
+.home-journey-img-card {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s;
+}
+
+.home-journey-img-card:hover {
+  box-shadow: 0 12px 32px rgba(112, 68, 196, 0.15);
+}
+
+.home-journey-img-card img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+
+.home-journey-img-featured img {
+  aspect-ratio: 1;
+}
+
+/* Founder's Desk – AHCT-style dark panel */
 .home-founder {
-  padding: 4rem 1.5rem;
-  background: white;
+  padding: 4.5rem 1.5rem;
+  background: #4a2d82;
+  color: white;
 }
 
 .home-founder-inner {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 2.5rem;
-  align-items: start;
+  grid-template-columns: 400px 1fr;
+  gap: 3rem;
+  align-items: center;
 }
 
 .home-founder-photo {
   border-radius: 0.5rem;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+  background: transparent;
+  height: auto;
 }
 
 .home-founder-photo img {
   width: 100%;
-  aspect-ratio: 3/4;
-  object-fit: cover;
+  height: auto;
   display: block;
+  object-fit: cover;
+  background: transparent;
 }
 
-.home-founder-text h2 {
-  font-size: 1.5rem;
+.home-founder-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home-founder-title {
+  font-size: 2rem;
   font-weight: 700;
-  color: #0f172a;
-  margin-bottom: 1rem;
+  color: white;
+  margin: 0 0 1.25rem;
+}
+
+.home-founder-quote-wrap {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.home-founder-quote-open,
+.home-founder-quote-close {
+  position: absolute;
+  font-size: 5rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.2);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.home-founder-quote-open {
+  top: -1rem;
+  left: -0.25rem;
+}
+
+.home-founder-quote-close {
+  bottom: -0.5rem;
+  right: -0.25rem;
 }
 
 .home-founder-text blockquote {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #334155;
-  margin: 0 0 1rem;
-  padding-left: 1rem;
-  border-left: 4px solid #7044C4;
-  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 2.5rem 0 0;
+  padding: 0.5rem 0 0 0;
+  padding-left: 2.5rem;
+  border: none;
+  font-style: normal;
+  text-align: justify;
 }
 
 .home-founder-name {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  color: #0f172a;
-  margin: 0 0 0.25rem;
+  color: white;
+  margin: 0 0 0.3rem;
 }
 
 .home-founder-role {
-  font-size: 0.9rem;
-  color: #64748b;
-  margin: 0;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 0.15rem;
+}
+
+.home-founder-org {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 1rem;
+}
+
+.home-founder-social {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.home-founder-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 0.5rem;
+  color: white;
+  transition: background 0.2s, color 0.2s;
+}
+
+.home-founder-social a:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 /* Flagship Programs */
@@ -312,24 +434,37 @@
 }
 
 /* Responsive – Journey, Founder */
-@media (max-width: 900px) {
-  .home-journey-grid {
+@media (max-width: 768px) {
+  .home-journey-cards-row {
     grid-template-columns: 1fr;
+    margin-bottom: 2rem;
   }
+}
 
+@media (max-width: 900px) {
   .home-founder-inner {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
   .home-founder-photo {
-    max-width: 240px;
+    max-width: 300px;
     margin: 0 auto;
+  }
+
+  .home-founder-photo img {
+    height: auto;
+    object-fit: contain;
   }
 }
 
 @media (max-width: 600px) {
   .home-journey-images {
     grid-template-columns: 1fr;
+  }
+
+  .home-journey-img-featured img {
+    aspect-ratio: 4/3;
   }
 }
 

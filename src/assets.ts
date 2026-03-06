@@ -48,7 +48,8 @@ export const ASSETS = {
     ourStory: `${BASE}/${IMG._12}`,
     community: `${BASE}/${IMG._13}`,
     ruralOutreach: `${BASE}/${IMG._14}`,
-    founder: `${BASE}/${IMG._15}`,
+    founder: `${BASE}/founder's Desk/founder.png`,
+    founder2: `${BASE}/founder's Desk/founder2.png`,
   },
   initiatives: {
     programsAction: `${BASE}/${IMG._16}`,
@@ -66,12 +67,18 @@ export const ASSETS = {
     community: `${BASE}/${IMG._04}`,
     impact: `${BASE}/${IMG._05}`,
   },
-  /** Award/recognition photos for the About page carousel. Add your own to public/assets/awards/ (e.g. award-1.jpg) and list here. */
+  /** Award/recognition photos from public/assets/awards/ with hardcoded descriptions */
   awards: [
-    `${BASE}/${IMG._13}`,
-    `${BASE}/${IMG._14}`,
-    `${BASE}/${IMG._15}`,
-    `${BASE}/${IMG._17}`,
-    `${BASE}/${IMG._18}`,
+    { image: '/assets/awards/WhatsApp%20Image%202026-03-06%20at%201.00.10%20PM%20(1).jpeg', description: 'Tamil Nadu Govt Human Rights Commission – State Award (2021)' },
+    { image: '/assets/awards/WhatsApp%20Image%202026-03-06%20at%201.00.10%20PM%20(2).jpeg', description: 'Top 100 Doctors in India (2024)' },
+    { image: '/assets/awards/WhatsApp%20Image%202026-03-06%20at%201.00.10%20PM%20(3).jpeg', description: 'Excellence in Mental Health Advocacy' },
+    { image: '/assets/awards/WhatsApp%20Image%202026-03-06%20at%201.00.10%20PM.jpeg', description: 'Ethical Counselling Practices Recognition' },
+    { image: '/assets/awards/WhatsApp%20Image%202026-03-06%20at%201.00.11%20PM%20(1).JPG', description: 'Community Wellbeing Initiative Award' },
+    { image: '/assets/awards/WhatsApp%20Image%202026-03-06%20at%201.00.11%20PM%20(2).JPG', description: 'Psychological First Aid & Rural Outreach' },
+    { image: '/assets/awards/WhatsApp%20Image%202026-03-06%20at%201.00.11%20PM.jpeg', description: 'Human Rights Sensitive Counselling Award' },
+    { image: '/assets/awards/WhatsApp%20Image%202026-03-06%20at%201.00.12%20PM%20(1).jpeg', description: 'Trauma-Informed Care Excellence' },
+    { image: '/assets/awards/WhatsApp%20Image%202026-03-06%20at%201.00.12%20PM%20(2).jpeg', description: 'Mental Health Awareness & Prevention' },
+    { image: '/assets/awards/WhatsApp%20Image%202026-03-06%20at%201.00.12%20PM%20(3).jpeg', description: 'Clinical Excellence & Leadership' },
+    { image: '/assets/awards/WhatsApp%20Image%202026-03-06%20at%201.00.12%20PM.jpeg', description: 'SANKALPAM – Accessible & Compassionate Care' },
   ],
 } as const;

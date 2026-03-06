@@ -1,6 +1,6 @@
 import { useLanguage } from '../context/LanguageContext';
 import PhotoPlaceholder from '../components/PhotoPlaceholder';
-import ImageCarousel from '../components/ImageCarousel';
+import AwardsSection from '../components/AwardsSection';
 import { ASSETS } from '../assets';
 import './About.css';
 
@@ -125,11 +125,6 @@ export default function About() {
             )}
           </p>
 
-          <div className="about-awards-panel">
-            <h5 className="awards-panel-title">{t('Awards & recognitions', 'पुरस्कार और सम्मान', 'పురస్కారాలు మరియు గుర్తింపులు')}</h5>
-            <ImageCarousel images={ASSETS.awards} interval={4500} ratio="4/3" />
-          </div>
-
           <div className="founder-photo">
             <PhotoPlaceholder src={ASSETS.about.founder} labelEn="Dr. Sahithyaa Raghu" labelHi="डॉ. साहित्या रघु" labelTe="డా. సాహిత్య రఘు" ratio="3/4" alt="Dr. Sahithyaa Raghu" />
           </div>
@@ -143,6 +138,8 @@ export default function About() {
             )}
           </blockquote>
         </div>
+
+        <AwardsSection awards={ASSETS.awards} />
       </section>
     </div>
   );
