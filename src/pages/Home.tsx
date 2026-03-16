@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import TextCarousel from '../components/TextCarousel';
@@ -5,6 +6,38 @@ import ImageTextSection from '../components/ImageTextSection';
 import PhotoPlaceholder from '../components/PhotoPlaceholder';
 import { ASSETS } from '../assets';
 import './Home.css';
+
+const heroSlides = [
+  {
+    id: 1,
+    image: ASSETS.hero.breakingSilence,
+    titleEn: 'Breaking the Silence Around Mental Health',
+    titleHi: 'मानसिक स्वास्थ्य के आसपास की चुप्पी तोड़ना',
+    titleTe: 'మానసిక ఆరోగ్యం చుట్టూ ఉన్న నిశ్శబ్దాన్ని చెరిపేయడం',
+    bodyEn:
+      'Creating safe spaces where conversations about feelings, stress, and healing are welcomed without shame.',
+    bodyHi:
+      'ऐसी सुरक्षित जगहें बनाना जहाँ भावनाओं, तनाव और उपचार के बारे में बातचीत बिना शर्म के की जा सके।',
+    bodyTe:
+      'భావాలు, ఒత్తిడి, స్వస్థత గురించి సంభాషణలు సిగ్గు లేకుండా జరగే సురక్షిత స్థలాలను సృష్టించడం.',
+  },
+  {
+    id: 2,
+    image: ASSETS.hero.accessibleSupport,
+    titleEn:
+      'Mental health awareness for everyone, with accessible counselling and emotional wellbeing support for underserved communities.',
+    titleHi:
+      'सभी के लिए मानसिक स्वास्थ्य जागरूकता, वंचित समुदायों के लिए सुलभ परामर्श और भावनात्मक कल्याण समर्थन के साथ।',
+    titleTe:
+      'ప్రతీ ఒక్కరి కోసం మానసిక ఆరోగ్య అవగాహన, అల్పసేవా సమాజాలకు అందుబాటు కౌన్సెలింగ్ మరియు భావనాత్మక మద్దతుతో.',
+    bodyEn:
+      'From villages to schools, we work to ensure that care is reachable, affordable, and culturally rooted.',
+    bodyHi:
+      'गाँवों से स्कूलों तक, हम यह सुनिश्चित करने के लिए काम करते हैं कि देखभाल पहुँच योग्य, किफायती और सांस्कृतिक रूप से जुड़ी हो।',
+    bodyTe:
+      'గ్రామాల నుండి పాఠశాలల వరకు, సంరక్షణ అందుబాటులో, చౌకగా మరియు సాంస్కృతికంగా అనుసంధానంగా ఉండేలా మేము పని చేస్తున్నాము.',
+  },
+] as const;
 
 const flagshipPrograms = [
   {
@@ -41,29 +74,75 @@ const impactStats = [
 
 export default function Home() {
   const { t } = useLanguage();
+  const [heroIndex, setHeroIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(
+      () => setHeroIndex((prev) => (prev + 1) % heroSlides.length),
+      7000
+    );
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <>
-      {/* Hero – AHCT-style blue gradient */}
+      {/* Hero – AHCT-style blue gradient with image carousel */}
       <section className="home-hero">
-        <div className="home-hero-inner">
-          <h1 className="home-hero-tagline">
-            {t('Healthy Minds Build Healthy Communities', 'स्वस्थ मन स्वस्थ समुदाय बनाते हैं', 'ఆరోగ్యకరమైన మనస్సులు ఆరోగ్యకరమైన సమాజాలను నిర్మిస్తాయి')}
-          </h1>
-          <p className="home-hero-sub">
-            {t(
-              'We make emotional wellbeing simple, safe, and reachable — in villages, schools, and everyday life.',
-              'हम भावनात्मक कल्याण को सरल, सुरक्षित और पहुंच के भीतर बनाते हैं — गाँवों, स्कूलों और रोजमर्रा की जिंदगी में।',
-              'మేము భావనాత్మక క్షేమాన్ని సరళంగా, సురక్షితంగా మరియు అందుబాటులో చేస్తాము — గ్రామాలు, పాఠశాలలు మరియు రోజువారీ జీవితంలో.'
-            )}
-          </p>
-          <div className="home-hero-cta">
-            <Link to="/donate" className="home-hero-btn">
-              {t('Support Our Mission', 'हमारे मिशन का समर्थन करें', 'మా మిషన్‌కు మద్దతు ఇవ్వండి')}
-            </Link>
-            <Link to="/initiatives" className="home-hero-btn-outline">
-              {t('Explore Programs', 'कार्यक्रम देखें', 'కార్యక్రమాలు అన్వేషించండి')}
-            </Link>
+        <div className="home-hero-inner hero-with-carousel">
+          <div className="home-hero-left">
+            <h1 className="home-hero-tagline">
+              {t(
+                'Healthy Minds Build Healthy Communities',
+                'स्वस्थ मन स्वस्थ समुदाय बनाते हैं',
+                'ఆరోగ్యకరమైన మనస్సులు ఆరోగ్యకరమైన సమాజాలను నిర్మిస్తాయి'
+              )}
+            </h1>
+            <p className="home-hero-sub">
+              {t(
+                'We make emotional wellbeing simple, safe, and reachable — in villages, schools, and everyday life.',
+                'हम भावनात्मक कल्याण को सरल, सुरक्षित और पहुंच के भीतर बनाते हैं — गाँवों, स्कूलों और रोजमर्रा की जिंदगी में।',
+                'మేము భావనాత్మక క్షేమాన్ని సరళంగా, సురక్షితంగా మరియు అందుబాటులో చేస్తాము — గ్రామాలు, పాఠశాలలు మరియు రోజువారీ జీవితంలో.'
+              )}
+            </p>
+            <div className="home-hero-cta">
+              <Link to="/donate" className="home-hero-btn">
+                {t('Support Our Mission', 'हमारे मिशन का समर्थन करें', 'మా మిషన్‌కు మద్దతు ఇవ్వండి')}
+              </Link>
+              <Link to="/initiatives" className="home-hero-btn-outline">
+                {t('Explore Programs', 'कार्यक्रम देखें', 'కార్యక్రమాలు అన్వేషించండి')}
+              </Link>
+            </div>
+          </div>
+
+          <div className="home-hero-right">
+            <div className="hero-slide-track">
+              {heroSlides.map((slide, idx) => (
+                <article
+                  key={slide.id}
+                  className={`hero-slide ${idx === heroIndex ? 'active' : ''}`}
+                  style={{ backgroundImage: `url(${slide.image})` }}
+                >
+                  <div className="hero-slide-content">
+                    <h2>
+                      {t(slide.titleEn, slide.titleHi, slide.titleTe)}
+                    </h2>
+                    <p>
+                      {t(slide.bodyEn, slide.bodyHi, slide.bodyTe)}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
+            <div className="hero-slide-dots" aria-hidden="true">
+              {heroSlides.map((slide, idx) => (
+                <button
+                  key={slide.id}
+                  type="button"
+                  className={`hero-slide-dot ${idx === heroIndex ? 'active' : ''}`}
+                  onClick={() => setHeroIndex(idx)}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -170,20 +249,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Our Impact */}
-      <section className="home-impact">
-        <div className="home-impact-inner">
-          <h2 className="home-section-title home-section-title-light">{t('Our Impact', 'हमारा प्रभाव', 'మా ప్రభావం')}</h2>
-          <div className="home-impact-grid">
-            {impactStats.map((stat, i) => (
-              <div key={i} className="home-impact-stat">
-                <span className="home-impact-num">{stat.num}</span>
-                <span className="home-impact-label">{t(stat.labelEn, stat.labelHi, stat.labelTe)}</span>
-              </div>
-            ))}
+      {/* Our Impact – temporarily hidden */}
+      {false && (
+        <section className="home-impact">
+          <div className="home-impact-inner">
+            <h2 className="home-section-title home-section-title-light">
+              {t('Our Impact', 'हमारा प्रभाव', 'మా ప్రభావం')}
+            </h2>
+            <div className="home-impact-grid">
+              {impactStats.map((stat, i) => (
+                <div key={i} className="home-impact-stat">
+                  <span className="home-impact-num">{stat.num}</span>
+                  <span className="home-impact-label">
+                    {t(stat.labelEn, stat.labelHi, stat.labelTe)}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <TextCarousel />
 

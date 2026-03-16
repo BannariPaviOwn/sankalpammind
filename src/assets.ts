@@ -67,6 +67,11 @@ export const ASSETS = {
     community: `${BASE}/${IMG._04}`,
     impact: `${BASE}/${IMG._05}`,
   },
+  hero: {
+    /** Hero carousel images (16:9 or similar). Place files in public/assets/hero/. */
+    breakingSilence: `${BASE}/hero/hero-breaking-silence.png`,
+    accessibleSupport: `${BASE}/hero/hero-accessible-support.png`,
+  },
   /** Award/recognition photos from public/assets/awards/ with hardcoded descriptions */
   awards: [
     { image: '/assets/awards/WhatsApp%20Image%202026-03-06%20at%201.00.10%20PM%20(1).jpeg', description: 'Tamil Nadu Govt Human Rights Commission – State Award (2021)' },
