@@ -118,19 +118,19 @@
   padding: 0.45rem 1rem;
   font-size: 0.8125rem;
   font-weight: 600;
-  color: #111827;
-  border: 2px solid rgba(248, 250, 252, 0.9);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.85);
   border-radius: 0.5rem;
   text-decoration: none;
   transition: all 0.25s ease;
-  background: rgba(248, 250, 252, 0.95);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
 }
 
 .btn-volunteer:hover {
-  background: #e5e7eb;
-  color: #111827;
-  border-color: #f9fafb;
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.35);
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.35);
   transform: translateY(-1px);
 }
 
@@ -139,17 +139,17 @@
   font-size: 0.8125rem;
   font-weight: 600;
   color: #111827;
-  background: #f97316;
+  background: linear-gradient(135deg, #f97316 0%, #fb923c 55%, #fbbf24 100%);
   border: none;
   border-radius: 0.5rem;
   text-decoration: none;
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.4);
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.45);
   transition: all 0.25s ease;
 }
 
 .btn-donate:hover {
-  background: #fb923c;
-  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.45);
+  background: linear-gradient(135deg, #fb923c 0%, #f97316 60%, #f59e0b 100%);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.5);
   transform: translateY(-1px);
 }
 

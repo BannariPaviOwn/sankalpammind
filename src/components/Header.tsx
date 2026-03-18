@@ -111,20 +111,23 @@ export default function Header() {
           </div>
 
           <div className="header-right">
-            <div className="lang-switcher">
-              <select
-                className="lang-select"
-                value={language}
-                onChange={(e) => setLanguage(e.target.value as any)}
-                aria-label="Select language"
-              >
-                <option value="en">English</option>
-                <option value="hi">हिन्दी (Hindi)</option>
-                <option value="te">తెలుగు (Telugu)</option>
-                <option value="ta">தமிழ் (Tamil)</option>
-                <option value="ml">മലയാളം (Malayalam)</option>
-              </select>
-            </div>
+            {/* Language dropdown – temporarily hidden */}
+            {false && (
+              <div className="lang-switcher">
+                <select
+                  className="lang-select"
+                  value={language}
+                  onChange={(e) => setLanguage(e.target.value as any)}
+                  aria-label="Select language"
+                >
+                  <option value="en">English</option>
+                  <option value="hi">हिन्दी (Hindi)</option>
+                  <option value="te">తెలుగు (Telugu)</option>
+                  <option value="ta">தமிழ் (Tamil)</option>
+                  <option value="ml">മലയാളം (Malayalam)</option>
+                </select>
+              </div>
+            )}
             <button
               type="button"
               className="hamburger"
