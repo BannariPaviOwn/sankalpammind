@@ -51,8 +51,19 @@ export default function Footer() {
           </div>
           <div className="footer-contact">
             <h4>{t('Contact', 'संपर्क', 'సంప్రదించండి')}</h4>
-            <p>info@sankalpammindwellness.org</p>
+            <p>contact@sankalpammind.org</p>
             <p>+91 1800-XXX-XXXX</p>
+
+            <div className="footer-license">
+              <p className="footer-license-label">
+                {t('License / Registration', 'लाइसेंस / पंजीकरण', 'లైసెన్స్ / నమోదు')}
+              </p>
+              <img
+                src="/assets/1660556974140.jpg"
+                alt={t('License proof', 'लाइसेंस प्रमाण', 'లైసెన్స్ ప్రూఫ్')}
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
         <div className="footer-bottom">

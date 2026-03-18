@@ -10,6 +10,10 @@ interface PhotoPlaceholderProps {
   ratio?: '4/3' | '16/9' | '1/1' | '3/4';
   className?: string;
   alt?: string;
+  /** CSS object-position for the img when using object-fit: cover (e.g. "center", "center 70%"). */
+  objectPosition?: string;
+  /** CSS object-fit for the img (default: cover). Use 'contain' to avoid cropping. */
+  objectFit?: 'cover' | 'contain';
 }
 
 export default function PhotoPlaceholder({
@@ -20,6 +24,8 @@ export default function PhotoPlaceholder({
   ratio = '4/3',
   className = '',
   alt,
+  objectPosition = 'center',
+  objectFit = 'cover',
 }: PhotoPlaceholderProps) {
   const { t } = useLanguage();
   const [imgError, setImgError] = useState(false);
@@ -36,6 +42,7 @@ export default function PhotoPlaceholder({
           alt={alt || t(labelEn, labelHi, labelTe)}
           loading="lazy"
           onError={() => setImgError(true)}
+          style={{ objectPosition, objectFit }}
         />
       </div>
     );

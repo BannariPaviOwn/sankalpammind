@@ -139,8 +139,25 @@ export default function Header() {
           </div>
         </div>
 
-        <div className={`mobile-nav ${menuOpen ? 'open' : ''}`}>
-          <div className="mobile-nav-inner">
+        <div
+          className={`mobile-nav ${menuOpen ? 'open' : ''}`}
+          onClick={() => setMenuOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile navigation"
+        >
+          <div className="mobile-nav-inner" onClick={(e) => e.stopPropagation()}>
+            <div className="mobile-nav-top">
+              <span className="mobile-nav-title">{t('Menu', 'मेनू', 'మెను', 'மெனு', 'മെനു')}</span>
+              <button
+                type="button"
+                className="mobile-nav-close"
+                onClick={() => setMenuOpen(false)}
+                aria-label={t('Close menu', 'मेनू बंद करें', 'మెను మూసివేయండి', 'மெனுவை மூடவும்', 'മെനു അടയ്ക്കുക')}
+              >
+                ✕
+              </button>
+            </div>
             {navLinks.map(({ to, labelEn, labelHi, labelTe, labelTa, labelMl }) => (
               <Link
                 key={to}

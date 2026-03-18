@@ -12,6 +12,8 @@ interface ImageTextSectionProps {
   contentHi: string;
   contentTe?: string;
   imagePosition: 'left' | 'right';
+  /** Use 'logo' to avoid cropping and add padding. */
+  imageVariant?: 'photo' | 'logo';
   gradient?: string;
   ctaEn?: string;
   ctaHi?: string;
@@ -28,6 +30,7 @@ export default function ImageTextSection({
   contentHi,
   contentTe,
   imagePosition,
+  imageVariant = 'photo',
   gradient = 'var(--gradient-peace)',
   ctaEn,
   ctaHi,
@@ -44,7 +47,7 @@ export default function ImageTextSection({
       style={{ '--section-gradient': gradient } as React.CSSProperties}
     >
       <div className="section-container">
-        <div className="section-image">
+        <div className={`section-image ${imageVariant === 'logo' ? 'variant-logo' : ''}`}>
           <div className="image-placeholder">
             {showImage ? (
               <img src={image!} alt={t(titleEn, titleHi, titleTe)} loading="lazy" onError={() => setImgError(true)} />

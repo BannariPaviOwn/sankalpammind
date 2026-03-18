@@ -39,32 +39,68 @@ const heroSlides = [
   },
 ] as const;
 
-const flagshipPrograms = [
+const upcomingProjects = [
   {
-    titleEn: 'Counselling & Therapeutic Services',
-    titleHi: 'परामर्श और चिकित्सीय सेवाएं',
-    titleTe: 'సలహా మరియు చికిత్సా సేవలు',
-    descEn: 'Individual, child, family and trauma-informed therapy.',
-    descHi: 'व्यक्तिगत, बाल, परिवार और आघात-सूचित चिकित्सा।',
-    descTe: 'వ్యక్తిగత, బాల, కుటుంబ మరియు ఆఘాత-సమాచారం చికిత్స.',
+    titleEn: 'MANODAYA – Community Mental Wellbeing Initiative 🌿',
+    titleHi: 'MANODAYA – Community Mental Wellbeing Initiative 🌿',
+    titleTe: 'MANODAYA – Community Mental Wellbeing Initiative 🌿',
+    focusEn: 'Focus: Mental health awareness & emotional wellbeing in communities.',
+    focusHi: 'Focus: Mental health awareness & emotional wellbeing in communities.',
+    focusTe: 'Focus: Mental health awareness & emotional wellbeing in communities.',
+    descEn:
+      'MANODAYA works to normalize conversations around mental health through awareness programs, community workshops, counseling access, and support circles. The initiative aims to reduce stigma and promote emotional wellbeing within families, workplaces, and local communities.',
+    descHi:
+      'MANODAYA works to normalize conversations around mental health through awareness programs, community workshops, counseling access, and support circles. The initiative aims to reduce stigma and promote emotional wellbeing within families, workplaces, and local communities.',
+    descTe:
+      'MANODAYA works to normalize conversations around mental health through awareness programs, community workshops, counseling access, and support circles. The initiative aims to reduce stigma and promote emotional wellbeing within families, workplaces, and local communities.',
+    activities: [
+      { en: 'Community awareness programs', hi: 'Community awareness programs', te: 'Community awareness programs' },
+      { en: 'Family mental health education', hi: 'Family mental health education', te: 'Family mental health education' },
+      { en: 'Support circles & guidance sessions', hi: 'Support circles & guidance sessions', te: 'Support circles & guidance sessions' },
+      { en: 'Workplace wellbeing talks', hi: 'Workplace wellbeing talks', te: 'Workplace wellbeing talks' },
+    ],
   },
   {
-    titleEn: 'School & College Mental Health',
-    titleHi: 'स्कूल और कॉलेज मानसिक स्वास्थ्य',
-    titleTe: 'పాఠశాల మరియు కళాశాల మానసిక ఆరోగ్యం',
-    descEn: 'Early intervention within education systems.',
-    descHi: 'शिक्षा प्रणालियों के भीतर प्रारंभिक हस्तक्षेप।',
-    descTe: 'విద్యా వ్యవస్థలలో ప్రారంభ జోక్యం.',
+    titleEn: 'MANOSHIKSHA – School & Youth Emotional Resilience Program 🧠',
+    titleHi: 'MANOSHIKSHA – School & Youth Emotional Resilience Program 🧠',
+    titleTe: 'MANOSHIKSHA – School & Youth Emotional Resilience Program 🧠',
+    focusEn: 'Focus: Mental wellbeing for students, parents, and educators.',
+    focusHi: 'Focus: Mental wellbeing for students, parents, and educators.',
+    focusTe: 'Focus: Mental wellbeing for students, parents, and educators.',
+    descEn:
+      'MANOSHIKSHA focuses on building emotional intelligence, resilience, and healthy coping skills among children and adolescents. The program works with schools and colleges to create emotionally safe learning environments.',
+    descHi:
+      'MANOSHIKSHA focuses on building emotional intelligence, resilience, and healthy coping skills among children and adolescents. The program works with schools and colleges to create emotionally safe learning environments.',
+    descTe:
+      'MANOSHIKSHA focuses on building emotional intelligence, resilience, and healthy coping skills among children and adolescents. The program works with schools and colleges to create emotionally safe learning environments.',
+    activities: [
+      { en: 'School mental health programs', hi: 'School mental health programs', te: 'School mental health programs' },
+      { en: 'Emotional intelligence workshops', hi: 'Emotional intelligence workshops', te: 'Emotional intelligence workshops' },
+      { en: 'Exam stress & career pressure sessions', hi: 'Exam stress & career pressure sessions', te: 'Exam stress & career pressure sessions' },
+      { en: 'Parent and teacher guidance programs', hi: 'Parent and teacher guidance programs', te: 'Parent and teacher guidance programs' },
+    ],
   },
   {
-    titleEn: 'Community Outreach & Training',
-    titleHi: 'समुदाय आउटरीच और प्रशिक्षण',
-    titleTe: 'సమాజ విస్తరణ మరియు శిక్షణ',
-    descEn: 'Psychological First Aid, volunteer training.',
-    descHi: 'मनोवैज्ञानिक प्रथम सहायता, स्वयंसेवक प्रशिक्षण।',
-    descTe: 'మనస్తత్వశాస్త్ర ప్రథమ సహాయం, స్వచ్ఛంద శిక్షణ.',
+    titleEn: 'MANORAKSHA – Trauma Preparedness & Psychological Support Initiative 🤝',
+    titleHi: 'MANORAKSHA – Trauma Preparedness & Psychological Support Initiative 🤝',
+    titleTe: 'MANORAKSHA – Trauma Preparedness & Psychological Support Initiative 🤝',
+    focusEn: 'Focus: Trauma awareness, crisis response, and psychological first aid.',
+    focusHi: 'Focus: Trauma awareness, crisis response, and psychological first aid.',
+    focusTe: 'Focus: Trauma awareness, crisis response, and psychological first aid.',
+    descEn:
+      'MANORAKSHA prepares communities to recognize emotional distress and respond with psychological support during crises such as loss, disasters, violence, or severe stress. The program promotes trauma-informed care and psychological first aid training.',
+    descHi:
+      'MANORAKSHA prepares communities to recognize emotional distress and respond with psychological support during crises such as loss, disasters, violence, or severe stress. The program promotes trauma-informed care and psychological first aid training.',
+    descTe:
+      'MANORAKSHA prepares communities to recognize emotional distress and respond with psychological support during crises such as loss, disasters, violence, or severe stress. The program promotes trauma-informed care and psychological first aid training.',
+    activities: [
+      { en: 'Trauma awareness programs', hi: 'Trauma awareness programs', te: 'Trauma awareness programs' },
+      { en: 'Psychological First Aid training', hi: 'Psychological First Aid training', te: 'Psychological First Aid training' },
+      { en: 'Crisis counseling support', hi: 'Crisis counseling support', te: 'Crisis counseling support' },
+      { en: 'Community resilience building', hi: 'Community resilience building', te: 'Community resilience building' },
+    ],
   },
-];
+] as const;
 
 const impactStats = [
   { num: '50+', labelEn: 'Sessions conducted', labelHi: 'आयोजित सत्र', labelTe: 'ఆరంభించిన సెషన్లు' },
@@ -116,22 +152,21 @@ export default function Home() {
 
           <div className="home-hero-right">
             <div className="hero-slide-track">
-              {heroSlides.map((slide, idx) => (
-                <article
-                  key={slide.id}
-                  className={`hero-slide ${idx === heroIndex ? 'active' : ''}`}
-                  style={{ backgroundImage: `url(${slide.image})` }}
-                >
-                  <div className="hero-slide-content">
-                    <h2>
-                      {t(slide.titleEn, slide.titleHi, slide.titleTe)}
-                    </h2>
-                    <p>
-                      {t(slide.bodyEn, slide.bodyHi, slide.bodyTe)}
-                    </p>
-                  </div>
-                </article>
-              ))}
+              {(() => {
+                const slide = heroSlides[heroIndex];
+                return (
+                  <article
+                    key={slide.id}
+                    className="hero-slide"
+                    style={{ backgroundImage: `url(${slide.image})` }}
+                  >
+                    <div className="hero-slide-content">
+                      <h2>{t(slide.titleEn, slide.titleHi, slide.titleTe)}</h2>
+                      <p>{t(slide.bodyEn, slide.bodyHi, slide.bodyTe)}</p>
+                    </div>
+                  </article>
+                );
+              })()}
             </div>
             <div className="hero-slide-dots" aria-hidden="true">
               {heroSlides.map((slide, idx) => (
@@ -233,16 +268,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Flagship Programs */}
+      {/* Upcoming Projects */}
       <section className="home-programs">
         <div className="home-programs-inner">
-          <h2 className="home-section-title">{t('Flagship Programs', 'मुख्य कार्यक्रम', 'ముఖ్య కార్యక్రమాలు')}</h2>
+          <h2 className="home-section-title">
+            {t('Upcoming Projects in Sankalpam', 'Upcoming Projects in Sankalpam', 'Upcoming Projects in Sankalpam')}
+          </h2>
           <div className="home-programs-grid">
-            {flagshipPrograms.map((prog, i) => (
+            {upcomingProjects.map((p, i) => (
               <div key={i} className="home-program-card">
-                <h3>{t(prog.titleEn, prog.titleHi, prog.titleTe)}</h3>
-                <p>{t(prog.descEn, prog.descHi, prog.descTe)}</p>
-                <Link to="/initiatives">{t('Know More', 'और जानें', 'మరింత తెలుసుకోండి')}</Link>
+                <h3>{t(p.titleEn, p.titleHi, p.titleTe)}</h3>
+                <p className="home-program-focus">{t(p.focusEn, p.focusHi, p.focusTe)}</p>
+                <p>{t(p.descEn, p.descHi, p.descTe)}</p>
+                <h4 className="home-program-subtitle">
+                  {t('Key Activities', 'Key Activities', 'Key Activities')}
+                </h4>
+                <ul className="home-program-list">
+                  {p.activities.map((a, idx) => (
+                    <li key={idx}>{t(a.en, a.hi, a.te)}</li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
@@ -274,6 +319,7 @@ export default function Home() {
 
       <ImageTextSection
         image={ASSETS.home.aboutSankalpam}
+        imageVariant="logo"
         imagePosition="left"
         titleEn="About Sankalpam"
         titleHi="संकल्पम के बारे में"
@@ -299,6 +345,8 @@ export default function Home() {
               labelHi={`फोटो ${i + 1}`}
               labelTe={`ఫోటో ${i + 1}`}
               ratio="4/3"
+              objectFit={i === 1 || i === ASSETS.home.gallery.length - 1 ? 'contain' : 'cover'}
+              objectPosition={i === 1 || i === ASSETS.home.gallery.length - 1 ? 'center' : 'center'}
             />
           ))}
         </div>

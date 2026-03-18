@@ -25,6 +25,11 @@ function AppContent() {
   const location = useLocation();
   const isTemplateFullPage = FULLPAGE_PREVIEW_ROUTES.includes(location.pathname);
 
+  // Always scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   useEffect(() => {
     document.body.classList.remove('hindi', 'telugu', 'tamil', 'malayalam');
     if (language === 'hi') document.body.classList.add('hindi');

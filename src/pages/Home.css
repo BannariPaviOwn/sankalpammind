@@ -15,73 +15,83 @@
 
 .hero-with-carousel {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  grid-template-columns: 1fr 1fr;
   gap: 2.5rem;
   align-items: center;
 }
 
 .home-hero-left {
   text-align: left;
+  padding-right: 0.5rem;
 }
 
 .home-hero-right {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 .hero-slide-track {
-  position: relative;
   width: 100%;
-  max-width: 360px;
-  min-height: 260px;
+  max-width: none;
 }
 
 .hero-slide {
-  position: absolute;
-  inset: 0;
   border-radius: 1.25rem;
   padding: 1.5rem 1.75rem;
-  background: #111827;
+  /* Light card (no black) – image sits behind with soft overlay */
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(10px);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.4);
-  color: #ffffff;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.28);
+  color: #0f172a;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  opacity: 0;
-  transform: translateY(12px);
-  pointer-events: none;
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  min-height: 220px;
+  animation: heroSlideIn 240ms ease-out;
 }
 
-.hero-slide.active {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+@keyframes heroSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .hero-slide::before {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(145deg, rgba(15, 23, 42, 0.85), rgba(67, 56, 202, 0.7));
-  mix-blend-mode: multiply;
+  /* Soft, readable overlay (keeps image visible) */
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.78) 0%,
+    rgba(237, 233, 254, 0.62) 45%,
+    rgba(224, 231, 255, 0.55) 100%
+  );
+  mix-blend-mode: normal;
 }
 
 .hero-slide-content h2 {
   position: relative;
   font-size: 1.05rem;
   font-weight: 700;
-  color: #f9fafb;
+  color: #0f172a;
   margin-bottom: 0.25rem;
 }
 
 .hero-slide-content p {
   position: relative;
   font-size: 0.9rem;
-  color: #e5e7eb;
+  color: #334155;
   line-height: 1.6;
 }
 
@@ -98,7 +108,7 @@
   border-radius: 999px;
   border: none;
   padding: 0;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.55);
   cursor: pointer;
   transition: background 0.2s, width 0.2s;
 }
@@ -137,10 +147,15 @@
 
   .home-hero-left {
     text-align: center;
+    padding-right: 0;
   }
 
   .home-hero-right {
     justify-content: center;
+  }
+
+  .hero-slide-track {
+    max-width: 520px;
   }
 }
 
@@ -474,6 +489,42 @@
   color: #334155;
   line-height: 1.6;
   margin-bottom: 1rem;
+}
+
+.home-program-focus {
+  font-weight: 700;
+  color: #4a2d82;
+  margin-bottom: 0.75rem;
+}
+
+.home-program-subtitle {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0.75rem 0 0.5rem;
+}
+
+.home-program-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.home-program-list li {
+  padding-left: 1.25rem;
+  position: relative;
+  color: #334155;
+  line-height: 1.55;
+}
+
+.home-program-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #7044C4;
+  font-weight: 800;
 }
 
 .home-program-card a {

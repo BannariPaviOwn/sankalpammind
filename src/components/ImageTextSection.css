@@ -40,6 +40,19 @@
   object-fit: cover;
 }
 
+/* Logo variant (prevents cropping + adds clean framing) */
+.section-image.variant-logo .image-placeholder {
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), rgba(243, 244, 246, 0.95));
+  padding: 1.5rem;
+}
+
+.section-image.variant-logo .image-placeholder img {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+  filter: drop-shadow(0 10px 28px rgba(15, 23, 42, 0.12));
+}
+
 .placeholder-content {
   display: flex;
   flex-direction: column;

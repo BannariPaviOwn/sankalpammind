@@ -336,12 +336,15 @@ export default function Initiatives() {
         </p>
       </section>
 
-      <section className="initiatives-photo">
-        <div className="initiatives-photo-inner">
-          <PhotoPlaceholder src={ASSETS.initiatives.programsAction} labelEn="Programs in action" labelHi="कार्यक्रम अभियान में" labelTe="కార్యక్రమాలు చర్యలో" ratio="16/9" />
-          <PhotoPlaceholder src={ASSETS.initiatives.sessions} labelEn="Sessions" labelHi="सत्र" labelTe="సెషన్లు" ratio="16/9" />
-        </div>
-      </section>
+      {/* Photos – temporarily hidden */}
+      {false && (
+        <section className="initiatives-photo">
+          <div className="initiatives-photo-inner">
+            <PhotoPlaceholder src={ASSETS.initiatives.programsAction} labelEn="Programs in action" labelHi="कार्यक्रम अभियान में" labelTe="కార్యక్రమాలు చర్యలో" ratio="16/9" />
+            <PhotoPlaceholder src={ASSETS.initiatives.sessions} labelEn="Sessions" labelHi="सत्र" labelTe="సెషన్లు" ratio="16/9" />
+          </div>
+        </section>
+      )}
 
       <section className="initiatives-grid">
         {programs.map((prog, i) => (
@@ -361,20 +364,23 @@ export default function Initiatives() {
         ))}
       </section>
 
-      <section className="initiatives-photo initiatives-photo-bottom">
-        <div className="photo-gallery">
-          {ASSETS.initiatives.gallery.map((src, i) => (
-            <PhotoPlaceholder
-              key={i}
-              src={src}
-              labelEn={`Photo ${i + 1}`}
-              labelHi={`फोटो ${i + 1}`}
-              labelTe={`ఫోటో ${i + 1}`}
-              ratio="4/3"
-            />
-          ))}
-        </div>
-      </section>
+      {/* Photos – temporarily hidden */}
+      {false && (
+        <section className="initiatives-photo initiatives-photo-bottom">
+          <div className="photo-gallery">
+            {ASSETS.initiatives.gallery.map((src, i) => (
+              <PhotoPlaceholder
+                key={i}
+                src={src}
+                labelEn={`Photo ${i + 1}`}
+                labelHi={`फोटो ${i + 1}`}
+                labelTe={`ఫోటో ${i + 1}`}
+                ratio="4/3"
+              />
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }
