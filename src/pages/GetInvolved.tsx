@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
-import PhotoPlaceholder from '../components/PhotoPlaceholder';
-import { ASSETS } from '../assets';
+// Photos temporarily removed from this page
 import './GetInvolved.css';
 
 export default function GetInvolved() {
@@ -49,10 +48,7 @@ export default function GetInvolved() {
           {t('No clinical background required — only commitment.', 'कोई नैदानिक पृष्ठभूमि की आवश्यकता नहीं — केवल प्रतिबद्धता।', 'క్లినికల్ నేపథ్యం అవసరం లేదు — నిబద్ధత మాత్రమే.')}
         </p>
 
-        <div className="photo-row">
-          <PhotoPlaceholder src={ASSETS.getInvolved.volunteers} labelEn="Volunteers" labelHi="स्वयंसेवक" labelTe="స్వచ్ఛంద సేవకులు" ratio="16/9" />
-          <PhotoPlaceholder src={ASSETS.getInvolved.training} labelEn="Training" labelHi="प्रशिक्षण" labelTe="శిక్షణ" ratio="16/9" />
-        </div>
+        {/* Photos – removed */}
       </section>
 
       <section className="partner-section">
@@ -97,11 +93,7 @@ export default function GetInvolved() {
           </Link>
         </div>
 
-        <div className="photo-row">
-          <PhotoPlaceholder src={ASSETS.getInvolved.partners} labelEn="Partners" labelHi="साझेदार" labelTe="భాగస్వాములు" ratio="4/3" />
-          <PhotoPlaceholder src={ASSETS.getInvolved.community} labelEn="Community" labelHi="समुदाय" labelTe="సమాజం" ratio="4/3" />
-          <PhotoPlaceholder src={ASSETS.getInvolved.impact} labelEn="Impact" labelHi="प्रभाव" labelTe="ప్రభావం" ratio="4/3" />
-        </div>
+        {/* Photos – removed */}
       </section>
     </div>
   );

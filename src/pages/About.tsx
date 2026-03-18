@@ -33,10 +33,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="about-photo-row">
-          <PhotoPlaceholder src={ASSETS.about.ourStory} labelEn="Our story" labelHi="हमारी कहानी" labelTe="మా కథ" ratio="4/3" />
-          <PhotoPlaceholder src={ASSETS.about.community} labelEn="Community" labelHi="समुदाय" labelTe="సమాజం" ratio="4/3" />
-        </div>
+        {/* Removed: the two photos directly after story */}
 
         <div className="about-card">
           <h2>🌎 {t('Our Vision', 'हमारी दृष्टि', 'మా దృష్టి')}</h2>
