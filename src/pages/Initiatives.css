@@ -1,111 +1,693 @@
-.initiatives-page {
-  padding-top: var(--header-height, 110px);
+/* ========== Initiatives Page ========== */
+
+.ini-page {
+  padding-top: var(--header-height, 72px);
+  color: #334155;
 }
 
-.initiatives-hero {
+/* ---------- Hero ---------- */
+
+.ini-hero {
+  background: linear-gradient(135deg, #4a2d82 0%, #7044c4 60%, #9061e0 100%);
+  padding: 5rem 1.5rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ini-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 80%, rgba(249, 115, 22, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.ini-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: #f8fafc;
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+
+.ini-hero-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.ini-hero-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.35rem 1rem;
+  border-radius: 2rem;
+  margin-bottom: 1.25rem;
+  backdrop-filter: blur(4px);
+}
+
+.ini-hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 1rem;
+  line-height: 1.15;
+}
+
+.ini-hero p {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ---------- Initiative Blocks ---------- */
+
+.ini-block {
   padding: 3rem 1.5rem;
-  background: linear-gradient(135deg, #e0e7ff 0%, #fce7f3 100%);
+  background: #fff;
+}
+
+.ini-block--alt {
+  background: #faf9fe;
+}
+
+.ini-block-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(74, 45, 130, 0.08);
+}
+
+/* ── Initiative card headers: unique art direction per program ── */
+.ini-block-header {
+  padding: 2.5rem 2rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.ini-block-header::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -30%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 70%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ini-number {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #64748b;
+  text-transform: none;
+  position: relative;
+  z-index: 2;
+}
+
+.ini-icon {
+  font-size: 2.5rem;
+  margin: 0.35rem 0 0.15rem;
+  width: 4.75rem;
+  height: 4.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.125rem;
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 8px 28px rgba(74, 45, 130, 0.12);
+}
+
+.ini-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 0.02em;
+  position: relative;
+  z-index: 2;
+}
+
+.ini-tagline {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-top: 0.15rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* 1 — MANODAYA: lavender wash, soft dot lattice, ripple pulse */
+.ini-block-header--manodaya {
+  background: linear-gradient(
+    180deg,
+    #f5f3ff 0%,
+    #ede9fe 42%,
+    #e9d5ff 100%
+  );
+}
+
+.ini-block-header--manodaya::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    rgba(112, 68, 196, 0.09) 1px,
+    transparent 1px
+  );
+  background-size: 15px 15px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ini-block-header--manodaya::after {
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 100%,
+    rgba(167, 139, 250, 0.35),
+    transparent 70%
+  );
+}
+
+.ini-block-header--manodaya .ini-title {
+  color: #4a2d82;
+}
+
+.ini-block-header--manodaya .ini-tagline {
+  color: #c2410c;
+}
+
+.ini-icon--manodaya {
+  border: 1px solid rgba(167, 139, 250, 0.35);
+}
+
+/* 2 — MANOSHIKSHA: cool sky → iris, diagonal mesh, ascending path */
+.ini-block-header--manoshiksha {
+  background: linear-gradient(
+    180deg,
+    #eff6ff 0%,
+    #e0e7ff 50%,
+    #ddd6fe 100%
+  );
+}
+
+.ini-block-header--manoshiksha::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.45;
+  background-image: repeating-linear-gradient(
+    -32deg,
+    transparent,
+    transparent 11px,
+    rgba(59, 130, 246, 0.06) 11px,
+    rgba(59, 130, 246, 0.06) 12px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ini-block-header--manoshiksha::after {
+  background: radial-gradient(
+    ellipse 90% 55% at 50% 100%,
+    rgba(99, 102, 241, 0.22),
+    transparent 65%
+  );
+}
+
+.ini-block-header--manoshiksha .ini-title {
+  color: #3730a3;
+}
+
+.ini-block-header--manoshiksha .ini-tagline {
+  color: #1d4ed8;
+}
+
+.ini-icon--manoshiksha {
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.95) inset,
+    0 8px 28px rgba(37, 99, 235, 0.14);
+}
+
+/* 3 — MANORAKSHA: sea-glass calm, horizon bands, sonar arcs */
+.ini-block-header--manoraksha {
+  background: linear-gradient(
+    180deg,
+    #ecfdf5 0%,
+    #d1fae5 38%,
+    #bae6fd 100%
+  );
+}
+
+.ini-block-header--manoraksha::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 55%,
+    rgba(14, 165, 233, 0.06) 55%,
+    rgba(14, 165, 233, 0.06) 56%,
+    transparent 56%,
+    transparent 72%,
+    rgba(16, 185, 129, 0.07) 72%,
+    rgba(16, 185, 129, 0.07) 73%,
+    transparent 73%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ini-block-header--manoraksha::after {
+  background: radial-gradient(
+    ellipse 85% 50% at 50% 100%,
+    rgba(13, 148, 136, 0.2),
+    transparent 68%
+  );
+}
+
+.ini-block-header--manoraksha .ini-title {
+  color: #0f766e;
+}
+
+.ini-block-header--manoraksha .ini-tagline {
+  color: #0369a1;
+}
+
+.ini-icon--manoraksha {
+  border: 1px solid rgba(45, 212, 191, 0.45);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 8px 28px rgba(13, 148, 136, 0.12);
+}
+
+/* 4 — Integrated: dawn warmth + mint, soft grain, bridge knot */
+.ini-block-header--integrated-wellness {
+  background: linear-gradient(
+    180deg,
+    #fffbeb 0%,
+    #fef3c7 40%,
+    #d1fae5 100%
+  );
+}
+
+.ini-block-header--integrated-wellness::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background-image: radial-gradient(
+    rgba(180, 83, 9, 0.07) 1px,
+    transparent 1px
+  );
+  background-size: 12px 12px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ini-block-header--integrated-wellness::after {
+  background: radial-gradient(
+    ellipse 75% 55% at 50% 100%,
+    rgba(245, 158, 11, 0.18),
+    transparent 70%
+  );
+}
+
+.ini-block-header--integrated-wellness .ini-title {
+  color: #7c2d12;
+}
+
+.ini-block-header--integrated-wellness .ini-tagline {
+  color: #047857;
+}
+
+.ini-icon--integrated-wellness {
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.95) inset,
+    0 8px 28px rgba(180, 83, 9, 0.1);
+}
+
+/* Bottom motifs — each initiative has a different metaphor */
+.ini-block-motif {
+  margin-top: 1.5rem;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.ini-block-motif--manodaya {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #7044c4;
+  box-shadow:
+    0 0 0 10px rgba(112, 68, 196, 0.2),
+    0 0 0 24px rgba(112, 68, 196, 0.11),
+    0 0 0 42px rgba(112, 68, 196, 0.06),
+    0 0 48px rgba(112, 68, 196, 0.12);
+}
+
+.ini-block-motif--manoshiksha {
+  width: 112px;
+  height: 52px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 112 52' fill='none'%3E%3Cpath d='M8 44V32h20V22h24V14h24V8h20' stroke='%234f46e5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' opacity='0.55'/%3E%3Ccircle cx='8' cy='44' r='4' fill='%236366f1' opacity='0.7'/%3E%3Ccircle cx='28' cy='32' r='4' fill='%236366f1' opacity='0.65'/%3E%3Ccircle cx='52' cy='22' r='4' fill='%236366f1' opacity='0.6'/%3E%3Ccircle cx='76' cy='14' r='4' fill='%236366f1' opacity='0.55'/%3E%3Ccircle cx='100' cy='8' r='4.5' fill='%234f46e5' opacity='0.85'/%3E%3C/svg%3E")
+    center no-repeat;
+  background-size: contain;
+}
+
+.ini-block-motif--manoraksha {
+  width: 88px;
+  height: 44px;
+  position: relative;
+}
+
+.ini-block-motif--manoraksha::before,
+.ini-block-motif--manoraksha::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 2.5px solid transparent;
+  border-top-color: rgba(13, 148, 136, 0.55);
+  border-radius: 50% 50% 0 0;
+  box-sizing: border-box;
+}
+
+.ini-block-motif--manoraksha::before {
+  width: 88px;
+  height: 44px;
+  bottom: 0;
+  opacity: 1;
+}
+
+.ini-block-motif--manoraksha::after {
+  width: 58px;
+  height: 29px;
+  bottom: 6px;
+  border-top-color: rgba(14, 165, 233, 0.5);
+  opacity: 0.95;
+}
+
+.ini-block-motif--integrated-wellness {
+  width: 92px;
+  height: 42px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 92 42'%3E%3Ccircle cx='34' cy='21' r='18' fill='rgba(251%2C191%2C36%2C0.2)' stroke='%23ca8a04' stroke-width='2' opacity='0.9'/%3E%3Ccircle cx='58' cy='21' r='18' fill='rgba(16%2C185%2C129%2C0.14)' stroke='%23059669' stroke-width='2' opacity='0.9'/%3E%3C/svg%3E")
+    center no-repeat;
+  background-size: contain;
+}
+
+.ini-block-body {
+  padding: 2rem 2.5rem 2.5rem;
+}
+
+.ini-desc {
+  font-size: 1.0625rem;
+  color: #334155;
+  line-height: 1.7;
+  margin: 0 0 2rem;
+  text-align: center;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Columns ---------- */
+
+.ini-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.ini-col h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #4a2d82;
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #ede9fe;
+}
+
+/* ---------- Lists ---------- */
+
+.ini-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ini-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.ini-list li::before {
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+}
+
+.ini-list--interventions li::before {
+  content: '▸';
+  color: #7044c4;
+}
+
+.ini-list--reaches li::before {
+  content: '●';
+  color: #f97316;
+  font-size: 0.5rem;
+  top: 0.45rem;
+}
+
+.ini-list--outcomes li::before {
+  content: '✓';
+  color: #16a34a;
+}
+
+.ini-list--special li::before {
+  content: '◆';
+  color: #7044c4;
+  font-size: 0.55rem;
+  top: 0.45rem;
+}
+
+/* ---------- Special Focus ---------- */
+
+.ini-special {
+  margin-top: 2rem;
+  padding: 1.5rem 1.75rem;
+  background: linear-gradient(135deg, #fef3c7 0%, #fff7ed 100%);
+  border-radius: 0.75rem;
+  border-left: 4px solid #f97316;
+}
+
+.ini-special h4 {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.5rem;
+}
+
+.ini-special p {
+  font-size: 0.9375rem;
+  color: #475569;
+  margin: 0 0 0.75rem;
+  line-height: 1.6;
+}
+
+.ini-special__focus {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #9a3412;
+  margin: 1rem 0 0;
+  line-height: 1.55;
+}
+
+/* ---------- Connected Section ---------- */
+
+.ini-connected {
+  background: linear-gradient(135deg, #4a2d82 0%, #7044c4 100%);
+  padding: 4rem 1.5rem;
+}
+
+.ini-connected-inner {
+  max-width: 800px;
+  margin: 0 auto;
   text-align: center;
 }
 
-.initiatives-hero h1 {
-  font-size: 2.5rem;
+.ini-connected h2 {
+  font-size: 1.75rem;
   font-weight: 800;
-  color: #1e293b;
-  margin-bottom: 0.75rem;
+  color: #fff;
+  margin: 0 0 1.25rem;
 }
 
-.initiatives-hero p {
-  font-size: 1.125rem;
-  color: #475569;
+.ini-connected p {
+  font-size: 1.0625rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.75;
+  margin: 0 0 1.25rem;
+}
+
+.ini-connected strong {
+  color: #fbbf24;
+}
+
+.ini-together-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  text-align: left;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ini-together-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.65rem;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ini-together-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #fbbf24;
+  font-weight: 700;
+}
+
+.ini-connected__closing {
+  margin-bottom: 0 !important;
+  font-weight: 500;
+}
+
+/* ---------- CTA ---------- */
+
+.ini-cta {
+  padding: 4rem 1.5rem;
+  background: #f8fafc;
+  text-align: center;
+}
+
+.ini-cta-inner {
   max-width: 600px;
   margin: 0 auto;
 }
 
-.initiatives-grid {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+.ini-cta h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.75rem;
 }
 
-.initiative-card {
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  transition: transform 0.2s;
-}
-
-.initiative-card:hover {
-  transform: translateY(-4px);
-}
-
-.initiative-card h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 0.75rem;
-}
-
-.initiative-card p {
-  font-size: 0.9375rem;
+.ini-cta p {
+  font-size: 1.0625rem;
   color: #475569;
-  line-height: 1.6;
+  margin: 0 0 2rem;
+  line-height: 1.7;
 }
 
-.initiative-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: 0.9375rem;
-  color: #475569;
-  line-height: 1.6;
+.ini-cta-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.initiative-list li {
-  padding-left: 1.25rem;
-  position: relative;
-  margin-bottom: 0.35rem;
-}
-
-.initiative-list li::before {
-  content: '•';
-  position: absolute;
-  left: 0;
-  color: #7044C4;
-  font-weight: 700;
-}
-
-.initiative-focus {
-  font-size: 0.875rem;
+.ini-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: #5a36a3;
-  margin-top: 1rem;
-  margin-bottom: 0;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.initiatives-photo {
-  padding: 2rem 1.5rem;
-  background: #f8fafc;
+.ini-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(74, 45, 130, 0.2);
 }
 
-.initiatives-photo-inner {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+.ini-btn--primary {
+  background: #f97316;
+  color: #fff;
 }
 
-.initiatives-photo-bottom .photo-gallery {
-  max-width: 900px;
-  margin: 0 auto;
+.ini-btn--outline {
+  background: transparent;
+  color: #4a2d82;
+  border: 2px solid #4a2d82;
 }
+
+.ini-btn--outline:hover {
+  background: #4a2d82;
+  color: #fff;
+}
+
+/* ---------- Responsive ---------- */
 
 @media (max-width: 768px) {
-  .initiatives-photo-inner {
+  .ini-hero {
+    padding: 4rem 1.25rem 3rem;
+  }
+
+  .ini-block-body {
+    padding: 1.5rem;
+  }
+
+  .ini-columns {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .ini-hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .ini-title {
+    font-size: 1.35rem;
+  }
+
+  .ini-block-header {
+    padding: 1.75rem 1.25rem;
   }
 }

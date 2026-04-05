@@ -1,35 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0;500;600;700;1;500&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --header-height: 72px; /* main header (desktop) */
-  /* Sankalpam logo colors */
-  --logo-purple: #7044C4;
-  --logo-purple-dark: #5a36a3;
-  --logo-purple-darker: #4a2d82;
-  --logo-purple-light: #ede8f8;
+  --header-height: 72px;
   --primary: #7044C4;
-  --primary-dark: #5a36a3;
-  --secondary: #ec4899;
-  --accent: #7c5fd4;
-  --success: #10b981;
-  --warning: #f59e0b;
-  --info: #06b6d4;
-  --coral: #f43f5e;
-  --teal: #14b8a6;
-  --orange: #f97316;
-  
-  /* Background gradients */
-  --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-  --gradient-warm: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-  --gradient-cool: linear-gradient(135deg, #667eea 0%, #00c6fb 100%);
-  --gradient-peace: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-  
-  --font-body: 'Plus Jakarta Sans', sans-serif;
-  --font-hindi: 'Noto Sans Devanagari', sans-serif;
-  --font-telugu: 'Noto Sans Telugu', sans-serif;
-  --font-tamil: 'Noto Sans Tamil', sans-serif;
-  --font-malayalam: 'Noto Sans Malayalam', sans-serif;
-  --font-display: 'Cormorant Garamond', serif;
+  --primary-dark: #4a2d82;
+  --primary-light: #ede8f8;
+  --accent: #f97316;
+  --accent-light: #fbbf24;
+  --text-dark: #0f172a;
+  --text-body: #334155;
+  --text-muted: #64748b;
+  --bg-light: #f8fafc;
+  --bg-lavender: #f5f3ff;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
 
 * {
@@ -46,28 +29,23 @@ body {
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
-  color: #0f172a;
+  color: var(--text-dark);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-body.hindi {
-  font-family: var(--font-hindi);
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-body.telugu {
-  font-family: var(--font-telugu);
-}
-
-body.tamil {
-  font-family: var(--font-tamil);
-}
-
-body.malayalam {
-  font-family: var(--font-malayalam);
+a {
+  color: inherit;
 }
 
 @media (max-width: 600px) {
   :root {
-    --header-height: 64px; /* compact header on mobile */
+    --header-height: 60px;
   }
 }

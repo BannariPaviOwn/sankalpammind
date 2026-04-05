@@ -70,6 +70,9 @@ export const ASSETS = {
     community: `${BASE}/${IMG._04}`,
     impact: `${BASE}/${IMG._05}`,
   },
+  leadership: {
+    building: `${BASE}/about/sahiwellness-33.jpg%20(1).jpeg`,
+  },
   hero: {
     /** Hero carousel images (16:9 or similar). Place files in public/assets/hero/. */
     breakingSilence: `${BASE}/hero/hero-breaking-silence.png`,

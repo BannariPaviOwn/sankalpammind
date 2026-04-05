@@ -1,390 +1,441 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useLanguage } from '../context/LanguageContext';
-import TextCarousel from '../components/TextCarousel';
-import ImageTextSection from '../components/ImageTextSection';
-import PhotoPlaceholder from '../components/PhotoPlaceholder';
 import { ASSETS } from '../assets';
 import './Home.css';
 
-const heroSlides = [
-  {
-    id: 1,
-    image: ASSETS.hero.breakingSilence,
-    titleEn: 'Breaking the Silence Around Mental Health',
-    titleHi: 'मानसिक स्वास्थ्य के आसपास की चुप्पी तोड़ना',
-    titleTe: 'మానసిక ఆరోగ్యం చుట్టూ ఉన్న నిశ్శబ్దాన్ని చెరిపేయడం',
-    bodyEn:
-      'Creating safe spaces where conversations about feelings, stress, and healing are welcomed without shame.',
-    bodyHi:
-      'ऐसी सुरक्षित जगहें बनाना जहाँ भावनाओं, तनाव और उपचार के बारे में बातचीत बिना शर्म के की जा सके।',
-    bodyTe:
-      'భావాలు, ఒత్తిడి, స్వస్థత గురించి సంభాషణలు సిగ్గు లేకుండా జరగే సురక్షిత స్థలాలను సృష్టించడం.',
-  },
-  {
-    id: 2,
-    image: ASSETS.hero.accessibleSupport,
-    titleEn:
-      'Mental health awareness for everyone, with accessible counselling and emotional wellbeing support for underserved communities.',
-    titleHi:
-      'सभी के लिए मानसिक स्वास्थ्य जागरूकता, वंचित समुदायों के लिए सुलभ परामर्श और भावनात्मक कल्याण समर्थन के साथ।',
-    titleTe:
-      'ప్రతీ ఒక్కరి కోసం మానసిక ఆరోగ్య అవగాహన, అల్పసేవా సమాజాలకు అందుబాటు కౌన్సెలింగ్ మరియు భావనాత్మక మద్దతుతో.',
-    bodyEn:
-      'From villages to schools, we work to ensure that care is reachable, affordable, and culturally rooted.',
-    bodyHi:
-      'गाँवों से स्कूलों तक, हम यह सुनिश्चित करने के लिए काम करते हैं कि देखभाल पहुँच योग्य, किफायती और सांस्कृतिक रूप से जुड़ी हो।',
-    bodyTe:
-      'గ్రామాల నుండి పాఠశాలల వరకు, సంరక్షణ అందుబాటులో, చౌకగా మరియు సాంస్కృతికంగా అనుసంధానంగా ఉండేలా మేము పని చేస్తున్నాము.',
-  },
-] as const;
-
-const upcomingProjects = [
-  {
-    titleEn: 'MANODAYA – Community Mental Wellbeing Initiative 🌿',
-    titleHi: 'MANODAYA – Community Mental Wellbeing Initiative 🌿',
-    titleTe: 'MANODAYA – Community Mental Wellbeing Initiative 🌿',
-    focusEn: 'Focus: Mental health awareness & emotional wellbeing in communities.',
-    focusHi: 'Focus: Mental health awareness & emotional wellbeing in communities.',
-    focusTe: 'Focus: Mental health awareness & emotional wellbeing in communities.',
-    descEn:
-      'MANODAYA works to normalize conversations around mental health through awareness programs, community workshops, counseling access, and support circles. The initiative aims to reduce stigma and promote emotional wellbeing within families, workplaces, and local communities.',
-    descHi:
-      'MANODAYA works to normalize conversations around mental health through awareness programs, community workshops, counseling access, and support circles. The initiative aims to reduce stigma and promote emotional wellbeing within families, workplaces, and local communities.',
-    descTe:
-      'MANODAYA works to normalize conversations around mental health through awareness programs, community workshops, counseling access, and support circles. The initiative aims to reduce stigma and promote emotional wellbeing within families, workplaces, and local communities.',
-    activities: [
-      { en: 'Community awareness programs', hi: 'Community awareness programs', te: 'Community awareness programs' },
-      { en: 'Family mental health education', hi: 'Family mental health education', te: 'Family mental health education' },
-      { en: 'Support circles & guidance sessions', hi: 'Support circles & guidance sessions', te: 'Support circles & guidance sessions' },
-      { en: 'Workplace wellbeing talks', hi: 'Workplace wellbeing talks', te: 'Workplace wellbeing talks' },
-    ],
-  },
-  {
-    titleEn: 'MANOSHIKSHA – School & Youth Emotional Resilience Program 🧠',
-    titleHi: 'MANOSHIKSHA – School & Youth Emotional Resilience Program 🧠',
-    titleTe: 'MANOSHIKSHA – School & Youth Emotional Resilience Program 🧠',
-    focusEn: 'Focus: Mental wellbeing for students, parents, and educators.',
-    focusHi: 'Focus: Mental wellbeing for students, parents, and educators.',
-    focusTe: 'Focus: Mental wellbeing for students, parents, and educators.',
-    descEn:
-      'MANOSHIKSHA focuses on building emotional intelligence, resilience, and healthy coping skills among children and adolescents. The program works with schools and colleges to create emotionally safe learning environments.',
-    descHi:
-      'MANOSHIKSHA focuses on building emotional intelligence, resilience, and healthy coping skills among children and adolescents. The program works with schools and colleges to create emotionally safe learning environments.',
-    descTe:
-      'MANOSHIKSHA focuses on building emotional intelligence, resilience, and healthy coping skills among children and adolescents. The program works with schools and colleges to create emotionally safe learning environments.',
-    activities: [
-      { en: 'School mental health programs', hi: 'School mental health programs', te: 'School mental health programs' },
-      { en: 'Emotional intelligence workshops', hi: 'Emotional intelligence workshops', te: 'Emotional intelligence workshops' },
-      { en: 'Exam stress & career pressure sessions', hi: 'Exam stress & career pressure sessions', te: 'Exam stress & career pressure sessions' },
-      { en: 'Parent and teacher guidance programs', hi: 'Parent and teacher guidance programs', te: 'Parent and teacher guidance programs' },
-    ],
-  },
-  {
-    titleEn: 'MANORAKSHA – Trauma Preparedness & Psychological Support Initiative 🤝',
-    titleHi: 'MANORAKSHA – Trauma Preparedness & Psychological Support Initiative 🤝',
-    titleTe: 'MANORAKSHA – Trauma Preparedness & Psychological Support Initiative 🤝',
-    focusEn: 'Focus: Trauma awareness, crisis response, and psychological first aid.',
-    focusHi: 'Focus: Trauma awareness, crisis response, and psychological first aid.',
-    focusTe: 'Focus: Trauma awareness, crisis response, and psychological first aid.',
-    descEn:
-      'MANORAKSHA prepares communities to recognize emotional distress and respond with psychological support during crises such as loss, disasters, violence, or severe stress. The program promotes trauma-informed care and psychological first aid training.',
-    descHi:
-      'MANORAKSHA prepares communities to recognize emotional distress and respond with psychological support during crises such as loss, disasters, violence, or severe stress. The program promotes trauma-informed care and psychological first aid training.',
-    descTe:
-      'MANORAKSHA prepares communities to recognize emotional distress and respond with psychological support during crises such as loss, disasters, violence, or severe stress. The program promotes trauma-informed care and psychological first aid training.',
-    activities: [
-      { en: 'Trauma awareness programs', hi: 'Trauma awareness programs', te: 'Trauma awareness programs' },
-      { en: 'Psychological First Aid training', hi: 'Psychological First Aid training', te: 'Psychological First Aid training' },
-      { en: 'Crisis counseling support', hi: 'Crisis counseling support', te: 'Crisis counseling support' },
-      { en: 'Community resilience building', hi: 'Community resilience building', te: 'Community resilience building' },
-    ],
-  },
-] as const;
-
-const impactStats = [
-  { num: '50+', labelEn: 'Sessions conducted', labelHi: 'आयोजित सत्र', labelTe: 'ఆరంభించిన సెషన్లు' },
-  { num: '15+', labelEn: 'Schools reached', labelHi: 'पहुंचे स्कूल', labelTe: 'చేరిన పాఠశాలలు' },
-  { num: '1000+', labelEn: 'Lives impacted', labelHi: 'प्रभावित जीवन', labelTe: 'ప్రభావితమైన జీవితాలు' },
-];
-
 export default function Home() {
-  const { t } = useLanguage();
-  const [heroIndex, setHeroIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(
-      () => setHeroIndex((prev) => (prev + 1) % heroSlides.length),
-      7000
-    );
-    return () => clearInterval(timer);
-  }, []);
-
   return (
-    <>
-      {/* Hero – AHCT-style blue gradient with image carousel */}
-      <section className="home-hero">
-        <div className="home-hero-inner hero-with-carousel">
-          <div className="home-hero-left">
-            <h1 className="home-hero-tagline">
-              {t(
-                'Healthy Minds Build Healthy Communities',
-                'स्वस्थ मन स्वस्थ समुदाय बनाते हैं',
-                'ఆరోగ్యకరమైన మనస్సులు ఆరోగ్యకరమైన సమాజాలను నిర్మిస్తాయి'
-              )}
-            </h1>
-            <p className="home-hero-sub">
-              {t(
-                'We make emotional wellbeing simple, safe, and reachable — in villages, schools, and everyday life.',
-                'हम भावनात्मक कल्याण को सरल, सुरक्षित और पहुंच के भीतर बनाते हैं — गाँवों, स्कूलों और रोजमर्रा की जिंदगी में।',
-                'మేము భావనాత్మక క్షేమాన్ని సరళంగా, సురక్షితంగా మరియు అందుబాటులో చేస్తాము — గ్రామాలు, పాఠశాలలు మరియు రోజువారీ జీవితంలో.'
-              )}
+    <div className="home">
+      {/* ── HERO ── */}
+      <section className="hero">
+        <div className="hero-inner">
+          <div className="hero-text">
+            <h1 className="hero-title">SANKALPAM</h1>
+            <p className="hero-subtitle">
+              Building community-based mental health systems for rural India
             </p>
-            <div className="home-hero-cta">
-              <Link to="/donate" className="home-hero-btn">
-                {t('Support Our Mission', 'हमारे मिशन का समर्थन करें', 'మా మిషన్‌కు మద్దతు ఇవ్వండి')}
-              </Link>
-              <Link to="/initiatives" className="home-hero-btn-outline">
-                {t('Explore Programs', 'कार्यक्रम देखें', 'కార్యక్రమాలు అన్వేషించండి')}
-              </Link>
-            </div>
-          </div>
-
-          <div className="home-hero-right">
-            <div className="hero-slide-track">
-              {(() => {
-                const slide = heroSlides[heroIndex];
-                return (
-                  <article
-                    key={slide.id}
-                    className="hero-slide"
-                    style={{ backgroundImage: `url(${slide.image})` }}
-                  >
-                    <div className="hero-slide-content">
-                      <h2>{t(slide.titleEn, slide.titleHi, slide.titleTe)}</h2>
-                      <p>{t(slide.bodyEn, slide.bodyHi, slide.bodyTe)}</p>
-                    </div>
-                  </article>
-                );
-              })()}
-            </div>
-            <div className="hero-slide-dots" aria-hidden="true">
-              {heroSlides.map((slide, idx) => (
-                <button
-                  key={slide.id}
-                  type="button"
-                  className={`hero-slide-dot ${idx === heroIndex ? 'active' : ''}`}
-                  onClick={() => setHeroIndex(idx)}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Journey – clean layout */}
-      <section className="home-journey">
-        <div className="home-journey-inner">
-          <div className="home-journey-header">
-            <span className="home-journey-badge">{t('About Us', 'हमारे बारे में', 'మా గురించి')}</span>
-            <h2 className="home-section-title home-journey-title">{t('Our Journey', 'हमारी यात्रा', 'మా ప్రయాణం')}</h2>
-            <p className="home-journey-lead">
-              {t(
-                'SANKALPAM Mind & Wellness Foundation exists to make emotional wellbeing simple, safe, and reachable. Through counselling, community outreach, and training, we empower villages, schools, and families.',
-                'संकल्पम माइंड एंड वेलनेस फाउंडेशन भावनात्मक कल्याण को सरल, सुरक्षित और पहुंच के भीतर बनाने के लिए मौजूद है। परामर्श, समुदाय आउटरीच और प्रशिक्षण के माध्यम से हम गाँवों, स्कूलों और परिवारों को सशक्त बनाते हैं।',
-                'సంకల్పం మనస్ & వెల్నెస్ ఫౌండేషన్ భావనాత్మక క్షేమాన్ని సరళంగా, సురక్షితంగా మరియు అందుబాటులో ఉంచడానికి ఉంది. సలహా, సమాజ విస్తరణ మరియు శిక్షణ ద్వారా మేము గ్రామాలు, పాఠశాలలు మరియు కుటుంబాలను శక్తివంతం చేస్తాము.'
-              )}
+            <p className="hero-body">
+              Where care reaches communities before crisis does. SANKALPAM is a
+              community-driven initiative that makes mental and physical
+              wellbeing accessible, preventive, and integrated into everyday
+              life.
             </p>
-          </div>
-
-          <div className="home-journey-cards-row">
-            <div className="home-vision-card">
-              <span className="home-journey-card-num">01</span>
-              <h3>{t('Vision', 'दृष्टि', 'దృష్టి')}</h3>
-              <p>{t('To build a mentally resilient society where every individual has access to compassionate, culturally grounded psychological support.', 'एक मानसिक रूप से लचीला समाज बनाना जहां हर व्यक्ति को दयालु, सांस्कृतिक रूप से आधारित मनोवैज्ञानिक सहायता मिले।', 'ప్రతి వ్యక్తికి దయగల, సాంస్కృతికంగా ఆధారిత మనస్తత్వశాస్త్ర మద్దతు అందుబాటులో ఉండే మానసికంగా స్థిరమైన సమాజాన్ని నిర్మించడం.')}</p>
-            </div>
-            <div className="home-mission-card">
-              <span className="home-journey-card-num">02</span>
-              <h3>{t('Mission', 'मिशन', 'మిషన్')}</h3>
-              <p>{t('To promote preventive, community-based mental healthcare and empower volunteers, schools, and families through awareness and training.', 'निवारक, समुदाय-आधारित मानसिक स्वास्थ्य देखभाल को बढ़ावा देना और जागरूकता और प्रशिक्षण के माध्यम से स्वयंसेवकों, स्कूलों और परिवारों को सशक्त बनाना।', 'నివారణ, సమాజ-ఆధారిత మానసిక ఆరోగ్య సంరక్షణను ప్రోత్సహించడం మరియు అవగాహన మరియు శిక్షణ ద్వారా స్వచ్ఛంద సేవకులు, పాఠశాలలు మరియు కుటుంబాలను శక్తివంతం చేయడం.')}</p>
+            <div className="hero-ctas">
+              <Link to="/contact" className="btn-orange">Partner With Us</Link>
+              <Link to="/initiatives" className="btn-outline-purple">Explore Programs</Link>
             </div>
           </div>
+          <div className="hero-images">
+            <div className="hero-collage">
+              <img src={ASSETS.home.ourWork} alt="Community outreach" className="collage-main" />
+              <img src={ASSETS.home.community} alt="Community work" className="collage-secondary" />
+            </div>
+            <div className="hero-stat-badge">
+              <span className="stat-number">80%</span>
+              <span className="stat-text">of mental health needs in rural India remain unmet</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <div className="home-journey-images-wrap">
-            <h4 className="home-journey-gallery-label">{t('Moments from our journey', 'हमारी यात्रा के पल', 'మా ప్రయాణం నుండి క్షణాలు')}</h4>
-            <div className="home-journey-images">
-              <div className="home-journey-img-card">
-                <img src={ASSETS.home.ourWork} alt="" />
+      {/* ── VISION & MISSION ── */}
+      <section className="vm-section">
+        <div className="container">
+          <div className="vm-grid">
+            <div className="vm-card vm-vision">
+              <div className="vm-icon-wrap">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7044C4" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
               </div>
-              <div className="home-journey-img-card home-journey-img-featured">
-                <img src={ASSETS.home.community} alt="" />
+              <h3>Our Vision</h3>
+              <p>
+                A resilient society where wellbeing is accessible, preventive,
+                and part of everyday life — reaching every rural and semi-urban
+                community across India.
+              </p>
+            </div>
+            <div className="vm-card vm-mission">
+              <div className="vm-icon-wrap">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
               </div>
-              <div className="home-journey-img-card">
-                <img src={ASSETS.home.programs} alt="" />
+              <h3>Our Mission</h3>
+              <p>
+                To build scalable, community-based systems for awareness, early
+                identification, support, and resilience — delivering structured
+                care and long-term impact.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FOUNDER'S DESK ── */}
+      <section className="founder-section">
+        <div className="container">
+          <div className="founder-grid">
+            <div className="founder-photo-wrap">
+              <img src={ASSETS.about.founder2} alt="Dr. Sahithyaa Raghu" className="founder-photo" />
+            </div>
+            <div className="founder-content">
+              <h2 className="founder-title">Founders Desk</h2>
+              <div className="founder-quote-wrap">
+                <span className="quote-mark quote-open">"</span>
+                <blockquote>
+                  <p>
+                    I have witnessed children, individuals, and families silently
+                    navigating emotional struggles without timely support.
+                  </p>
+                  <p>
+                    SANKALPAM was founded to change this by making mental wellbeing
+                    accessible, preventive, and rooted within communities.
+                  </p>
+                  <p>
+                    We envision a future where systems of care ensure that every
+                    individual feels supported, understood, and empowered to live
+                    with strength and dignity.
+                  </p>
+                </blockquote>
+                <span className="quote-mark quote-close">"</span>
+              </div>
+              <div className="founder-info">
+                <p className="founder-name">Dr Sahithyaa Raghu</p>
+                <p className="founder-role">Founder and Managing Trustee</p>
+              </div>
+              <div className="founder-social">
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Founder's Desk – AHCT-style */}
-      <section className="home-founder">
-        <div className="home-founder-inner">
-          <div className="home-founder-photo">
-            <img src={ASSETS.about.founder2} alt="Dr. Sahithyaa Raghu" />
-          </div>
-          <div className="home-founder-text">
-            <h2 className="home-founder-title">{t("Founder's Desk", 'संस्थापक का डेस्क', 'స్థాపకుని డెస్క్')}</h2>
-            <div className="home-founder-quote-wrap">
-              <span className="home-founder-quote-open">"</span>
-              <blockquote>
-                <p>
-                  {t(
-                    'Through my work, I have witnessed the silent emotional struggles many individuals and families carry without timely support. SANKALPAM was founded to make mental wellbeing accessible, preventive, and rooted in community care.',
-                    'Through my work, I have witnessed the silent emotional struggles many individuals and families carry without timely support. SANKALPAM was founded to make mental wellbeing accessible, preventive, and rooted in community care.'
-                  )}
-                </p>
-                <p>
-                  {t(
-                    'Our vision is to build a society where every individual feels supported, understood, and empowered to live with strength and dignity.',
-                    'Our vision is to build a society where every individual feels supported, understood, and empowered to live with strength and dignity.'
-                  )}
-                </p>
-              </blockquote>
-              <span className="home-founder-quote-close">"</span>
-            </div>
-            <p className="home-founder-name">Dr. Sahithyaa Raghu</p>
-            <p className="home-founder-role">{t('Managing Trustee', 'प्रबंध न्यासी', 'నిర్వహణ ధృవపత్రి')}</p>
-            <p className="home-founder-org">{t('SANKALPAM Mind & Wellness Foundation', 'संकल्पम माइंड एंड वेलनेस फाउंडेशन', 'సంకల్పం మనస్ & వెల్నెస్ ఫౌండేషన్')}</p>
-            <div className="home-founder-social">
-              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Upcoming Projects */}
-      <section className="home-programs">
-        <div className="home-programs-inner">
-          <h2 className="home-section-title">
-            {t('Upcoming Projects in Sankalpam', 'Upcoming Projects in Sankalpam', 'Upcoming Projects in Sankalpam')}
-          </h2>
-          <div className="home-programs-grid">
-            {upcomingProjects.map((p, i) => (
-              <div key={i} className="home-program-card">
-                <h3>{t(p.titleEn, p.titleHi, p.titleTe)}</h3>
-                <p className="home-program-focus">{t(p.focusEn, p.focusHi, p.focusTe)}</p>
-                <p>{t(p.descEn, p.descHi, p.descTe)}</p>
-                <h4 className="home-program-subtitle">
-                  {t('Key Activities', 'Key Activities', 'Key Activities')}
-                </h4>
-                <ul className="home-program-list">
-                  {p.activities.map((a, idx) => (
-                    <li key={idx}>{t(a.en, a.hi, a.te)}</li>
-                  ))}
-                </ul>
+      {/* ── WHY THIS WORK MATTERS ── */}
+      <section className="why-section">
+        <div className="container">
+          <h2 className="section-title">Why This Work Matters</h2>
+          <h3 className="why-headline">Mental Wellbeing Cannot Be a Privilege</h3>
+          <p className="section-lead">
+            Across rural and semi-urban India, mental health challenges often remain unseen
+            and unaddressed. Limited access, stigma, and delayed intervention result in support
+            being sought only at advanced stages.
+          </p>
+          <p className="why-leads-to">This leads to:</p>
+          <div className="why-cards">
+            <div className="why-card">
+              <div className="why-card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
               </div>
-            ))}
+              <h4>Increased emotional and psychological burden</h4>
+            </div>
+            <div className="why-card">
+              <div className="why-card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <h4>Delayed help-seeking</h4>
+            </div>
+            <div className="why-card">
+              <div className="why-card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <h4>Strain within families</h4>
+            </div>
+            <div className="why-card">
+              <div className="why-card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <h4>Escalation into crisis</h4>
+            </div>
           </div>
-        </div>
-      </section>
 
-      {/* Our Impact – temporarily hidden */}
-      {false && (
-        <section className="home-impact">
-          <div className="home-impact-inner">
-            <h2 className="home-section-title home-section-title-light">
-              {t('Our Impact', 'हमारा प्रभाव', 'మా ప్రభావం')}
-            </h2>
-            <div className="home-impact-grid">
-              {impactStats.map((stat, i) => (
-                <div key={i} className="home-impact-stat">
-                  <span className="home-impact-num">{stat.num}</span>
-                  <span className="home-impact-label">
-                    {t(stat.labelEn, stat.labelHi, stat.labelTe)}
-                  </span>
+          <div className="why-stories">
+            <p className="why-stories-intro">Behind every unmet need is a lived experience —</p>
+            <div className="why-stories-grid">
+              <div className="why-story">
+                <div className="why-story-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
                 </div>
-              ))}
+                <p>A child struggling silently in school</p>
+              </div>
+              <div className="why-story">
+                <div className="why-story-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <p>A caregiver managing stress without support</p>
+              </div>
+              <div className="why-story">
+                <div className="why-story-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/></svg>
+                </div>
+                <p>A population where care is still out of reach</p>
+              </div>
+            </div>
+            <p className="why-stories-closing">
+              SANKALPAM works to address this gap — at the right time, in the right places,
+              and in meaningful ways.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SAMAGRA WELLNESS MODEL ── */}
+      <section className="model-section">
+        <div className="container">
+          <span className="model-badge">OUR MODEL</span>
+          <h2 className="section-title">Sankalpam Samagra Wellness Model</h2>
+          <p className="section-lead">
+            A four-pillar framework that enables timely support, structured care,
+            and long-term resilience. This model integrates mental and physical
+            wellbeing through a locally embedded approach, ensuring individuals and
+            families receive support before challenges intensify.
+          </p>
+
+          {/* Why This Model Matters */}
+          <div className="model-why">
+            <h3>Why This Model Matters</h3>
+            <p className="model-why-intro">
+              Conventional systems often respond only after distress becomes severe.
+              SANKALPAM shifts the approach toward:
+            </p>
+            <div className="model-shifts">
+              <div className="model-shift">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                <span>Timely support rather than delayed response</span>
+              </div>
+              <div className="model-shift">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                <span>Locally anchored care instead of centralized services</span>
+              </div>
+              <div className="model-shift">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                <span>Early recognition over late diagnosis</span>
+              </div>
+              <div className="model-shift">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                <span>Capability building over dependency</span>
+              </div>
             </div>
           </div>
-        </section>
-      )}
 
-      <TextCarousel />
+          {/* Four Pillars */}
+          <h3 className="pillar-heading">Core Framework: Four Interconnected Pillars</h3>
+          <div className="pillar-grid">
+            <div className="pillar-card">
+              <span className="pillar-num">01</span>
+              <h4>Awareness & Sensitization</h4>
+              <p>Building understanding and reducing stigma</p>
+              <div className="pillar-outcome">
+                <span>Outcome:</span> Increased awareness and acceptance
+              </div>
+            </div>
+            <div className="pillar-card">
+              <span className="pillar-num">02</span>
+              <h4>Identification & Screening</h4>
+              <p>Recognizing concerns at the right stage</p>
+              <div className="pillar-outcome">
+                <span>Outcome:</span> Timely detection and intervention
+              </div>
+            </div>
+            <div className="pillar-card">
+              <span className="pillar-num">03</span>
+              <h4>Care & Support Systems</h4>
+              <p>Providing counselling and structured support</p>
+              <div className="pillar-outcome">
+                <span>Outcome:</span> Reduced distress and improved coping
+              </div>
+            </div>
+            <div className="pillar-card">
+              <span className="pillar-num">04</span>
+              <h4>Capacity Building</h4>
+              <p>Strengthening local capability for sustainability</p>
+              <div className="pillar-outcome">
+                <span>Outcome:</span> Long-term resilience and ownership
+              </div>
+            </div>
+          </div>
 
-      <ImageTextSection
-        image={ASSETS.home.aboutSankalpam}
-        imageVariant="logo"
-        imagePosition="left"
-        titleEn="About Sankalpam"
-        titleHi="संकल्पम के बारे में"
-        titleTe="సంకల్పం గురించి"
-        contentEn="SANKALPAM means a conscious intention — a deep commitment to act with purpose. The foundation was born from a simple yet urgent realization: mental health support often reaches people too late, and rarely reaches rural and underserved communities at all. We bridge that gap — from stigma to strength, from crisis response to prevention, from urban privilege to community access."
-        contentHi="संकल्पम का अर्थ है एक सचेत इरादा — उद्देश्य के साथ कार्य करने की गहरी प्रतिबद्धता। फाउंडेशन एक सरल लेकिन जरूरी अनुभव से पैदा हुआ: मानसिक स्वास्थ्य सहायता अक्सर लोगों तक बहुत देर से पहुंचती है, और ग्रामीण और वंचित समुदायों तक शायद ही कभी पहुंचती है।"
-        contentTe="సంకల్పం అంటే ఒక స్పృహతో కూడిన ఉద్దేశ్యం — ఉద్దేశ్యంతో పనిచేయడానికి లోతైన నిబద్ధత. ఫౌండేషన్ ఒక సాధారణమైన కానీ అత్యవసరమైన అవగాహన నుండి జన్మించింది: మానసిక ఆరోగ్య మద్దతు తరచుగా ప్రజలకు చాలా ఆలస్యంగా చేరుతుంది, మరియు గ్రామీణ మరియు అల్పసేవా సమాజాలకు అరుదుగా చేరుతుంది. మేము ఆ ఖాళీను పూరిస్తాము."
-        gradient="linear-gradient(135deg, #ddd6fe 0%, #ede8f8 100%)"
-        ctaEn="About Us"
-        ctaHi="हमारे बारे में"
-        ctaTe="మా గురించి"
-        ctaLink="/about"
-      />
+          {/* Continuum of Care */}
+          <div className="model-continuum">
+            <h3>How the Model Works <span>(Continuum of Care)</span></h3>
+            <div className="continuum-flow">
+              <div className="continuum-step">Awareness</div>
+              <div className="continuum-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </div>
+              <div className="continuum-step">Identification</div>
+              <div className="continuum-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </div>
+              <div className="continuum-step">Support</div>
+              <div className="continuum-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </div>
+              <div className="continuum-step">Capacity Building</div>
+              <div className="continuum-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </div>
+              <div className="continuum-step continuum-step--final">Community Resilience</div>
+            </div>
+            <p className="continuum-note">
+              This creates a continuous cycle of care, rather than isolated interventions.
+            </p>
+          </div>
 
-      <section className="photo-section">
-        <h2 className="section-heading">{t('Moments from the field', 'मैदान से पल', 'మైదానం నుండి క్షణాలు')}</h2>
-        <div className="photo-gallery">
-          {ASSETS.home.gallery.map((src, i) => (
-            <PhotoPlaceholder
-              key={i}
-              src={src}
-              labelEn={`Photo ${i + 1}`}
-              labelHi={`फोटो ${i + 1}`}
-              labelTe={`ఫోటో ${i + 1}`}
-              ratio="4/3"
-              objectFit={i === 1 || i === ASSETS.home.gallery.length - 1 ? 'contain' : 'cover'}
-              objectPosition={i === 1 || i === ASSETS.home.gallery.length - 1 ? 'center' : 'center'}
-            />
-          ))}
+          {/* Designed for Scale */}
+          <div className="model-scale">
+            <h3>Designed for Scale</h3>
+            <p>The Sankalpam Samagra Wellness Model is built to expand systematically:</p>
+            <div className="scale-flow">
+              <span className="scale-step">Pilot</span>
+              <span className="scale-dot" />
+              <span className="scale-step">District</span>
+              <span className="scale-dot" />
+              <span className="scale-step">Multi-district</span>
+              <span className="scale-dot" />
+              <span className="scale-step">State</span>
+              <span className="scale-dot" />
+              <span className="scale-step scale-step--final">National</span>
+            </div>
+          </div>
+
+          <div className="model-cta">
+            <Link to="/our-model" className="link-arrow">Learn more about our model →</Link>
+          </div>
         </div>
       </section>
 
-      {/* Quote */}
-      <section className="home-quote">
-        <blockquote>
-          {t('"When care reaches the roots, change becomes sustainable."', '"जब देखभाल जड़ों तक पहुँचती है, बदलाव टिकाऊ हो जाता है।"', '"సంరక్షణ మూలాలకు చేరుకున్నప్పుడు, మార్పు శాశ్వతమవుతుంది."')}
-        </blockquote>
-      </section>
-
-      <section className="cta-banner">
-        <h2>{t('Join us in building healthier communities.', 'स्वस्थ समुदाय बनाने में हमसे जुड़ें।', 'ఆరోగ్యకరమైన సమాజాలను నిర్మించడంలో మమ్మల్ని చేరండి.')}</h2>
-        <div className="cta-banner-btns">
-          <Link to="/donate" className="btn btn-donate">
-            {t('Support Our Mission', 'हमारे मिशन का समर्थन करें', 'మా మిషన్‌కు మద్దతు ఇవ్వండి')}
-          </Link>
-          <Link to="/get-involved" className="btn btn-donate-outline">
-            {t('Get Involved', 'जुड़ें', 'చేరండి')}
-          </Link>
+      {/* ── FLAGSHIP INITIATIVES ── */}
+      <section className="initiatives-section">
+        <div className="container">
+          <h2 className="section-title">Flagship Initiatives</h2>
+          <p className="section-lead">
+            Structured programmes designed for measurable impact across
+            communities, schools, and crisis response.
+          </p>
+          <div className="initiative-grid">
+            <div className="initiative-card">
+              <div className="initiative-img">
+                <img src={ASSETS.home.community} alt="MANODAYA" />
+              </div>
+              <div className="initiative-body">
+                <h3>MANODAYA</h3>
+                <p className="initiative-tag">Awakening of the mind</p>
+                <p>Integrating mental wellbeing into everyday community life through awareness, support circles, and family education.</p>
+              </div>
+            </div>
+            <div className="initiative-card">
+              <div className="initiative-img">
+                <img src={ASSETS.home.programs} alt="MANOSHIKSHA" />
+              </div>
+              <div className="initiative-body">
+                <h3>MANOSHIKSHA</h3>
+                <p className="initiative-tag">Education of the mind</p>
+                <p>Strengthening emotional resilience within education systems through school mental health programmes.</p>
+              </div>
+            </div>
+            <div className="initiative-card">
+              <div className="initiative-img">
+                <img src={ASSETS.home.ourWork} alt="MANORAKSHA" />
+              </div>
+              <div className="initiative-body">
+                <h3>MANORAKSHA</h3>
+                <p className="initiative-tag">Protection of the mind</p>
+                <p>Equipping individuals to respond during distress through trauma awareness and psychological first aid.</p>
+              </div>
+            </div>
+          </div>
+          <div className="model-cta">
+            <Link to="/initiatives" className="link-arrow">View all initiatives →</Link>
+          </div>
         </div>
       </section>
 
-      <section className="help-section">
-        <div className="help-cards">
-          <Link to="/find-help" className="help-card">
-            <span className="help-icon">🎧</span>
-            <h3>{t('Speak to an Expert', 'विशेषज्ञ से बात करें', 'నిపుణుడితో మాట్లాడండి')}</h3>
-            <p>{t('Find a Therapist', 'थेरेपिस्ट खोजें', 'చికిత్సకుడిని కనుగొనండి')}</p>
-          </Link>
-          <Link to="/find-help" className="help-card">
-            <span className="help-icon">📞</span>
-            <h3>{t('Helplines', 'हेल्पलाइन', 'హెల్ప్‌లైన్లు')}</h3>
-            <p>#YouAreNotAlone</p>
-          </Link>
+      {/* ── IMPACT TARGETS ── */}
+      <section className="impact-section">
+        <div className="container">
+          <div className="impact-header">
+            <span className="impact-badge">AY 2026–27 | PILOT PHASE</span>
+            <h2>Impact Targets</h2>
+            <p>
+              As part of our pilot-year implementation, SANKALPAM is committed to the
+              following minimum delivery targets:
+            </p>
+          </div>
+          <div className="impact-grid">
+            <div className="impact-stat">
+              <span className="impact-num">1000–1500</span>
+              <span className="impact-label">Direct Beneficiaries</span>
+            </div>
+            <div className="impact-stat">
+              <span className="impact-num">3000+</span>
+              <span className="impact-label">Indirect Community Reach</span>
+            </div>
+            <div className="impact-stat">
+              <span className="impact-num">500–700</span>
+              <span className="impact-label">Students Supported</span>
+            </div>
+            <div className="impact-stat">
+              <span className="impact-num">5–7</span>
+              <span className="impact-label">Schools Engaged</span>
+            </div>
+            <div className="impact-stat">
+              <span className="impact-num">200–300</span>
+              <span className="impact-label">Individuals Screened</span>
+            </div>
+            <div className="impact-stat">
+              <span className="impact-num">30–50</span>
+              <span className="impact-label">Individuals Trained</span>
+            </div>
+          </div>
+          <p className="impact-tagline">
+            Focused implementation. Measurable outcomes. Designed for scale.
+          </p>
         </div>
       </section>
-    </>
+
+      {/* ── CTA BANNER ── */}
+      <section className="cta-section">
+        <div className="container">
+          <h2>Partner With SANKALPAM</h2>
+          <p>We are not building programs. We are building systems that last.</p>
+          <div className="cta-buttons">
+            <Link to="/contact" className="btn-orange btn-lg">Partner With Us</Link>
+            <Link to="/contact" className="btn-outline-white btn-lg">Volunteer</Link>
+            <Link to="/contact" className="btn-outline-white btn-lg">Collaborate</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FOOTER STATEMENT ── */}
+      <section className="closing-section">
+        <div className="container">
+          <p className="closing-label">Our Purpose</p>
+          <h2 className="closing-headline">
+            Not just an organization.<br />
+            <span>A movement.</span>
+          </h2>
+          <p className="closing-body">
+            Bringing mental and holistic wellbeing to every community
+            that needs it most.
+          </p>
+          <div className="closing-pills">
+            <div className="closing-pill">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/></svg>
+              <span>Starting from Andhra Pradesh</span>
+            </div>
+            <div className="closing-pill">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <span>Expanding across India</span>
+            </div>
+            <div className="closing-pill">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <span>Driven by intent. Measured by impact.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

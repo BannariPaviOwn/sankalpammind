@@ -1,76 +1,48 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
+import OurModel from './pages/OurModel';
 import Initiatives from './pages/Initiatives';
-import FindHelp from './pages/FindHelp';
-import Donate from './pages/Donate';
-import DonateResult from './pages/DonateResult';
-import GetInvolved from './pages/GetInvolved';
-import TemplatesGallery from './pages/TemplatesGallery';
-import TemplateStyle1 from './pages/TemplateStyle1';
-import TemplateStyle2 from './pages/TemplateStyle2';
-import TemplateStyle3 from './pages/TemplateStyle3';
-import TemplateStyle4 from './pages/TemplateStyle4';
-import TemplateAHCT from './pages/TemplateAHCT';
+import Impact from './pages/Impact';
+import CSRPartnerships from './pages/CSRPartnerships';
+import Leadership from './pages/Leadership';
+import Contact from './pages/Contact';
 import './App.css';
 
-const FULLPAGE_PREVIEW_ROUTES = ['/style1', '/style2', '/style3', '/style4', '/style5'];
-
 function AppContent() {
-  const { language } = useLanguage();
   const location = useLocation();
-  const isTemplateFullPage = FULLPAGE_PREVIEW_ROUTES.includes(location.pathname);
 
-  // Always scroll to top on route change
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  useEffect(() => {
-    document.body.classList.remove('hindi', 'telugu', 'tamil', 'malayalam');
-    if (language === 'hi') document.body.classList.add('hindi');
-    else if (language === 'te') document.body.classList.add('telugu');
-    else if (language === 'ta') document.body.classList.add('tamil');
-    else if (language === 'ml') document.body.classList.add('malayalam');
-  }, [language]);
-
   return (
     <>
-      {!isTemplateFullPage && <Header />}
+      <Header />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/our-model" element={<OurModel />} />
           <Route path="/initiatives" element={<Initiatives />} />
-          <Route path="/find-help" element={<FindHelp />} />
-          <Route path="/donate" element={<Donate />} />
-          <Route path="/donate/result" element={<DonateResult />} />
-          <Route path="/get-involved" element={<GetInvolved />} />
-          <Route path="/templates" element={<TemplatesGallery />} />
-          <Route path="/style1" element={<TemplateStyle1 />} />
-          <Route path="/style2" element={<TemplateStyle2 />} />
-          <Route path="/style3" element={<TemplateStyle3 />} />
-          <Route path="/style4" element={<TemplateStyle4 />} />
-          <Route path="/style5" element={<TemplateAHCT />} />
+          <Route path="/impact" element={<Impact />} />
+          <Route path="/csr-partnerships" element={<CSRPartnerships />} />
+          <Route path="/leadership" element={<Leadership />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
-      {!isTemplateFullPage && <Footer />}
+      <Footer />
     </>
   );
 }
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
-      <LanguageProvider>
-        <AppContent />
-      </LanguageProvider>
+      <AppContent />
     </BrowserRouter>
   );
 }
-
-export default App;
