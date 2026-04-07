@@ -285,6 +285,19 @@
   margin-right: auto;
 }
 
+/* Mobile: stack step and arrow vertically, center arrow */
+@media (max-width: 700px) {
+  .model-continuum__item {
+    flex-direction: column;
+  }
+
+  .model-continuum__arrow {
+    margin: 0.5rem 0;
+    transform: rotate(90deg);
+    line-height: 1;
+  }
+}
+
 /* ── Ecosystem Grid ── */
 .model-ecosystem-grid {
   display: grid;
@@ -554,8 +567,17 @@
     gap: 0.5rem;
   }
 
+  .model-scale-path__item {
+    flex-direction: column;
+  }
+
   .model-continuum__arrow,
   .model-scale-path__arrow {
     transform: rotate(90deg);
+  }
+
+  .model-scale-path__arrow {
+    margin: 0.5rem 0;
+    line-height: 1;
   }
 }

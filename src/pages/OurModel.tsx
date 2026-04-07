@@ -166,7 +166,11 @@ export default function OurModel() {
           <h2 className="model-section__title">Continuum of Care</h2>
           <div className="model-continuum">
             {continuum.map((step, i) => (
-              <span key={step} style={{ display: 'flex', alignItems: 'center' }}>
+              <span
+                key={step}
+                className="model-continuum__item"
+                style={{ display: 'flex', alignItems: 'center' }}
+              >
                 <span className="model-continuum__step">{step}</span>
                 {i < continuum.length - 1 && (
                   <span className="model-continuum__arrow">→</span>
@@ -203,7 +207,11 @@ export default function OurModel() {
           <h2 className="model-section__title">Scalability Pathway</h2>
           <div className="model-scale-path">
             {scalePath.map((node, i) => (
-              <span key={node} style={{ display: 'flex', alignItems: 'center' }}>
+              <span
+                key={node}
+                className="model-scale-path__item"
+                style={{ display: 'flex', alignItems: 'center' }}
+              >
                 <span className="model-scale-path__node">{node}</span>
                 {i < scalePath.length - 1 && (
                   <span className="model-scale-path__arrow">→</span>
