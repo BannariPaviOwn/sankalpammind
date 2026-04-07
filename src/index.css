@@ -49,3 +49,30 @@ a {
     --header-height: 60px;
   }
 }
+
+/* ── Page heroes: wave decoration must sit behind text (mobile paint order) ── */
+.ini-hero::before,
+.imp-hero::before,
+.ini-hero::after,
+.about-hero::after,
+.model-hero::after,
+.imp-hero::after,
+.contact-hero::after,
+.csr-hero::after {
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ini-hero-inner,
+.imp-hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.about-hero > *,
+.model-hero > *,
+.contact-hero > *,
+.csr-hero > * {
+  position: relative;
+  z-index: 1;
+}

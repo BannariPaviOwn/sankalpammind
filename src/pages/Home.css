@@ -101,9 +101,10 @@
 .hero {
   padding: calc(var(--header-height, 72px) + 3rem) 1.5rem 5rem;
   background:
-    radial-gradient(ellipse at 80% 20%, rgba(112, 68, 196, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 20% 80%, rgba(249, 115, 22, 0.05) 0%, transparent 50%),
-    linear-gradient(180deg, #f5f3ff 0%, #ede9fe 40%, #f8fafc 100%);
+    radial-gradient(ellipse at 50% -10%, rgba(112, 68, 196, 0.22) 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 30%, rgba(249, 115, 22, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse at 12% 70%, rgba(16, 185, 129, 0.10) 0%, transparent 55%),
+    linear-gradient(180deg, #f7f5ff 0%, #efeaff 40%, #f8fafc 100%);
   position: relative;
   overflow: hidden;
 }
@@ -111,25 +112,57 @@
 .hero::before {
   content: '';
   position: absolute;
-  top: -120px;
-  right: -120px;
-  width: 400px;
-  height: 400px;
+  top: -160px;
+  right: -160px;
+  width: 520px;
+  height: 520px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(112, 68, 196, 0.06) 0%, transparent 70%);
+  background:
+    radial-gradient(circle at 30% 30%, rgba(112, 68, 196, 0.16) 0%, transparent 65%),
+    radial-gradient(circle at 70% 70%, rgba(249, 115, 22, 0.10) 0%, transparent 60%);
   pointer-events: none;
 }
 
 .hero::after {
   content: '';
   position: absolute;
-  bottom: -80px;
-  left: -80px;
-  width: 300px;
-  height: 300px;
+  bottom: -120px;
+  left: -120px;
+  width: 420px;
+  height: 420px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(249, 115, 22, 0.04) 0%, transparent 70%);
+  background:
+    radial-gradient(circle at 35% 35%, rgba(249, 115, 22, 0.10) 0%, transparent 65%),
+    radial-gradient(circle at 70% 70%, rgba(112, 68, 196, 0.10) 0%, transparent 60%);
   pointer-events: none;
+}
+
+.hero::before,
+.hero::after {
+  filter: blur(0.25px);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.hero::before {
+  mix-blend-mode: multiply;
+}
+
+.hero::after {
+  mix-blend-mode: multiply;
+}
+
+.hero {
+  /* overlay dot grid using background layers */
+  background:
+    radial-gradient(circle, rgba(112, 68, 196, 0.10) 1px, transparent 1px) 0 0 / 18px 18px,
+    radial-gradient(ellipse at 50% -10%, rgba(112, 68, 196, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 30%, rgba(249, 115, 22, 0.11) 0%, transparent 55%),
+    radial-gradient(ellipse at 12% 70%, rgba(16, 185, 129, 0.09) 0%, transparent 55%),
+    linear-gradient(180deg, #f7f5ff 0%, #efeaff 40%, #f8fafc 100%);
 }
 
 .hero-inner {
@@ -144,6 +177,7 @@
 .hero-text {
   padding-right: 1rem;
 }
+
 
 .hero-title {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
@@ -173,6 +207,7 @@
   gap: 1rem;
   flex-wrap: wrap;
 }
+
 
 .hero-images {
   position: relative;

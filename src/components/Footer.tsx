@@ -42,11 +42,11 @@ export default function Footer() {
               <a href="tel:9962881006">9962881006</a>
             </p>
             <p>
-              <a href="mailto:reach@sankalpammind.com">reach@sankalpammind.com</a>
+              <a href="mailto:reach@sankalpammind.org">reach@sankalpammind.org</a>
             </p>
             <p>
-              <a href="https://www.sankalpammind.com" target="_blank" rel="noopener noreferrer">
-                www.sankalpammind.com
+              <a href="https://www.sankalpammind.org" target="_blank" rel="noopener noreferrer">
+                www.sankalpammind.org
               </a>
             </p>
             <div className="footer-location-block">

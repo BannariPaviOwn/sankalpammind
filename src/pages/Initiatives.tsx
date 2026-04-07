@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { ASSETS } from '../assets';
 import './Initiatives.css';
 
 interface Intervention {
@@ -14,6 +15,8 @@ interface Initiative {
   interventions: Intervention[];
   reaches?: string[];
   outcomes: string[];
+  image?: string;
+  imageAlt?: string;
   specialFocus?: {
     title: string;
     description: string;
@@ -47,6 +50,8 @@ const initiatives: Initiative[] = [
       'Improved help-seeking behavior',
       'Strengthened local support systems',
     ],
+    image: ASSETS.home.community,
+    imageAlt: 'Community wellbeing outreach',
     icon: '🌱',
   },
   {
@@ -71,6 +76,8 @@ const initiatives: Initiative[] = [
       'Reduced stress and anxiety indicators',
       'Increased teacher capacity to identify concerns',
     ],
+    image: ASSETS.initiatives.sessions,
+    imageAlt: 'School mental health sessions',
     specialFocus: {
       title: 'Special Focus: Inclusive Development (Pilot)',
       description:
@@ -107,6 +114,8 @@ const initiatives: Initiative[] = [
       'Faster emotional stabilization',
       'Reduced long-term trauma impact',
     ],
+    image: ASSETS.getInvolved.training,
+    imageAlt: 'Trauma preparedness and Psychological First Aid training',
     icon: '🛡️',
   },
   {
@@ -126,6 +135,8 @@ const initiatives: Initiative[] = [
       'Early identification of concerns',
       'Increased preventive health behavior',
     ],
+    image: ASSETS.initiatives.programsAction,
+    imageAlt: 'Integrated wellness and outreach programs',
     icon: '🤝',
   },
 ];
@@ -156,6 +167,15 @@ export default function Initiatives() {
               <div className={`ini-icon ini-icon--${ini.id}`}>{ini.icon}</div>
               <h2 className="ini-title">{ini.title}</h2>
               <span className="ini-tagline">— {ini.tagline}</span>
+              {ini.image && (
+                <div className={`ini-photo ini-photo--${ini.id}`}>
+                  <img
+                    src={ini.image}
+                    alt={ini.imageAlt ?? ''}
+                    loading="lazy"
+                  />
+                </div>
+              )}
               <div
                 className={`ini-block-motif ini-block-motif--${ini.id}`}
                 aria-hidden="true"

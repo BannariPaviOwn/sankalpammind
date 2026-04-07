@@ -160,6 +160,54 @@
   z-index: 2;
 }
 
+/* Photo block (optional per initiative) */
+.ini-photo {
+  width: min(640px, 92%);
+  margin-top: 1.25rem;
+  border-radius: 0.95rem;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 16px 40px rgba(15, 23, 42, 0.18);
+}
+
+.ini-photo img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.ini-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.0) 45%,
+    rgba(2, 6, 23, 0.16) 100%
+  );
+  pointer-events: none;
+}
+
+.ini-photo--manodaya {
+  outline: 1px solid rgba(167, 139, 250, 0.35);
+}
+
+.ini-photo--manoshiksha {
+  outline: 1px solid rgba(99, 102, 241, 0.35);
+}
+
+.ini-photo--manoraksha {
+  outline: 1px solid rgba(45, 212, 191, 0.38);
+}
+
+.ini-photo--integrated-wellness {
+  outline: 1px solid rgba(245, 158, 11, 0.3);
+}
+
 /* 1 — MANODAYA: lavender wash, soft dot lattice, ripple pulse */
 .ini-block-header--manodaya {
   background: linear-gradient(
@@ -664,7 +712,11 @@
 
 @media (max-width: 768px) {
   .ini-hero {
-    padding: 4rem 1.25rem 3rem;
+    padding: 4rem 1.25rem 5.75rem;
+  }
+
+  .ini-hero::after {
+    height: 48px;
   }
 
   .ini-block-body {

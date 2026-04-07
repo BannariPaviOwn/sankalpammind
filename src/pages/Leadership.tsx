@@ -72,6 +72,8 @@ const governanceItems = [
 ];
 
 export default function Leadership() {
+  const awards = ASSETS.awards ?? [];
+
   return (
     <div className="leadership-page">
       {/* Hero - Split Layout */}
@@ -156,6 +158,34 @@ export default function Leadership() {
           </div>
         </div>
       </section>
+
+      {/* Awards & Recognition */}
+      {awards.length > 0 && (
+        <section className="lead-awards">
+          <div className="lead-awards-inner">
+            <div className="lead-awards-header">
+              <h2>Awards &amp; Recognition</h2>
+              <p>
+                A glimpse of recognitions that reflect the work, trust, and
+                impact built over time.
+              </p>
+            </div>
+
+            <div className="lead-awards-grid">
+              {awards.map((a) => (
+                <figure key={a.image} className="lead-award-card">
+                  <div className="lead-award-img-wrap">
+                    <img src={a.image} alt={a.description} loading="lazy" />
+                  </div>
+                  <figcaption className="lead-award-caption">
+                    {a.description}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Board of Trustees */}
       <section className="lead-board">

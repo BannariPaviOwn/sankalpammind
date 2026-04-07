@@ -215,6 +215,85 @@
 }
 
 /* =============================
+   AWARDS & RECOGNITION
+   ============================= */
+.lead-awards {
+  padding: 5rem 1.5rem;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(112, 68, 196, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 85% 30%, rgba(249, 115, 22, 0.06) 0%, transparent 45%),
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.lead-awards-inner {
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.lead-awards-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.lead-awards-header h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.75rem;
+}
+
+.lead-awards-header p {
+  font-size: 1.02rem;
+  color: #475569;
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+.lead-awards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.lead-award-card {
+  margin: 0;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(112, 68, 196, 0.12);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  backdrop-filter: blur(6px);
+}
+
+.lead-award-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.12);
+}
+
+.lead-award-img-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, #4a2d82, #7044C4);
+}
+
+.lead-award-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.lead-award-caption {
+  padding: 0.95rem 1rem 1.05rem;
+  font-size: 0.9rem;
+  color: #0f172a;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+/* =============================
    BOARD OF TRUSTEES
    ============================= */
 .lead-board {
@@ -558,6 +637,10 @@
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
+
+  .lead-awards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 600px) {
@@ -575,6 +658,18 @@
   .lead-founder-credentials {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  .lead-awards {
+    padding: 3.5rem 1rem;
+  }
+
+  .lead-awards-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .lead-awards-grid {
+    grid-template-columns: 1fr;
   }
 
   .lead-founder-photo-col {

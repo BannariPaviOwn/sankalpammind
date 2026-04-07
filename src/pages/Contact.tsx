@@ -3,19 +3,18 @@ import type { FormEvent, ChangeEvent } from 'react';
 import './Contact.css';
 
 const workWithItems = [
-  'Government & District Administration',
-  'CSR & Corporate Organizations',
-  'Schools & Educational Institutions',
+  'Government bodies and district administration',
+  'CSR and corporate organizations',
+  'Schools and educational institutions',
   'Healthcare Providers',
-  'NGOs & Community Organizations',
-  'Individuals & Volunteers',
+  'NGOs and community-based organizations',
 ];
 
 const inquiryTypes = [
-  'Partnership/CSR',
+  'Partnership / CSR',
   'School Program',
   'Community Program',
-  'Training/Workshops',
+  'Training / Workshops',
   'General Inquiry',
   'Volunteering',
 ];
@@ -61,19 +60,25 @@ export default function Contact() {
           Whether you are looking to collaborate, partner, or learn more about our work,
           we welcome you to connect with us.
         </p>
+        <p className="contact-hero__sub">
+          SANKALPAM – Mind &amp; Wellness Foundation is committed to building meaningful
+          partnerships and expanding access to wellbeing across communities.
+        </p>
       </section>
 
       {/* Work With Us */}
       <section className="contact-section">
         <h2 className="contact-section-title">Work With Us</h2>
         <p className="contact-section-subtitle">
-          We collaborate with a diverse range of organizations and individuals committed
-          to building healthier communities.
+          We collaborate with:
         </p>
         <div className="work-with-tags">
           {workWithItems.map((item) => (
             <span key={item} className="work-with-tag">{item}</span>
           ))}
+        </div>
+        <div className="contact-callout">
+          👉 If you are interested in implementing programs or partnering with us, we would be glad to connect.
         </div>
       </section>
 
@@ -81,9 +86,7 @@ export default function Contact() {
       <section className="contact-section contact-section--alt">
         <div className="contact-section" style={{ padding: 0 }}>
           <h2 className="contact-section-title">Contact Details</h2>
-          <p className="contact-section-subtitle">
-            Reach out to us through any of the channels below.
-          </p>
+          <p className="contact-section-subtitle" />
           <div className="contact-info-grid">
             <div className="contact-info-card">
               <div className="contact-info-icon">📞</div>
@@ -92,10 +95,10 @@ export default function Contact() {
                 📱 <a href="tel:9962881006">9962881006</a>
               </div>
               <div className="contact-detail">
-                ✉️ <a href="mailto:reach@sankalpammind.com">reach@sankalpammind.com</a>
+                ✉️ <a href="mailto:reach@sankalpammind.org">reach@sankalpammind.org</a>
               </div>
               <div className="contact-detail">
-                🌐 <a href="https://www.sankalpammind.com" target="_blank" rel="noopener noreferrer">www.sankalpammind.com</a>
+                🌐 <a href="https://www.sankalpammind.org" target="_blank" rel="noopener noreferrer">www.sankalpammind.org</a>
               </div>
             </div>
 
@@ -117,7 +120,7 @@ export default function Contact() {
       <section className="contact-section">
         <h2 className="contact-section-title">Send Us a Message</h2>
         <p className="contact-section-subtitle">
-          Fill out the form below and our team will get back to you as soon as possible.
+          (For website form section)
         </p>
 
         <div className="contact-form-wrapper">
