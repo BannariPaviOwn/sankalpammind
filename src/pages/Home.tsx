@@ -11,13 +11,20 @@ export default function Home() {
           <div className="hero-text">
             <h1 className="hero-title">SANKALPAM</h1>
             <p className="hero-subtitle">
-              Building community-based mental health systems for rural India
+              Building Community-Based Mental Health &amp; Wellbeing Systems for
+              Rural and Semi-Urban India
             </p>
             <p className="hero-body">
-              Where care reaches communities before crisis does. SANKALPAM is a
-              community-driven initiative that makes mental and physical
-              wellbeing accessible, preventive, and integrated into everyday
-              life.
+              Where care reaches communities before crisis does.
+            </p>
+            <p className="hero-body">
+              Because no child, family, or individual should struggle without
+              support.
+            </p>
+            <p className="hero-body">
+              SANKALPAM is a community-driven initiative that makes mental and
+              physical wellbeing accessible, preventive, and integrated into
+              everyday life.
             </p>
             <div className="hero-ctas">
               <Link to="/contact" className="btn-orange">Partner With Us</Link>
@@ -309,10 +316,10 @@ export default function Home() {
       {/* ── FLAGSHIP INITIATIVES ── */}
       <section className="initiatives-section">
         <div className="container">
-          <h2 className="section-title">Flagship Initiatives</h2>
+          <h2 className="section-title">Our Flagship Initiatives</h2>
           <p className="section-lead">
-            Structured programmes designed for measurable impact across
-            communities, schools, and crisis response.
+            Structured interventions designed for measurable impact across
+            populations and institutions.
           </p>
           <div className="initiative-grid">
             <div className="initiative-card">
@@ -320,9 +327,21 @@ export default function Home() {
                 <img src={ASSETS.home.community} alt="MANODAYA" />
               </div>
               <div className="initiative-body">
-                <h3>MANODAYA</h3>
-                <p className="initiative-tag">Awakening of the mind</p>
-                <p>Integrating mental wellbeing into everyday community life through awareness, support circles, and family education.</p>
+                <h3 className="initiative-headline">
+                  <span className="initiative-headline__name">MANODAYA</span>
+                  <span className="initiative-headline__sep"> – </span>
+                  <span className="initiative-headline__rest">
+                    <span className="initiative-headline__theme">
+                      Community Wellbeing{' '}
+                    </span>
+                    <span className="initiative-headline__paren">
+                      (Awakening of the mind)
+                    </span>
+                  </span>
+                </h3>
+                <p className="initiative-lead">
+                  Integrating mental wellbeing into everyday life.
+                </p>
               </div>
             </div>
             <div className="initiative-card">
@@ -330,9 +349,21 @@ export default function Home() {
                 <img src={ASSETS.home.programs} alt="MANOSHIKSHA" />
               </div>
               <div className="initiative-body">
-                <h3>MANOSHIKSHA</h3>
-                <p className="initiative-tag">Education of the mind</p>
-                <p>Strengthening emotional resilience within education systems through school mental health programmes.</p>
+                <h3 className="initiative-headline">
+                  <span className="initiative-headline__name">MANOSHIKSHA</span>
+                  <span className="initiative-headline__sep"> – </span>
+                  <span className="initiative-headline__rest">
+                    <span className="initiative-headline__theme">
+                      School &amp; Youth Mental Health{' '}
+                    </span>
+                    <span className="initiative-headline__paren">
+                      (Education of the mind)
+                    </span>
+                  </span>
+                </h3>
+                <p className="initiative-lead">
+                  Strengthening emotional resilience within education systems.
+                </p>
               </div>
             </div>
             <div className="initiative-card">
@@ -340,9 +371,21 @@ export default function Home() {
                 <img src={ASSETS.home.ourWork} alt="MANORAKSHA" />
               </div>
               <div className="initiative-body">
-                <h3>MANORAKSHA</h3>
-                <p className="initiative-tag">Protection of the mind</p>
-                <p>Equipping individuals to respond during distress through trauma awareness and psychological first aid.</p>
+                <h3 className="initiative-headline">
+                  <span className="initiative-headline__name">MANORAKSHA</span>
+                  <span className="initiative-headline__sep"> – </span>
+                  <span className="initiative-headline__rest">
+                    <span className="initiative-headline__theme">
+                      Trauma Preparedness &amp; Psychological Support{' '}
+                    </span>
+                    <span className="initiative-headline__paren">
+                      (Protection of the mind)
+                    </span>
+                  </span>
+                </h3>
+                <p className="initiative-lead">
+                  Equipping individuals to respond during distress and crisis.
+                </p>
               </div>
             </div>
           </div>

@@ -1,74 +1,85 @@
 import { ASSETS } from '../assets';
 import './Leadership.css';
 
-const boardOfTrustees = [
+const founderWorkSpans = [
+  'Children, adolescents, adults, and families',
+  'Educational institutions and corporate systems',
+  'Rural and community-based mental health programs',
+  'Volunteering with multiple NGOs',
+];
+
+const professionalExposure = [
+  '10+ certifications in mental health, therapeutic practices, and geriatric care.',
+  'Clinical and research exposure with NIMHANS, Bengaluru',
+  'Certified Parenting Coach',
+  'Certified Trauma-Informed Practitioner (TISS – TTT)',
+  'Experience across clinical, institutional, and community settings',
+];
+
+const recognitionBullets = [
+  'Tamil Nadu State Human Rights Commission Award (2021)',
+  'Recognized among the Top 100 Doctors in India (2024)',
+  'Received 10+ recognitions for contributions to mental health and community wellbeing',
+];
+
+const boardMembers = [
   {
     name: 'Mr. Divakar Babu',
-    title: 'Managing Director',
-    role: 'Leads strategic planning and organizational architecture. His focus on sustainable growth ensures SANKALPAM\'s initiatives are both impactful and enduring.',
+    lines: [
+      'Trustee – SANKALPAM Mind & Wellness Foundation',
+      'Managing Director, Sri Shiva Balaji Enterprises',
+    ],
+    role: 'Brings expertise in business leadership, strategic planning, and organizational management, supporting institutional growth and partnerships.',
   },
   {
     name: 'Mr. Sai Raghu Prasad',
-    title: 'Holistic Health',
-    role: 'An expert in holistic health, he bridges the gap between modern clinical models and traditional wellness practices, ensuring a balanced approach to healing.',
+    lines: [
+      'Trustee – SANKALPAM Mind & Wellness Foundation',
+      'Naturopathist | Licensed Acupressure Therapist',
+    ],
+    role: 'Provides expertise in holistic and alternative health systems, supporting SANKALPAM’s integrated wellbeing approach.',
   },
 ];
 
 const advisoryBoard = [
   {
     name: 'Dr. Balagurunath',
-    tag: 'SENIOR CONSULTANT',
-    desc: 'Expert in Public Health systems with Evidence-Based Strategies.',
+    title: 'Founder & Principal – Vani Educational Society',
+    desc: 'Supports educational program design and institutional collaboration.',
     accent: '#7044C4',
   },
   {
     name: 'Dr. Mayur',
-    tag: 'CLINICAL SPECIALIST',
-    desc: 'Advances in behavioural sciences and Psychometric Administration.',
+    title: 'Neurologist, PES Hospital, Kuppam',
+    desc: 'Provides clinical expertise in neurological and mental health integration.',
     accent: '#2563eb',
   },
   {
     name: 'Dr. Sowmya',
-    tag: 'PREVENTIVE WELLNESS',
-    desc: 'Specialist in child development and early intervention Practices.',
+    title: 'Child Psychiatrist, PES Hospital, Kuppam',
+    desc: 'Supports child and adolescent mental health and early intervention programs.',
     accent: '#0d9488',
   },
   {
     name: 'Dr. Chandra Teja',
-    tag: 'OPERATIONAL HEALTH',
-    desc: 'Expert in Rural Medical Expert and Emergency Response System.',
+    title: 'MBBS | Physician',
+    desc: 'Supports integration of physical and mental health in outreach programs.',
     accent: '#e84c3d',
   },
 ];
 
-const governanceItems = [
-  {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-      </svg>
-    ),
-    title: 'Transparency First',
-    desc: 'Financial audit trails and real-time project tracking ensure that every rupee spent is accounted for and impactful.',
-  },
-  {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/>
-      </svg>
-    ),
-    title: 'Accountability Structures',
-    desc: 'Internal review boards oversee programme compliance, integrity, and clinical standards in all field operations.',
-  },
-  {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-      </svg>
-    ),
-    title: 'Data-Driven Integrity',
-    desc: 'Rigorous impact monitoring allows us to pivot strategies based on evidence, establishing clinical standards.',
-  },
+const governanceKeyElements = [
+  'Clearly defined roles and responsibilities',
+  'Professional oversight of program implementation',
+  'Ethical guidelines for counselling and outreach',
+  'Financial accountability and compliance systems',
+];
+
+const accountabilityItems = [
+  'Structured program planning and execution',
+  'Periodic monitoring and evaluation',
+  'Transparent reporting to partners and stakeholders',
+  'Responsible and efficient use of resources',
 ];
 
 export default function Leadership() {
@@ -76,22 +87,19 @@ export default function Leadership() {
 
   return (
     <div className="leadership-page">
-      {/* Hero - Split Layout */}
       <section className="lead-hero">
         <div className="lead-hero-inner">
           <div className="lead-hero-text">
-            <span className="lead-hero-badge">LEADERSHIP & GOVERNANCE</span>
-            <h1>
-              Guided by<br />
-              Expertise,<br />
-              Driven by<br />
-              Impact.
-            </h1>
+            <span className="lead-hero-badge">7. LEADERSHIP &amp; GOVERNANCE</span>
+            <h1>Leadership &amp; Governance</h1>
             <p>
-              SANKALPAM is built on a foundation of clinical excellence,
-              field experience, and systems thinking. Our leadership
-              ensures every initiative is rooted in evidence-based
-              practices and compassionate delivery.
+              Leadership combines clinical expertise, field experience, and systems
+              thinking to ensure scalable and ethical impact.
+            </p>
+            <p>
+              SANKALPAM is led by professionals with deep experience in mental health,
+              community systems, and institutional engagement, ensuring that all
+              programs are ethically grounded, evidence-informed, and impact-driven.
             </p>
           </div>
           <div className="lead-hero-visual">
@@ -99,7 +107,9 @@ export default function Leadership() {
               <img
                 src={ASSETS.home.aboutSankalpam}
                 alt="SANKALPAM"
-                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                onError={(e) => {
+                  (e.target as HTMLImageElement).style.display = 'none';
+                }}
               />
               <div className="lead-hero-logo-overlay">
                 <img src="/assets/logo.png" alt="SANKALPAM Logo" />
@@ -109,10 +119,9 @@ export default function Leadership() {
         </div>
       </section>
 
-      {/* Founder - A Legacy of Clinical Compassion */}
       <section className="lead-founder">
         <div className="lead-founder-inner">
-          <h2 className="lead-founder-title">A Legacy of Clinical Compassion</h2>
+          <h2 className="lead-founder-section-title">Founder &amp; Managing Trustee</h2>
           <div className="lead-founder-grid">
             <div className="lead-founder-photo-col">
               <div className="lead-founder-photo-wrap">
@@ -120,89 +129,103 @@ export default function Leadership() {
               </div>
               <div className="lead-founder-name-block">
                 <h3>Dr. Sahithyaa Raghu</h3>
-                <p>Founder & Managing Trustee</p>
+                <p className="lead-founder-credentials-line">
+                  Psychologist | RCI-Licensed Early Intervention Therapist |
+                  Trauma-Informed Practitioner | Psycho-Social Consultant | Mental
+                  Health Advocate | Certified Parenting Expert | Trainer | Speaker
+                </p>
               </div>
             </div>
             <div className="lead-founder-info-col">
+              <p className="lead-founder-bio lead-founder-bio--lead">
+                Dr. Sahithyaa Raghu brings over 17+ years of experience across diverse
+                domains, including mental health practice, training, and community
+                outreach.
+              </p>
+              <p className="lead-founder-subhead">Her work spans:</p>
+              <ul className="lead-founder-list">
+                {founderWorkSpans.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
               <p className="lead-founder-bio">
-                With over 17 years of extensive experience in mental health and community
-                development, Dr. Sahithyaa Raghu is an RCI-Licensed Psychologist dedicated to
-                systemic change. Her journey is defined by a deep-rooted commitment to rehabilitative
-                sciences and social welfare.
+                She integrates clinical expertise, preventive approaches, and systems
+                thinking to build scalable and sustainable wellbeing models.
               </p>
-              <div className="lead-founder-credentials">
-                <div className="lead-cred-column">
-                  <h4>Academic Excellence</h4>
-                  <ul>
-                    <li>Doctorate in Psychology</li>
-                    <li>Master of Business Administration (MBA)</li>
-                    <li>Bachelor of Laws (LLB)</li>
-                    <li>Criminology Therapy Research & TDS</li>
-                  </ul>
-                </div>
-                <div className="lead-cred-column">
-                  <h4>Recognitions</h4>
-                  <ul>
-                    <li>Excellence in Social Work Award (2021)</li>
-                    <li>Healthcare Leadership Catalyst Award</li>
-                    <li>Published Researcher in Clinical Journals</li>
-                  </ul>
-                </div>
-              </div>
-              <p className="lead-founder-vision">
-                Her vision for SANKALPAM transcends traditional charity, focusing instead on "systemic
-                thinking" — developing sustainable frameworks that address the root causes of health
-                and social disparities.
+
+              <h4 className="lead-founder-block-title">Academic &amp; Professional Background</h4>
+              <p className="lead-founder-academic">
+                Doctorate in Psychology | MSc Counselling &amp; Psychotherapy | Masters
+                in Social work | MBA (HR) | LLB | B.Ed. | RCI-Licensed PG Dip in Early
+                Intervention | PG Dip in Human Rights – (Women &amp; Child Rights) |
+                Dip in Montessori |
               </p>
+
+              <h4 className="lead-founder-block-title">Professional Exposure &amp; Training</h4>
+              <ul className="lead-founder-list">
+                {professionalExposure.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Awards & Recognition */}
-      {awards.length > 0 && (
-        <section className="lead-awards">
-          <div className="lead-awards-inner">
-            <div className="lead-awards-header">
-              <h2>Awards &amp; Recognition</h2>
-              <p>
-                A glimpse of recognitions that reflect the work, trust, and
-                impact built over time.
-              </p>
-            </div>
+      <section className="lead-awards">
+        <div className="lead-awards-inner">
+          <div className="lead-awards-header">
+            <h2>Recognitions &amp; Awards (Pictures)</h2>
+            <ul className="lead-awards-intro-list">
+              {recognitionBullets.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
 
+          {awards.length > 0 && (
             <div className="lead-awards-grid">
               {awards.map((a) => (
                 <figure key={a.image} className="lead-award-card">
                   <div className="lead-award-img-wrap">
                     <img src={a.image} alt={a.description} loading="lazy" />
                   </div>
-                  <figcaption className="lead-award-caption">
-                    {a.description}
-                  </figcaption>
+                  <figcaption className="lead-award-caption">{a.description}</figcaption>
                 </figure>
               ))}
             </div>
-          </div>
-        </section>
-      )}
+          )}
+        </div>
+      </section>
 
-      {/* Board of Trustees */}
       <section className="lead-board">
         <div className="lead-board-inner">
           <h2 className="lead-board-title">
             Board of <span className="lead-underline">Trustees</span>
           </h2>
+          <p className="lead-board-intro">
+            SANKALPAM is governed by a Board of Trustees responsible for strategic
+            direction, oversight, and institutional integrity.
+          </p>
           <div className="lead-board-grid">
-            {boardOfTrustees.map((member) => (
+            {boardMembers.map((member) => (
               <div key={member.name} className="lead-board-card">
                 <div className="lead-board-avatar">
-                  <span>{member.name.split(' ').map(n => n[0]).join('')}</span>
+                  <span>
+                    {member.name
+                      .split(' ')
+                      .map((n) => n[0])
+                      .join('')}
+                  </span>
                 </div>
                 <div className="lead-board-info">
                   <h3>{member.name}</h3>
-                  <span className="lead-board-member-title">{member.title}</span>
-                  <p>{member.role}</p>
+                  {member.lines.map((line) => (
+                    <p key={line} className="lead-board-line">
+                      {line}
+                    </p>
+                  ))}
+                  <p className="lead-board-role">{member.role}</p>
                 </div>
               </div>
             ))}
@@ -210,12 +233,14 @@ export default function Leadership() {
         </div>
       </section>
 
-      {/* Advisory Board */}
       <section className="lead-advisory">
         <div className="lead-advisory-inner">
           <div className="lead-advisory-header">
             <h2>Advisory Board</h2>
-            <p className="lead-advisory-sub">The scientific pillars of our organization</p>
+            <p className="lead-advisory-sub">
+              SANKALPAM is supported by an advisory panel providing clinical, academic,
+              and strategic guidance.
+            </p>
           </div>
           <div className="lead-advisory-grid">
             {advisoryBoard.map((member) => (
@@ -224,9 +249,9 @@ export default function Leadership() {
                 className="lead-advisory-card"
                 style={{ '--card-accent': member.accent } as React.CSSProperties}
               >
-                  <div className="lead-advisory-accent" />
+                <div className="lead-advisory-accent" />
                 <h3>{member.name}</h3>
-                <span className="lead-advisory-tag">{member.tag}</span>
+                <span className="lead-advisory-title-line">{member.title}</span>
                 <p>{member.desc}</p>
               </div>
             ))}
@@ -234,50 +259,54 @@ export default function Leadership() {
         </div>
       </section>
 
-      {/* Governance + Registration */}
       <section className="lead-governance">
         <div className="lead-governance-inner">
           <div className="lead-governance-left">
             <h2>Governance Framework</h2>
-            <div className="lead-gov-items">
-              {governanceItems.map((item) => (
-                <div key={item.title} className="lead-gov-item">
-                  <div className="lead-gov-icon">{item.icon}</div>
-                  <div className="lead-gov-text">
-                    <h4>{item.title}</h4>
-                    <p>{item.desc}</p>
-                  </div>
-                </div>
+            <p className="lead-governance-lead">
+              SANKALPAM follows a structured governance model to ensure transparency,
+              accountability, and program integrity.
+            </p>
+
+            <h3 className="lead-governance-subhead">Key Governance Elements</h3>
+            <ul className="lead-governance-list">
+              {governanceKeyElements.map((item) => (
+                <li key={item}>{item}</li>
               ))}
-            </div>
+            </ul>
+
+            <h3 className="lead-governance-subhead">Accountability &amp; Transparency</h3>
+            <p className="lead-governance-we">We are committed to:</p>
+            <ul className="lead-governance-list">
+              {accountabilityItems.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
           </div>
+
           <div className="lead-governance-right">
             <div className="lead-reg-card">
-              <h3>Registration & Compliance</h3>
-              <div className="lead-reg-badges">
-                <div className="lead-reg-badge">
-                  <span className="lead-reg-label">TRUST REGISTRATION</span>
-                  <strong>Registered Trust</strong>
-                </div>
-                <div className="lead-reg-badge">
-                  <span className="lead-reg-label">TAX STATUS</span>
-                  <strong>PAN Verified</strong>
-                </div>
-                <div className="lead-reg-badge">
-                  <span className="lead-reg-label">TAX EXEMPTION</span>
-                  <strong>12A & 80G Certified</strong>
-                </div>
-                <div className="lead-reg-badge">
-                  <span className="lead-reg-label">INTEGRITY</span>
-                  <strong>MCA Compliant</strong>
-                </div>
-              </div>
-              <a href="#" className="lead-reg-download">
-                Download Annual Report 2025
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
-                </svg>
-              </a>
+              <h3>Registration &amp; Compliance</h3>
+              <p className="lead-reg-intro">
+                SANKALPAM is a legally registered trust in India and operates in
+                compliance with applicable regulations.
+              </p>
+              <ul className="lead-reg-details">
+                <li>
+                  <span className="lead-reg-k">Registration Number</span>
+                  <span className="lead-reg-v">
+                    As per Book No. 4 and Document No. 2 / 2026
+                  </span>
+                </li>
+                <li>
+                  <span className="lead-reg-k">PAN</span>
+                  <span className="lead-reg-v">ABOTS0991D</span>
+                </li>
+                <li>
+                  <span className="lead-reg-k">12A &amp; 80G</span>
+                  <span className="lead-reg-v">In Process</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

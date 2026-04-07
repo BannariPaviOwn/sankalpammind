@@ -49,7 +49,11 @@
   font-size: 1rem;
   color: #475569;
   line-height: 1.75;
-  max-width: 440px;
+  max-width: 520px;
+}
+
+.lead-hero-text p + p {
+  margin-top: 1rem;
 }
 
 .lead-hero-visual {
@@ -104,7 +108,8 @@
   margin: 0 auto;
 }
 
-.lead-founder-title {
+.lead-founder-title,
+.lead-founder-section-title {
   font-size: 1.75rem;
   font-weight: 700;
   color: #0f172a;
@@ -157,11 +162,73 @@
   font-weight: 600;
 }
 
+.lead-founder-credentials-line {
+  font-size: 0.72rem !important;
+  font-weight: 500 !important;
+  color: #64748b !important;
+  line-height: 1.55 !important;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .lead-founder-bio {
   font-size: 0.95rem;
   color: #334155;
   line-height: 1.8;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
+}
+
+.lead-founder-bio--lead {
+  margin-bottom: 1rem;
+}
+
+.lead-founder-subhead {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.lead-founder-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+}
+
+.lead-founder-list li {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.55;
+  padding: 0.35rem 0 0.35rem 1.15rem;
+  position: relative;
+}
+
+.lead-founder-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.72rem;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #7044C4;
+}
+
+.lead-founder-block-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 1.75rem 0 0.65rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.lead-founder-academic {
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.75;
+  margin: 0 0 0.5rem;
 }
 
 .lead-founder-credentials {
@@ -169,49 +236,6 @@
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   margin-bottom: 2rem;
-}
-
-.lead-cred-column h4 {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #0f172a;
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid #e5e7eb;
-}
-
-.lead-cred-column ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.lead-cred-column ul li {
-  font-size: 0.88rem;
-  color: #475569;
-  line-height: 1.6;
-  padding: 0.3rem 0;
-  padding-left: 1rem;
-  position: relative;
-}
-
-.lead-cred-column ul li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.65rem;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #7044C4;
-}
-
-.lead-founder-vision {
-  font-size: 0.93rem;
-  color: #475569;
-  line-height: 1.75;
-  padding-top: 1rem;
-  border-top: 1px solid #f1f5f9;
 }
 
 /* =============================
@@ -242,12 +266,28 @@
   margin: 0 0 0.75rem;
 }
 
-.lead-awards-header p {
-  font-size: 1.02rem;
-  color: #475569;
-  max-width: 720px;
+.lead-awards-intro-list {
+  list-style: none;
+  padding: 0;
   margin: 0 auto;
-  line-height: 1.75;
+  max-width: 640px;
+  text-align: left;
+}
+
+.lead-awards-intro-list li {
+  font-size: 0.98rem;
+  color: #475569;
+  line-height: 1.65;
+  padding: 0.4rem 0 0.4rem 1.35rem;
+  position: relative;
+}
+
+.lead-awards-intro-list li::before {
+  content: '·';
+  position: absolute;
+  left: 0.25rem;
+  font-weight: 800;
+  color: #7044C4;
 }
 
 .lead-awards-grid {
@@ -311,7 +351,16 @@
   font-weight: 700;
   color: #0f172a;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
+}
+
+.lead-board-intro {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+  font-size: 1rem;
+  color: #475569;
+  line-height: 1.75;
 }
 
 .lead-underline {
@@ -367,18 +416,23 @@
   margin-bottom: 0.2rem;
 }
 
-.lead-board-member-title {
-  display: inline-block;
-  font-size: 0.78rem;
+.lead-board-line {
+  font-size: 0.82rem;
   font-weight: 600;
-  color: #7044C4;
-  margin-bottom: 0.6rem;
+  color: #5046b8;
+  line-height: 1.45;
+  margin: 0.15rem 0 0;
 }
 
-.lead-board-info p {
+.lead-board-line:first-of-type {
+  margin-top: 0.35rem;
+}
+
+.lead-board-role {
   font-size: 0.88rem;
   color: #475569;
   line-height: 1.6;
+  margin: 0.85rem 0 0;
 }
 
 /* =============================
@@ -403,13 +457,15 @@
   font-size: 1.75rem;
   font-weight: 700;
   color: #0f172a;
-  font-style: italic;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.75rem;
 }
 
 .lead-advisory-sub {
-  font-size: 0.9rem;
-  color: #64748b;
+  font-size: 0.98rem;
+  color: #475569;
+  line-height: 1.7;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 .lead-advisory-grid {
@@ -449,14 +505,13 @@
   margin-bottom: 0.4rem;
 }
 
-.lead-advisory-tag {
-  display: inline-block;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--card-accent, #7044C4);
-  margin-bottom: 0.75rem;
+.lead-advisory-title-line {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+  line-height: 1.45;
+  margin-bottom: 0.65rem;
 }
 
 .lead-advisory-card p {
@@ -486,44 +541,53 @@
   font-size: 1.75rem;
   font-weight: 700;
   color: #0f172a;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
-.lead-gov-items {
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
+.lead-governance-lead {
+  font-size: 0.98rem;
+  color: #475569;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
 }
 
-.lead-gov-item {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-}
-
-.lead-gov-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 0.5rem;
-  background: #ede9fe;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  color: #7044C4;
-}
-
-.lead-gov-text h4 {
-  font-size: 0.95rem;
+.lead-governance-subhead {
+  font-size: 1.05rem;
   font-weight: 700;
   color: #0f172a;
-  margin-bottom: 0.25rem;
+  margin: 1.5rem 0 0.65rem;
 }
 
-.lead-gov-text p {
-  font-size: 0.85rem;
-  color: #64748b;
-  line-height: 1.6;
+.lead-governance-we {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #334155;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.lead-governance-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.25rem;
+}
+
+.lead-governance-list li {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.55;
+  padding: 0.35rem 0 0.35rem 1.15rem;
+  position: relative;
+}
+
+.lead-governance-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.72rem;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #7044C4;
 }
 
 .lead-reg-card {
@@ -536,53 +600,46 @@
 .lead-reg-card h3 {
   font-size: 1.25rem;
   font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.lead-reg-intro {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  opacity: 0.95;
   margin-bottom: 1.5rem;
 }
 
-.lead-reg-badges {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+.lead-reg-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
 }
 
-.lead-reg-badge {
-  background: rgba(255, 255, 255, 0.15);
+.lead-reg-details li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  background: rgba(255, 255, 255, 0.14);
   border-radius: 0.5rem;
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1rem;
 }
 
-.lead-reg-label {
-  display: block;
-  font-size: 0.6rem;
-  font-weight: 600;
+.lead-reg-k {
+  font-size: 0.65rem;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  opacity: 0.75;
-  margin-bottom: 0.25rem;
+  opacity: 0.8;
 }
 
-.lead-reg-badge strong {
-  font-size: 0.88rem;
+.lead-reg-v {
+  font-size: 0.92rem;
   font-weight: 700;
-}
-
-.lead-reg-download {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #fff;
-  font-size: 0.88rem;
-  font-weight: 600;
-  text-decoration: none;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 0.65rem 1.25rem;
-  border-radius: 0.5rem;
-  transition: background 0.2s ease;
-}
-
-.lead-reg-download:hover {
-  background: rgba(255, 255, 255, 0.3);
+  line-height: 1.45;
 }
 
 /* =============================
@@ -649,6 +706,7 @@
   }
 
   .lead-founder-title,
+  .lead-founder-section-title,
   .lead-board-title,
   .lead-advisory-header h2,
   .lead-governance-left h2 {
@@ -682,10 +740,6 @@
   }
 
   .lead-advisory-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .lead-reg-badges {
     grid-template-columns: 1fr;
   }
 

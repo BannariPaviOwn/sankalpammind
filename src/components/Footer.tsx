@@ -16,8 +16,10 @@ export default function Footer() {
               />
             </Link>
             <p className="footer-tagline">
-              SANKALPAM is not just an organization — it is a movement to bring mental and holistic
-              wellbeing to every community that needs it most.
+              SANKALPAM is not just an organization—
+              <br />
+              it is a movement to bring mental and holistic wellbeing to every
+              community that needs it most.
             </p>
             <p className="footer-location">
               Starting from Andhra Pradesh. Expanding across India.<br />

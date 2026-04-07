@@ -118,27 +118,6 @@ const initiatives: Initiative[] = [
     imageAlt: 'Trauma preparedness and Psychological First Aid training',
     icon: '🛡️',
   },
-  {
-    id: 'integrated-wellness',
-    number: '4',
-    title: 'Integrated Wellness & Outreach',
-    tagline: 'Bridging mental and physical health',
-    description:
-      'Bridging mental and physical health. This initiative delivers combined health outreach to improve access and early detection.',
-    interventions: [
-      { text: 'Screening camps' },
-      { text: 'Preventive health awareness' },
-      { text: 'Referral and follow-up support' },
-    ],
-    outcomes: [
-      'Improved access to services',
-      'Early identification of concerns',
-      'Increased preventive health behavior',
-    ],
-    image: ASSETS.initiatives.programsAction,
-    imageAlt: 'Integrated wellness and outreach programs',
-    icon: '🤝',
-  },
 ];
 
 export default function Initiatives() {
@@ -252,10 +231,8 @@ export default function Initiatives() {
               <strong>MANOSHIKSHA</strong> enables early support in schools
             </li>
             <li>
-              <strong>MANORAKSHA</strong> strengthens crisis preparedness
-            </li>
-            <li>
-              <strong>Integrated Outreach</strong> supports holistic health
+              <strong>MANORAKSHA</strong> strengthens crisis preparedness and
+              psychological support
             </li>
           </ul>
           <p className="ini-connected__closing">
