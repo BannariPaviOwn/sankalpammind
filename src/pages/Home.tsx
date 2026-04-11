@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import { ASSETS } from '../assets';
 import './Home.css';
 
+/** Replaces primary hero collage image; filename has spaces/parens — encode for URL */
+const HERO_BRAND_IMAGE_SRC = `/assets/about/${encodeURIComponent('sahiwellness-33.jpg (1).jpeg')}`;
+
 export default function Home() {
   return (
     <div className="home">
@@ -9,7 +12,9 @@ export default function Home() {
       <section className="hero">
         <div className="hero-inner">
           <div className="hero-text">
-            <h1 className="hero-title">SANKALPAM</h1>
+            <div className="hero-brand">
+              <h1 className="hero-title">SANKALPAM</h1>
+            </div>
             <p className="hero-subtitle">
               Building Community-Based Mental Health &amp; Wellbeing Systems for
               Rural and Semi-Urban India
@@ -33,8 +38,16 @@ export default function Home() {
           </div>
           <div className="hero-images">
             <div className="hero-collage">
-              <img src={ASSETS.home.ourWork} alt="Community outreach" className="collage-main" />
-              <img src={ASSETS.home.community} alt="Community work" className="collage-secondary" />
+              <div className="collage-main collage-main--brand">
+                <img
+                  src={HERO_BRAND_IMAGE_SRC}
+                  alt=""
+                  className="collage-brand-img"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = 'none';
+                  }}
+                />
+              </div>
             </div>
             <div className="hero-stat-badge">
               <span className="stat-number">80%</span>

@@ -82,6 +82,8 @@ const accountabilityItems = [
   'Responsible and efficient use of resources',
 ];
 
+const governancePhotos = ASSETS.leadership.governanceGallery;
+
 export default function Leadership() {
   const awards = ASSETS.awards ?? [];
 
@@ -105,15 +107,14 @@ export default function Leadership() {
           <div className="lead-hero-visual">
             <div className="lead-hero-img-wrap">
               <img
-                src={ASSETS.home.aboutSankalpam}
-                alt="SANKALPAM"
+                src={ASSETS.leadership.pageHero}
+                alt="Leadership and community engagement — SANKALPAM in action"
+                loading="eager"
+                decoding="async"
                 onError={(e) => {
                   (e.target as HTMLImageElement).style.display = 'none';
                 }}
               />
-              <div className="lead-hero-logo-overlay">
-                <img src="/assets/logo.png" alt="SANKALPAM Logo" />
-              </div>
             </div>
           </div>
         </div>
@@ -171,6 +172,51 @@ export default function Leadership() {
           </div>
         </div>
       </section>
+
+      {governancePhotos.length > 0 && (
+        <section
+          className="lead-governance-gallery"
+          aria-labelledby="lead-governance-gallery-heading"
+        >
+          <div className="lead-governance-gallery-inner">
+            <header className="lead-governance-gallery-header">
+              <p className="lead-governance-gallery-kicker">
+                <span className="lead-governance-gallery-kicker-dot" aria-hidden="true" />
+                On the ground
+              </p>
+              <h2 id="lead-governance-gallery-heading" className="lead-governance-gallery-title">
+                Leadership &amp; Governance
+                <span className="lead-governance-gallery-title-accent">In Action</span>
+              </h2>
+              <p className="lead-governance-gallery-lead">
+                Programmes, community moments, and institutional work—real scenes
+                from how SANKALPAM leads with care and clarity.
+              </p>
+            </header>
+            <div
+              className="lead-governance-gallery-masonry"
+              role="list"
+            >
+              {governancePhotos.map((src, i) => (
+                <figure
+                  key={src}
+                  className="lead-governance-gallery-card"
+                  role="listitem"
+                >
+                  <div className="lead-governance-gallery-img-wrap">
+                    <img
+                      src={src}
+                      alt={`SANKALPAM leadership and community engagement (${i + 1} of ${governancePhotos.length})`}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="lead-awards">
         <div className="lead-awards-inner">

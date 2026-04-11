@@ -178,6 +178,9 @@
   padding-right: 1rem;
 }
 
+.hero-brand {
+  margin-bottom: 1rem;
+}
 
 .hero-title {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
@@ -214,9 +217,9 @@
 }
 
 .hero-collage {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 0.75rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .collage-main {
@@ -227,12 +230,25 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
-.collage-secondary {
-  border-radius: var(--radius);
+.collage-main--brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: linear-gradient(145deg, #faf5ff 0%, #f5f3ff 45%, #ede9fe 100%);
+  border: 1px solid rgba(112, 68, 196, 0.14);
+  object-fit: unset;
   width: 100%;
-  height: 320px;
-  object-fit: cover;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  max-width: 440px;
+}
+
+.collage-brand-img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 .hero-stat-badge {
@@ -1183,7 +1199,7 @@
   .hero-text { padding-right: 0; }
   .hero-ctas { justify-content: center; }
   .hero-stat-badge { position: relative; bottom: 0; left: 0; transform: none; margin: 1.5rem auto 0; }
-  .collage-main, .collage-secondary { height: 220px; }
+  .collage-main { height: 220px; }
 
   .vm-grid { grid-template-columns: 1fr; }
   .founder-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -1208,8 +1224,7 @@
 @media (max-width: 480px) {
   .hero { padding-top: calc(var(--header-height, 60px) + 2rem); }
   .hero-title { font-size: 2rem; }
-  .hero-collage { grid-template-columns: 1fr; }
-  .collage-secondary { display: none; }
+  .collage-main--brand { max-width: 100%; }
   .why-cards { grid-template-columns: 1fr 1fr; }
   .pillar-grid { grid-template-columns: 1fr; }
   .impact-grid { grid-template-columns: 1fr 1fr; }

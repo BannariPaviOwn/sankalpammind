@@ -57,6 +57,27 @@ export const ASSETS = {
   initiatives: {
     programsAction: `${BASE}/${IMG._16}`,
     sessions: `${BASE}/${IMG._17}`,
+    /** MANODAYA section — `public/assets/initiatives/manodaya/` */
+    manodayaGallery: [
+      `${BASE}/initiatives/manodaya/7b399b03-0c9c-4315-a128-d77c79fdca10.jpeg`,
+      `${BASE}/initiatives/manodaya/cff8ae34-51b5-45a9-80ea-0c2e8863bd85.jpeg`,
+    ] as const,
+    /** MANOSHIKSHA section — `public/assets/initiatives/manoshiksha/` */
+    manoshikshaGallery: [
+      `${BASE}/initiatives/manoshiksha/205c2986-29b3-45ca-9dcf-9a45f3553eba.jpeg`,
+      `${BASE}/initiatives/manoshiksha/75a5c196-07d1-43ce-b7ad-b5afaa2ed4e4.jpeg`,
+      `${BASE}/initiatives/manoshiksha/8cfadd57-daf8-4630-9595-a0442b0ec88c.jpeg`,
+    ] as const,
+    /** MANORAKSHA — `public/assets/initiatives/manoraksha/` */
+    manorakshaGallery: [
+      `${BASE}/initiatives/manoraksha/205c2986-29b3-45ca-9dcf-9a45f3553eba%20(1).jpeg`,
+      `${BASE}/initiatives/manoraksha/45198437-77c2-408a-91ff-214f20dd8df6.jpeg`,
+    ] as const,
+    /**
+     * Initiatives page — `public/assets/initiatives/inititatives/`
+     * Add more filenames here when you drop new files in that folder.
+     */
+    inititativesGallery: [`${BASE}/initiatives/inititatives/unnamed.jpg`] as const,
     gallery: [
       `${BASE}/${IMG._18}`,
       `${BASE}/${IMG._19}`,
@@ -72,12 +93,28 @@ export const ASSETS = {
   },
   leadership: {
     building: `${BASE}/about/sahiwellness-33.jpg%20(1).jpeg`,
+    /** Top hero image on Leadership & Governance page (distinct from gallery order) */
+    pageHero: `${BASE}/initiatives/leadershipandhoverece/IMG_7072.jpeg`,
+    /** Leadership & Governance page — `public/assets/initiatives/leadershipandhoverece/` */
+    governanceGallery: [
+      `${BASE}/initiatives/leadershipandhoverece/IMG_7067.jpeg`,
+      `${BASE}/initiatives/leadershipandhoverece/IMG_7069.jpeg`,
+      `${BASE}/initiatives/leadershipandhoverece/IMG_7070.jpeg`,
+      `${BASE}/initiatives/leadershipandhoverece/IMG_7071.jpeg`,
+      `${BASE}/initiatives/leadershipandhoverece/IMG_7072.jpeg`,
+    ] as const,
   },
   hero: {
     /** Hero carousel images (16:9 or similar). Place files in public/assets/hero/. */
     breakingSilence: `${BASE}/hero/hero-breaking-silence.png`,
     accessibleSupport: `${BASE}/hero/hero-accessible-support.png`,
   },
+  /** Impact page photo strip — `public/assets/moments/` */
+  impactPagePhotos: [
+    `${BASE}/moments/20200808_163810.jpg`,
+    `${BASE}/moments/IMG_20191219_123048.jpg`,
+    `${BASE}/moments/IMG-20200228-WA0007.jpg`,
+  ] as const,
   /** Award/recognition photos from public/assets/awards/ with hardcoded descriptions */
   awards: [
     { image: '/assets/awards/WhatsApp%20Image%202026-03-06%20at%201.00.10%20PM%20(1).jpeg', description: 'Women Leadership Award (2022)' },

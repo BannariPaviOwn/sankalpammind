@@ -46,11 +46,7 @@ const learningItems = [
   'Evidence-based scaling',
 ];
 
-const impactPhotos = [
-  ASSETS.initiatives.gallery[0],
-  ASSETS.initiatives.gallery[1],
-  ASSETS.initiatives.gallery[2],
-];
+const impactPhotos = [...ASSETS.impactPagePhotos];
 
 export default function Impact() {
   return (
@@ -73,7 +69,7 @@ export default function Impact() {
               <img
                 key={src}
                 src={src}
-                alt={i === 0 ? 'Community engagement session' : 'Wellbeing program moment'}
+                alt={`Community wellbeing and impact — photo ${i + 1}`}
                 loading="lazy"
                 className={`imp-photo imp-photo--${i}`}
               />

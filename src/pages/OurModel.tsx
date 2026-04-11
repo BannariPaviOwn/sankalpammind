@@ -1,5 +1,9 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './OurModel.css';
+
+/** Place `model.jpeg` in `public/assets/model/model.jpeg` */
+const MODEL_DIAGRAM_SRC = '/assets/model/model.jpeg';
 
 const pillars = [
   {
@@ -75,6 +79,8 @@ const priorities = [
 ];
 
 export default function OurModel() {
+  const [modelDiagramVisible, setModelDiagramVisible] = useState(true);
+
   return (
     <div className="model-page">
       {/* ── Hero ── */}
@@ -85,6 +91,34 @@ export default function OurModel() {
           support, and sustainable wellbeing.
         </p>
       </section>
+
+      {/* ── Model diagram: public/assets/model/model.jpeg ── */}
+      {modelDiagramVisible && (
+        <section
+          className="model-section model-section--diagram"
+          aria-labelledby="model-diagram-heading"
+        >
+          <div className="model-section__inner">
+            <h2 id="model-diagram-heading" className="model-section__title">
+              Model at a glance
+            </h2>
+            <p className="model-diagram__intro">
+              Visual overview of the Sankalpam Samagra Wellness Model framework.
+            </p>
+            <figure className="model-diagram-card">
+              <div className="model-diagram-card__frame">
+                <img
+                  src={MODEL_DIAGRAM_SRC}
+                  alt="Sankalpam Samagra Wellness Model diagram"
+                  loading="lazy"
+                  decoding="async"
+                  onError={() => setModelDiagramVisible(false)}
+                />
+              </div>
+            </figure>
+          </div>
+        </section>
+      )}
 
       {/* ── Overview ── */}
       <section

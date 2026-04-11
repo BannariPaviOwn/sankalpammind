@@ -6,6 +6,11 @@ interface Intervention {
   text: string;
 }
 
+interface InitiativeGalleryItem {
+  src: string;
+  alt: string;
+}
+
 interface Initiative {
   id: string;
   number: string;
@@ -17,6 +22,8 @@ interface Initiative {
   outcomes: string[];
   image?: string;
   imageAlt?: string;
+  /** Multiple photos in the initiative header (e.g. MANORAKSHA) */
+  gallery?: InitiativeGalleryItem[];
   specialFocus?: {
     title: string;
     description: string;
@@ -50,8 +57,10 @@ const initiatives: Initiative[] = [
       'Improved help-seeking behavior',
       'Strengthened local support systems',
     ],
-    image: ASSETS.home.community,
-    imageAlt: 'Community wellbeing outreach',
+    gallery: ASSETS.initiatives.manodayaGallery.map((src, i) => ({
+      src,
+      alt: `MANODAYA — community wellbeing and outreach (${i + 1} of 2)`,
+    })),
     icon: '🌱',
   },
   {
@@ -76,8 +85,10 @@ const initiatives: Initiative[] = [
       'Reduced stress and anxiety indicators',
       'Increased teacher capacity to identify concerns',
     ],
-    image: ASSETS.initiatives.sessions,
-    imageAlt: 'School mental health sessions',
+    gallery: ASSETS.initiatives.manoshikshaGallery.map((src, i) => ({
+      src,
+      alt: `MANOSHIKSHA — school and youth mental health (${i + 1} of 3)`,
+    })),
     specialFocus: {
       title: 'Special Focus: Inclusive Development (Pilot)',
       description:
@@ -114,11 +125,15 @@ const initiatives: Initiative[] = [
       'Faster emotional stabilization',
       'Reduced long-term trauma impact',
     ],
-    image: ASSETS.getInvolved.training,
-    imageAlt: 'Trauma preparedness and Psychological First Aid training',
+    gallery: ASSETS.initiatives.manorakshaGallery.map((src, i, arr) => ({
+      src,
+      alt: `MANORAKSHA — trauma preparedness and community support (${i + 1} of ${arr.length})`,
+    })),
     icon: '🛡️',
   },
 ];
+
+const initiativesPagePhotos = ASSETS.initiatives.inititativesGallery;
 
 export default function Initiatives() {
   return (
@@ -135,6 +150,41 @@ export default function Initiatives() {
         </div>
       </section>
 
+      {initiativesPagePhotos.length > 0 && (
+        <section
+          className="ini-page-photos"
+          aria-labelledby="ini-page-photos-heading"
+        >
+          <div className="ini-page-photos-inner">
+            <h2 id="ini-page-photos-heading" className="ini-page-photos-title">
+              Initiatives in action
+            </h2>
+            <p className="ini-page-photos-lead">
+              Snapshots from programmes across communities, schools, and crisis
+              readiness work.
+            </p>
+            <div className="ini-page-photos-grid" role="list">
+              {initiativesPagePhotos.map((src, i) => (
+                <figure
+                  key={src}
+                  className="ini-page-photos-card"
+                  role="listitem"
+                >
+                  <div className="ini-page-photos-frame">
+                    <img
+                      src={src}
+                      alt={`SANKALPAM flagship initiatives — programme moment (${i + 1} of ${initiativesPagePhotos.length})`}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {initiatives.map((ini, idx) => (
         <section
           key={ini.id}
@@ -146,14 +196,33 @@ export default function Initiatives() {
               <div className={`ini-icon ini-icon--${ini.id}`}>{ini.icon}</div>
               <h2 className="ini-title">{ini.title}</h2>
               <span className="ini-tagline">— {ini.tagline}</span>
-              {ini.image && (
-                <div className={`ini-photo ini-photo--${ini.id}`}>
-                  <img
-                    src={ini.image}
-                    alt={ini.imageAlt ?? ''}
-                    loading="lazy"
-                  />
+              {ini.gallery && ini.gallery.length > 0 ? (
+                <div
+                  className={`ini-photo-grid ini-photo-grid--${ini.id}`}
+                >
+                  {ini.gallery.map((item) => (
+                    <div
+                      key={item.src}
+                      className={`ini-photo ini-photo--${ini.id}`}
+                    >
+                      <img
+                        src={item.src}
+                        alt={item.alt}
+                        loading="lazy"
+                      />
+                    </div>
+                  ))}
                 </div>
+              ) : (
+                ini.image && (
+                  <div className={`ini-photo ini-photo--${ini.id}`}>
+                    <img
+                      src={ini.image}
+                      alt={ini.imageAlt ?? ''}
+                      loading="lazy"
+                    />
+                  </div>
+                )
               )}
               <div
                 className={`ini-block-motif ini-block-motif--${ini.id}`}

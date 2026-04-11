@@ -72,6 +72,80 @@
   line-height: 1.7;
 }
 
+/* ---------- Page photos (`public/assets/initiatives/inititatives/`) ---------- */
+.ini-page-photos {
+  padding: 3.5rem 1.5rem 3rem;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  border-bottom: 1px solid rgba(112, 68, 196, 0.08);
+}
+
+.ini-page-photos-inner {
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.ini-page-photos-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #0f172a;
+  text-align: center;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.ini-page-photos-lead {
+  text-align: center;
+  color: #64748b;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  max-width: 520px;
+  margin: 0 auto 2rem;
+}
+
+.ini-page-photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  gap: 1rem;
+}
+
+.ini-page-photos-card {
+  margin: 0;
+}
+
+.ini-page-photos-frame {
+  border-radius: 1rem;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #f1f5f9;
+  border: 1px solid rgba(112, 68, 196, 0.12);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.ini-page-photos-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 640px) {
+  .ini-page-photos {
+    padding: 2.75rem 1.25rem;
+  }
+
+  .ini-page-photos-title {
+    font-size: 1.4rem;
+  }
+
+  .ini-page-photos-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 /* ---------- Initiative Blocks ---------- */
 
 .ini-block {
@@ -158,6 +232,89 @@
   margin-top: 0.15rem;
   position: relative;
   z-index: 2;
+}
+
+/* Photo grid (e.g. MANORAKSHA gallery) */
+.ini-photo-grid {
+  width: min(720px, 94%);
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+  position: relative;
+  z-index: 2;
+}
+
+.ini-photo-grid .ini-photo {
+  width: 100%;
+  margin-top: 0;
+}
+
+.ini-photo-grid .ini-photo img {
+  height: 200px;
+}
+
+/* Two-image row: avoid an empty third column */
+.ini-photo-grid:has(> .ini-photo:first-child:nth-last-child(2)) {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 560px;
+}
+
+/* Four images: 2×2 grid */
+.ini-photo-grid:has(> .ini-photo:first-child:nth-last-child(4)) {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: min(720px, 94%);
+}
+
+/* MANODAYA only: full photo visible (no crop), letterboxing inside the card */
+.ini-photo-grid--manodaya .ini-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  padding: 0.35rem;
+  background: rgba(255, 255, 255, 0.55);
+  box-sizing: border-box;
+}
+
+.ini-photo-grid--manodaya .ini-photo img {
+  width: 100%;
+  height: auto;
+  max-height: min(420px, 52vh);
+  object-fit: contain;
+  object-position: center;
+}
+
+.ini-photo-grid--manodaya .ini-photo::after {
+  display: none;
+}
+
+.ini-photo-grid--manodaya:has(> .ini-photo:first-child:nth-last-child(2)) {
+  max-width: min(640px, 94%);
+}
+
+@media (max-width: 640px) {
+  .ini-photo-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ini-photo-grid .ini-photo img {
+    height: 220px;
+  }
+
+  .ini-photo-grid--manodaya .ini-photo img {
+    height: auto;
+    max-height: min(380px, 58vh);
+  }
+
+  /* Keep 2×2 on small screens when there are four photos */
+  .ini-photo-grid:has(> .ini-photo:first-child:nth-last-child(4)) {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+  }
 }
 
 /* Photo block (optional per initiative) */
