@@ -70,8 +70,8 @@ export const ASSETS = {
     ] as const,
     /** MANORAKSHA — `public/assets/initiatives/manoraksha/` */
     manorakshaGallery: [
-      `${BASE}/initiatives/manoraksha/205c2986-29b3-45ca-9dcf-9a45f3553eba%20(1).jpeg`,
       `${BASE}/initiatives/manoraksha/45198437-77c2-408a-91ff-214f20dd8df6.jpeg`,
+      `${BASE}/initiatives/manoraksha/205c2986-29b3-45ca-9dcf-9a45f3553eba%20(1).jpeg`,
     ] as const,
     /**
      * Initiatives page — `public/assets/initiatives/inititatives/`

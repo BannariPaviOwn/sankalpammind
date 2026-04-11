@@ -337,7 +337,10 @@ export default function Home() {
           <div className="initiative-grid">
             <div className="initiative-card">
               <div className="initiative-img">
-                <img src={ASSETS.home.community} alt="MANODAYA" />
+                <img
+                  src={ASSETS.initiatives.manodayaGallery[0]}
+                  alt="MANODAYA"
+                />
               </div>
               <div className="initiative-body">
                 <h3 className="initiative-headline">
@@ -359,7 +362,10 @@ export default function Home() {
             </div>
             <div className="initiative-card">
               <div className="initiative-img">
-                <img src={ASSETS.home.programs} alt="MANOSHIKSHA" />
+                <img
+                  src={ASSETS.initiatives.manoshikshaGallery[0]}
+                  alt="MANOSHIKSHA"
+                />
               </div>
               <div className="initiative-body">
                 <h3 className="initiative-headline">
@@ -381,7 +387,10 @@ export default function Home() {
             </div>
             <div className="initiative-card">
               <div className="initiative-img">
-                <img src={ASSETS.home.ourWork} alt="MANORAKSHA" />
+                <img
+                  src={ASSETS.initiatives.manorakshaGallery[0]}
+                  alt="MANORAKSHA"
+                />
               </div>
               <div className="initiative-body">
                 <h3 className="initiative-headline">
