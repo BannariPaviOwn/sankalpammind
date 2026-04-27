@@ -590,7 +590,7 @@
   padding: 2rem;
   display: flex;
   gap: 1.25rem;
-  align-items: flex-start;
+  align-items: center;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -601,14 +601,25 @@
 }
 
 .lead-board-avatar {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #4a2d82, #7044C4);
+  width: 104px;
+  height: 124px;
+  border-radius: 0.9rem;
+  background: #eef2ff;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.1);
+}
+
+.lead-board-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
 }
 
 .lead-board-avatar span {

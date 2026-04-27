@@ -30,6 +30,7 @@ const boardMembers = [
       'Managing Director, Sri Shiva Balaji Enterprises',
     ],
     role: 'Brings expertise in business leadership, strategic planning, and organizational management, supporting institutional growth and partnerships.',
+    photo: ASSETS.leadership.trusteePhotos[0],
   },
   {
     name: 'Mr. Sai Raghu Prasad',
@@ -38,6 +39,7 @@ const boardMembers = [
       'Naturopathist | Licensed Acupressure Therapist',
     ],
     role: 'Provides expertise in holistic and alternative health systems, supporting SANKALPAM’s integrated wellbeing approach.',
+    photo: ASSETS.leadership.trusteePhotos[1],
   },
 ];
 
@@ -257,12 +259,16 @@ export default function Leadership() {
             {boardMembers.map((member) => (
               <div key={member.name} className="lead-board-card">
                 <div className="lead-board-avatar">
-                  <span>
-                    {member.name
-                      .split(' ')
-                      .map((n) => n[0])
-                      .join('')}
-                  </span>
+                  {member.photo ? (
+                    <img src={member.photo} alt={`${member.name} trustee portrait`} loading="lazy" />
+                  ) : (
+                    <span>
+                      {member.name
+                        .split(' ')
+                        .map((n) => n[0])
+                        .join('')}
+                    </span>
+                  )}
                 </div>
                 <div className="lead-board-info">
                   <h3>{member.name}</h3>

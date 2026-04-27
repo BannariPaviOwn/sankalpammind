@@ -59,14 +59,17 @@ export const ASSETS = {
     sessions: `${BASE}/${IMG._17}`,
     /** MANODAYA section — `public/assets/initiatives/manodaya/` */
     manodayaGallery: [
+      `${BASE}/initiatives/manodaya/18217b4d-7f6d-4758-98b3-41ed025c89cf.jpeg`,
       `${BASE}/initiatives/manodaya/7b399b03-0c9c-4315-a128-d77c79fdca10.jpeg`,
+      `${BASE}/initiatives/manodaya/a95e5d4b-4838-4c1b-82c8-4ac35246ad25.jpeg`,
+      `${BASE}/initiatives/manodaya/cbc1f64a-6f6c-4c42-b103-8dfc9ce900d2%20(1).jpeg`,
       `${BASE}/initiatives/manodaya/cff8ae34-51b5-45a9-80ea-0c2e8863bd85.jpeg`,
+      `${BASE}/initiatives/manoshiksha/205c2986-29b3-45ca-9dcf-9a45f3553eba.jpeg`,
     ] as const,
     /** MANOSHIKSHA section — `public/assets/initiatives/manoshiksha/` */
     manoshikshaGallery: [
-      `${BASE}/initiatives/manoshiksha/205c2986-29b3-45ca-9dcf-9a45f3553eba.jpeg`,
-      `${BASE}/initiatives/manoshiksha/75a5c196-07d1-43ce-b7ad-b5afaa2ed4e4.jpeg`,
-      `${BASE}/initiatives/manoshiksha/8cfadd57-daf8-4630-9595-a0442b0ec88c.jpeg`,
+      `${BASE}/initiatives/manoshiksha/FB_IMG_1582858342691.jpg`,
+      `${BASE}/initiatives/manoshiksha/IMG_20191219_122948.jpg`,
     ] as const,
     /** MANORAKSHA — `public/assets/initiatives/manoraksha/` */
     manorakshaGallery: [
@@ -102,6 +105,10 @@ export const ASSETS = {
       `${BASE}/initiatives/leadershipandhoverece/IMG_7070.jpeg`,
       `${BASE}/initiatives/leadershipandhoverece/IMG_7071.jpeg`,
       `${BASE}/initiatives/leadershipandhoverece/IMG_7072.jpeg`,
+    ] as const,
+    trusteePhotos: [
+      `${BASE}/initiatives/trustee/30cd2f1c-d2ea-47b3-b732-74236bfd21a2.jpeg`,
+      `${BASE}/initiatives/trustee/96e3e54d-2453-4e75-8601-3a56f7c9b36c.jpeg`,
     ] as const,
   },
   hero: {
