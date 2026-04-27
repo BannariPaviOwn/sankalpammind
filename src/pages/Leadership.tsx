@@ -22,7 +22,14 @@ const recognitionBullets = [
   'Received 10+ recognitions for contributions to mental health and community wellbeing',
 ];
 
-const boardMembers = [
+interface BoardMember {
+  name: string;
+  lines: string[];
+  role: string;
+  photo: string;
+}
+
+const boardMembers: BoardMember[] = [
   {
     name: 'Mr. Divakar Babu',
     lines: [
@@ -259,16 +266,11 @@ export default function Leadership() {
             {boardMembers.map((member) => (
               <div key={member.name} className="lead-board-card">
                 <div className="lead-board-avatar">
-                  {member.photo ? (
-                    <img src={member.photo} alt={`${member.name} trustee portrait`} loading="lazy" />
-                  ) : (
-                    <span>
-                      {member.name
-                        .split(' ')
-                        .map((n) => n[0])
-                        .join('')}
-                    </span>
-                  )}
+                  <img
+                    src={member.photo}
+                    alt={`${member.name} trustee portrait`}
+                    loading="lazy"
+                  />
                 </div>
                 <div className="lead-board-info">
                   <h3>{member.name}</h3>
