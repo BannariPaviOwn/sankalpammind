@@ -26,8 +26,8 @@ export default function DonationForm() {
   const donateBtnLabel = language === 'hi' ? 'दान करें ₹' : language === 'te' ? 'దానం చేయండి ₹' : 'Donate ₹';
 
   const handleDonate = async () => {
-    if (donationAmount < 10) {
-      showError(t('Minimum donation is ₹10', 'न्यूनतम दान ₹10 है', 'కనిష్ట దానం ₹10'));
+    if (donationAmount < 1) {
+      showError(t('Minimum donation is ₹1', 'न्यूनतम दान ₹1 है', 'కనిష్ట దానం ₹1'));
       return;
     }
     if (!name.trim() || !email.trim() || !phone.trim()) {
@@ -128,7 +128,7 @@ export default function DonationForm() {
             setCustomAmount(e.target.value);
             setAmount('');
           }}
-          min={10}
+          min={1}
         />
       </div>
 
@@ -157,7 +157,7 @@ export default function DonationForm() {
       <button
         className="donate-submit"
         onClick={handleDonate}
-        disabled={loading || donationAmount < 10}
+        disabled={loading || donationAmount < 1}
       >
         {loading
           ? t('Processing...', 'प्रोसेस हो रहा है...', 'ప్రాసెస్ అవుతోంది...')

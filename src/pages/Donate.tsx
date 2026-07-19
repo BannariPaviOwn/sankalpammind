@@ -37,9 +37,9 @@ export default function Donate() {
         </div>
         <div className="donate-sidebar">
           <div className="impact-box test-tip">
-            <h3>{t('Test Payment Failure', 'टेस्ट भुगतान विफलता', 'టెస్ట్ చెల్లింపు విఫలం')}</h3>
+            <h3>{t('Secure Payments', 'सुरक्षित भुगतान', 'సురక్షిత చెల్లింపులు')}</h3>
             <p className="tip-text">
-              {t('Use OTP "1" or "12" (less than 4 digits) to simulate payment failure in test mode.', 'टेस్ట मोड में भुगतान विफलता का अनुकरण करने के लिए OTP "1" या "12" (4 अंक से कम) उपयोग करें।', 'టెస్ట్ మోడ్‌లో చెల్లింపు విఫలాన్ని అనుకరించడానికి OTP "1" లేదా "12" (4 అంకెల కంటే తక్కువ) ఉపయోగించండి.')}
+              {t('Payments are processed securely via Cashfree. UPI, cards, and net banking are supported.', 'भुगतान Cashfree के माध्यम से सुरक्षित रूप से संसाधित होते हैं। UPI, कार्ड और नेट बैंकिंग समर्थित हैं।', 'చెల్లింపులు Cashfree ద్వారా సురక్షితంగా ప్రాసెస్ అవుతాయి. UPI, కార్డులు మరియు నెట్ బ్యాంకింగ్ మద్దతు ఉంది.')}
             </p>
           </div>
           <div className="impact-box">

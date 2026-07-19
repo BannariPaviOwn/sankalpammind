@@ -13,8 +13,8 @@ export default async function handler(req, res) {
   try {
     const { amount, name, email, phone } = req.body || {};
 
-    if (!amount || amount < 10) {
-      return res.status(400).json({ error: 'Invalid amount (minimum ₹10)' });
+    if (!amount || amount < 1) {
+      return res.status(400).json({ error: 'Invalid amount (minimum ₹1)' });
     }
     if (!name?.trim() || !email?.trim() || !phone?.trim()) {
       return res.status(400).json({ error: 'Name, email, and phone are required' });
