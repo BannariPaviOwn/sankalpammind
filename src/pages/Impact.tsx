@@ -185,7 +185,7 @@ export default function Impact() {
             awareness to lasting wellbeing.
           </p>
           <div className="imp-cta-btns">
-            <Link to="/donate" className="imp-btn imp-btn--primary">
+            <Link to="/donate" className="imp-btn imp-btn--gold">
               Donate Now
             </Link>
             <Link to="/initiatives" className="imp-btn imp-btn--outline">

@@ -60,7 +60,8 @@ export default function Footer() {
           <div className="footer-cta-col">
             <h4>Get Involved</h4>
             <p>Every conversation can lead to an impact.</p>
-            <Link to="/contact" className="footer-cta-btn">Partner With Us</Link>
+            <Link to="/donate" className="footer-cta-btn footer-cta-gold">Donate Now</Link>
+            <Link to="/contact" className="footer-cta-btn footer-cta-outline">Partner With Us</Link>
             <Link to="/contact" className="footer-cta-btn footer-cta-outline">Volunteer</Link>
             <div className="footer-reg">
               <p>Reg No: Book No. 4, Doc No. 2/2026</p>

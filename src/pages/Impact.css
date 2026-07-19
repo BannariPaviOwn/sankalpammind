@@ -478,6 +478,19 @@
   color: #fff;
 }
 
+.imp-btn--gold {
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+  color: var(--gold-text);
+  font-weight: 700;
+  border: 1px solid rgba(139, 105, 20, 0.35);
+  box-shadow: 0 2px 10px rgba(212, 175, 55, 0.25);
+}
+
+.imp-btn--gold:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45);
+}
+
 .imp-btn--outline {
   background: transparent;
   color: #4a2d82;

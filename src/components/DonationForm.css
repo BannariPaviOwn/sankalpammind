@@ -95,19 +95,21 @@
 .donate-submit {
   width: 100%;
   padding: 1rem 1.5rem;
-  background: linear-gradient(135deg, #5a36a3 0%, #7044C4 100%);
-  color: white;
-  border: none;
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+  color: var(--gold-text);
+  border: 1px solid rgba(139, 105, 20, 0.35);
   border-radius: 0.5rem;
   font-size: 1.125rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px rgba(212, 175, 55, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
 }
 
 .donate-submit:hover:not(:disabled) {
+  filter: brightness(1.05);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(112, 68, 196, 0.4);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.45);
 }
 
 .donate-submit:disabled {
@@ -127,4 +129,32 @@
 
 .donation-message.error {
   color: #dc2626;
+}
+
+@media (max-width: 600px) {
+  .donation-form {
+    padding: 1.5rem 1.25rem;
+    border-radius: 0.75rem;
+    max-width: 100%;
+  }
+
+  .donation-title {
+    font-size: 1.25rem;
+  }
+
+  .donation-amounts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .amount-btn {
+    padding: 0.55rem 0.5rem;
+    font-size: 0.875rem;
+    text-align: center;
+  }
+
+  .donate-submit {
+    font-size: 1rem;
+    padding: 0.9rem 1rem;
+  }
 }

@@ -32,7 +32,8 @@ export default function Home() {
               everyday life.
             </p>
             <div className="hero-ctas">
-              <Link to="/contact" className="btn-orange">Partner With Us</Link>
+              <Link to="/donate" className="btn-gold">Donate Now</Link>
+              <Link to="/contact" className="btn-outline-purple">Partner With Us</Link>
               <Link to="/initiatives" className="btn-outline-purple">Explore Programs</Link>
             </div>
           </div>

@@ -108,5 +108,31 @@
 @media (max-width: 900px) {
   .donate-content {
     grid-template-columns: 1fr;
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .donate-hero {
+    padding: 2rem 1rem;
+  }
+
+  .donate-hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .donate-hero p,
+  .donate-payment-note {
+    font-size: 0.9375rem !important;
+  }
+
+  .donate-hero-list {
+    font-size: 0.9375rem;
+    padding-left: 1.25rem;
+  }
+
+  .donate-content {
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
   }
 }

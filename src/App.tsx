@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import { LanguageProvider } from './context/LanguageContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -10,6 +11,8 @@ import Impact from './pages/Impact';
 import CSRPartnerships from './pages/CSRPartnerships';
 import Leadership from './pages/Leadership';
 import Contact from './pages/Contact';
+import Donate from './pages/Donate';
+import DonateResult from './pages/DonateResult';
 import './App.css';
 
 function AppContent() {
@@ -32,6 +35,8 @@ function AppContent() {
           <Route path="/csr-partnerships" element={<CSRPartnerships />} />
           <Route path="/leadership" element={<Leadership />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/donate" element={<Donate />} />
+          <Route path="/donate/result" element={<DonateResult />} />
         </Routes>
       </main>
       <Footer />
@@ -41,8 +46,10 @@ function AppContent() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <AppContent />
-    </BrowserRouter>
+    <LanguageProvider>
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
+    </LanguageProvider>
   );
 }
