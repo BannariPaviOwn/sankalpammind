@@ -1,0 +1,335 @@
+.volunteer-page {
+  padding-top: var(--header-height, 72px);
+}
+
+.volunteer-hero {
+  padding: 3rem 1.5rem;
+  background: linear-gradient(135deg, #ede9fe 0%, #f5f3ff 100%);
+  text-align: center;
+}
+
+.volunteer-hero h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 0.75rem;
+}
+
+.volunteer-hero p {
+  font-size: 1.0625rem;
+  color: #475569;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.volunteer-content {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.volunteer-form-col h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1.25rem;
+}
+
+.volunteer-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.volunteer-fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.volunteer-fields input,
+.volunteer-fields select {
+  padding: 0.7rem 0.9rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1e293b;
+}
+
+.volunteer-fields input:focus,
+.volunteer-fields select:focus {
+  outline: none;
+  border-color: #7044C4;
+}
+
+.volunteer-error {
+  margin-top: 1rem;
+  color: #dc2626;
+  font-size: 0.9375rem;
+}
+
+.volunteer-generate-btn {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.9rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, #7044C4 0%, #5a36a3 100%);
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(112, 68, 196, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+}
+
+.volunteer-generate-btn:hover {
+  filter: brightness(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(112, 68, 196, 0.4);
+}
+
+.volunteer-reset-btn {
+  margin-top: 0.75rem;
+  width: 100%;
+  padding: 0.7rem 1.5rem;
+  border: 2px solid #cbd5e1;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #475569;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.volunteer-reset-btn:hover {
+  background: #f1f5f9;
+}
+
+/* ── ID Card ── */
+.volunteer-card-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.id-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.18);
+  border: 1px solid #e2e8f0;
+  font-family: var(--font-body, sans-serif);
+}
+
+.id-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.1rem 1.25rem;
+  background: linear-gradient(135deg, #4a2d82 0%, #7044C4 100%);
+  color: #ffffff;
+}
+
+.id-card-logo {
+  height: 44px;
+  width: 44px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 3px;
+}
+
+.id-card-org {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.id-card-org strong {
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+}
+
+.id-card-org span {
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
+
+.id-card-band {
+  background: linear-gradient(135deg, #f5d76e 0%, #d4af37 50%, #b8860b 100%);
+  color: #2a2005;
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 3px;
+  font-size: 0.85rem;
+  padding: 0.4rem;
+}
+
+.id-card-body {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem;
+}
+
+.id-card-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.id-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.id-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.id-value {
+  font-size: 0.9rem;
+  color: #1e293b;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.id-value--mono {
+  font-family: 'Courier New', monospace;
+  color: #4a2d82;
+  letter-spacing: 0.5px;
+}
+
+.id-row--dates {
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.15rem;
+}
+
+.id-row--dates > span {
+  display: flex;
+  flex-direction: column;
+}
+
+.id-card-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.id-card-qr img {
+  width: 92px;
+  height: 92px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.id-card-qr span {
+  font-size: 0.6rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.id-card-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7rem 1.25rem;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  font-size: 0.72rem;
+  color: #64748b;
+}
+
+.volunteer-download-btn {
+  width: 100%;
+  max-width: 420px;
+  padding: 0.85rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2a2005;
+  background: linear-gradient(135deg, #f5d76e 0%, #d4af37 50%, #b8860b 100%);
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(212, 175, 55, 0.35);
+  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+}
+
+.volunteer-download-btn:hover:not(:disabled) {
+  filter: brightness(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(212, 175, 55, 0.5);
+}
+
+.volunteer-download-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.id-card-placeholder {
+  width: 100%;
+  max-width: 420px;
+  min-height: 260px;
+  border: 2px dashed #cbd5e1;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 860px) {
+  .volunteer-content {
+    grid-template-columns: 1fr;
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .volunteer-hero {
+    padding: 2rem 1rem;
+  }
+
+  .volunteer-hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .id-card-body {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .id-card-details {
+    width: 100%;
+  }
+
+  .id-card-qr img {
+    width: 110px;
+    height: 110px;
+  }
+}

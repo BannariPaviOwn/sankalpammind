@@ -52,6 +52,7 @@ export default function Header() {
 
         <div className="header-cta">
           <Link to="/donate" className="btn-donate">Donate</Link>
+          <Link to="/volunteer" className="btn-volunteer">Volunteer</Link>
           <Link to="/contact" className="btn-partner">Partner With Us</Link>
         </div>
 
@@ -86,6 +87,7 @@ export default function Header() {
             </Link>
           ))}
           <Link to="/donate" className="mobile-nav-cta mobile-nav-cta--donate" onClick={() => setMenuOpen(false)}>Donate Now</Link>
+          <Link to="/volunteer" className="mobile-nav-cta mobile-nav-cta--volunteer" onClick={() => setMenuOpen(false)}>Volunteer</Link>
           <Link to="/contact" className="mobile-nav-cta mobile-nav-cta--outline" onClick={() => setMenuOpen(false)}>Partner With Us</Link>
         </div>
       </div>

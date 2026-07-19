@@ -105,6 +105,48 @@
   margin-top: 0.5rem;
 }
 
+.donate-volunteer {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+  border: 2px solid #c4b5fd;
+}
+
+.donate-volunteer h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #4a2d82;
+  margin-bottom: 0.5rem;
+}
+
+.donate-volunteer p {
+  font-size: 0.9375rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.donate-volunteer-btn {
+  display: inline-block;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  background: linear-gradient(135deg, #7044C4 0%, #5a36a3 100%);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 10px rgba(112, 68, 196, 0.25);
+  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+}
+
+.donate-volunteer-btn:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(112, 68, 196, 0.4);
+}
+
 @media (max-width: 900px) {
   .donate-content {
     grid-template-columns: 1fr;

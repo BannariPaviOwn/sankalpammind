@@ -13,6 +13,7 @@ import Leadership from './pages/Leadership';
 import Contact from './pages/Contact';
 import Donate from './pages/Donate';
 import DonateResult from './pages/DonateResult';
+import Volunteer from './pages/Volunteer';
 import './App.css';
 
 function AppContent() {
@@ -37,6 +38,7 @@ function AppContent() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/donate/result" element={<DonateResult />} />
+          <Route path="/volunteer" element={<Volunteer />} />
         </Routes>
       </main>
       <Footer />

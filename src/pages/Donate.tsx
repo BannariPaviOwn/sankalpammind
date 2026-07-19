@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import DonationForm from '../components/DonationForm';
 import './Donate.css';
@@ -49,6 +50,19 @@ export default function Donate() {
               <li>₹1000 — {t('Funds a community awareness session', 'समुदाय जागरूकता सत्र के लिए धन', 'సమాజ అవగాహన సెషన్‌కు నిధులు')}</li>
               <li>₹5000 — {t('Supports rural program outreach', 'ग्रामीण कार्यक्रम आउटरीच का समर्थन', 'గ్రామీణ కార్యక్రమ విస్తరణకు మద్దతు')}</li>
             </ul>
+          </div>
+          <div className="donate-volunteer">
+            <h3>{t('Not able to donate? Volunteer!', 'दान नहीं कर सकते? स्वयंसेवक बनें!', 'దానం చేయలేకపోతున్నారా? స్వచ్ఛందంగా పనిచేయండి!')}</h3>
+            <p>
+              {t(
+                'Your time and skills can change lives too. Join us as a volunteer and support mental wellness in your community.',
+                'आपका समय और कौशल भी जीवन बदल सकता है। स्वयंसेवक के रूप में हमसे जुड़ें और अपने समुदाय में मानसिक कल्याण का समर्थन करें।',
+                'మీ సమయం మరియు నైపుణ్యాలు కూడా జీవితాలను మార్చగలవు. స్వచ్ఛంద సేవకుడిగా మాతో చేరండి మరియు మీ సమాజంలో మానసిక క్షేమానికి మద్దతు ఇవ్వండి.',
+              )}
+            </p>
+            <Link to="/volunteer" className="donate-volunteer-btn">
+              {t('Volunteer With Us', 'हमारे साथ स्वयंसेवक बनें', 'మాతో స్వచ్ఛందంగా పనిచేయండి')}
+            </Link>
           </div>
           <p className="donate-csr">
             {t('For CSR and institutional partnerships, contact us directly.', 'CSR और संस्थागत साझेदारी के लिए, हमसे सीधे संपर्क करें।', 'CSR మరియు సంస్థాగత భాగస్వామ్యాల కోసం, మమ్మల్ని నేరుగా సంప్రదించండి.')}
